@@ -1,7 +1,7 @@
 {
   "name": "@quixer/shared",
   "version": "0.0.1",
-  "private": true,
+  "license": "MIT",
   "files": [
     "tsconfig.json",
     "base.json",
