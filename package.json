@@ -1,22 +1,27 @@
 {
+  "name": "commerce",
+  "description": "Digital commerce toolkit for frontend developers.",
+  "repository": "git@github.com:Yokaito/e-commerce.git",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --parallel --no-cache",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
+    "size": "turbo run size",
+    "release": "lerna version patch --yes && lerna publish from-git --yes",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{js,jsx,ts,tsx,md}\""
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
+    "conventional-changelog-conventionalcommits": "^6.1.0",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
+    "lerna": "^7.1.1",
+    "plop": "^3.1.2",
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@7.15.0",
-  "name": "commerce",
-  "dependencies": {
-    "@changesets/cli": "^2.26.2"
-  }
+  "packageManager": "pnpm@7.15.0"
 }
