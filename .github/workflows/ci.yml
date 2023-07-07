@@ -3,12 +3,12 @@ name: CD
 
 on:
   push:
-    branches:
+    branches-ignore:
       - main
 
 jobs:
   build:
-    name: Release Quixer
+    name: CI Quixer
     timeout-minutes: 15
     runs-on: ubuntu-latest
     env:
@@ -19,14 +19,13 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.QUIXER_GITHUB_BOT_TOKEN }}
           fetch-depth: 2
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: "https://registry.npmjs.org"
+          cache: 'pnpm'
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
@@ -49,11 +48,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Configure CI Git User
-        run: |
-          git config user.name quixerbot
-          git config user.email quixerbot@github.com
-
       - name: Install dependencies
         run: pnpm install
 
@@ -65,8 +59,3 @@ jobs:
 
       - name: Lint
         run: pnpm lint
-
-      - name: Publish
-        run: pnpm release
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
