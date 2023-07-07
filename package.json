@@ -31,7 +31,7 @@
     "husky": "^8.0.3",
     "lerna": "7.1.1",
     "plop": "^3.1.2",
-    "prettier": "latest",
+    "prettier": "^2.8.4",
     "turbo": "latest"
   },
   "packageManager": "pnpm@7.15.0"
