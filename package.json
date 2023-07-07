@@ -5,19 +5,30 @@
   "repository": "git@github.com:Yokaito/e-commerce.git",
   "license": "MIT",
   "private": true,
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel --no-cache",
     "lint": "turbo run lint",
     "size": "turbo run size",
     "release": "lerna version patch --yes && lerna publish from-git --yes",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.{js,jsx,ts,tsx,md}\""
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{js,jsx,ts,tsx,md}\"",
+    "postinstall": "npx husky install"
   },
   "devDependencies": {
     "@commerce/eslint-config": "workspace:*",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
     "@turbo/gen": "^1.10.7",
+    "commitizen": "^4.3.0",
     "conventional-changelog-conventionalcommits": "^6.1.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.44.0",
+    "husky": "^8.0.3",
     "lerna": "^7.1.1",
     "plop": "^3.1.2",
     "prettier": "^3.0.0",
