@@ -8,15 +8,15 @@ importers:
 
   .:
     devDependencies:
-      '@commerce/eslint-config':
-        specifier: workspace:*
-        version: link:packages/eslint-config
       '@commitlint/cli':
         specifier: ^17.6.6
         version: 17.6.6
       '@commitlint/config-conventional':
         specifier: ^17.6.6
         version: 17.6.6
+      '@quixer/eslint-config':
+        specifier: workspace:*
+        version: link:packages/eslint-config
       '@turbo/gen':
         specifier: ^1.10.7
         version: 1.10.7(@types/node@20.4.0)(typescript@5.1.6)
@@ -50,7 +50,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@commerce/ui':
+      '@quixer/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       next:
@@ -69,10 +69,10 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@commerce/eslint-config':
+      '@quixer/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@commerce/shared':
+      '@quixer/shared':
         specifier: workspace:*
         version: link:../../packages/shared
       '@types/node':
@@ -121,10 +121,10 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@commerce/eslint-config':
+      '@quixer/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@commerce/shared':
+      '@quixer/shared':
         specifier: workspace:*
         version: link:../shared
       '@size-limit/esbuild-why':

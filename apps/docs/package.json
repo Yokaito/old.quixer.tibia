@@ -18,14 +18,14 @@
     "nextra-theme-docs": "^2.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@commerce/ui": "workspace:*"
+    "@quixer/ui": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.4.0",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
-    "@commerce/eslint-config": "workspace:*",
-    "@commerce/shared": "workspace:*",
+    "@quixer/eslint-config": "workspace:*",
+    "@quixer/shared": "workspace:*",
     "typescript": "^5.1.6"
   }
 }

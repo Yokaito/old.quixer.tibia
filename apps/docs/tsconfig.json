@@ -1,5 +1,5 @@
 {
-  "extends": "@commerce/shared/nextjs.json",
+  "extends": "@quixer/shared/nextjs.json",
   "compilerOptions": {
     "plugins": [{ "name": "next" }]
   },

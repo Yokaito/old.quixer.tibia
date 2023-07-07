@@ -1,5 +1,5 @@
 {
-  "name": "@commerce/eslint-config",
+  "name": "@quixer/eslint-config",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",

@@ -1,6 +1,6 @@
 {
   "version": "0.0.0",
-  "name": "commerce",
+  "name": "quixer",
   "description": "Digital commerce toolkit for frontend developers.",
   "repository": "git@github.com:Yokaito/e-commerce.git",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "postinstall": "npx husky install"
   },
   "devDependencies": {
-    "@commerce/eslint-config": "workspace:*",
+    "@quixer/eslint-config": "workspace:*",
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
     "@turbo/gen": "^1.10.7",

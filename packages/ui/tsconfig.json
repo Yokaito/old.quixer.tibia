@@ -1,5 +1,5 @@
 {
-  "extends": "@commerce/shared/tsconfig.json",
+  "extends": "@quixer/shared/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist"
   },
