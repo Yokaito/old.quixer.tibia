@@ -2,7 +2,7 @@
   "version": "0.0.0",
   "name": "quixer",
   "description": "Digital commerce toolkit for frontend developers.",
-  "repository": "git@github.com:Yokaito/e-commerce.git",
+  "repository": "git@github.com:Yokaito/quixer.git",
   "license": "MIT",
   "private": true,
   "config": {

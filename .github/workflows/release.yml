@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: commerce
+    name: Release Quixer
     timeout-minutes: 15
     runs-on: ubuntu-latest
 
@@ -16,7 +16,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.COMMERCE_GITHUB_BOT_TOKEN }}
+          token: ${{ secrets.QUIXER_GITHUB_BOT_TOKEN }}
           fetch-depth: 2
 
       - name: Setup Node.js environment
@@ -48,8 +48,8 @@ jobs:
 
       - name: Configure CI Git User
         run: |
-          git config user.name commercebot
-          git config user.email commercebot@github.com
+          git config user.name quixerbot
+          git config user.email quixerbot@github.com
 
       - name: Install dependencies
         run: pnpm install
