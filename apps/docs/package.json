@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "1.0.0",
+  "version": "0.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,19 +13,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@quixer/ui": "workspace:*",
     "next": "13.4.9",
     "nextra": "^2.8.0",
     "nextra-theme-docs": "^2.8.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@quixer/ui": "workspace:*"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@quixer/eslint-config": "workspace:*",
+    "@quixer/shared": "workspace:*",
     "@types/node": "^20.4.0",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
-    "@quixer/eslint-config": "workspace:*",
-    "@quixer/shared": "workspace:*",
     "typescript": "^5.1.6"
   }
 }
