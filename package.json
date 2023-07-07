@@ -19,8 +19,13 @@
     "format": "prettier --ignore-path .gitignore --write \"**/*.{js,jsx,ts,tsx,md}\"",
     "postinstall": "npx husky install"
   },
+  "packageManager": "yarn@1.22.19",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "devDependencies": {
-    "@quixer/eslint-config": "workspace:*",
+    "@quixer/eslint-config": "*",
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
     "@turbo/gen": "^1.10.7",
@@ -34,5 +39,8 @@
     "prettier": "^3.0.0",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@7.15.0"
+  "volta": {
+    "node": "16.18.0",
+    "yarn": "1.19.1"
+  }
 }

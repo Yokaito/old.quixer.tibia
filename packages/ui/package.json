@@ -38,8 +38,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@quixer/eslint-config": "workspace:*",
-    "@quixer/shared": "workspace:*",
+    "@quixer/eslint-config": "*",
+    "@quixer/shared": "*",
     "@size-limit/esbuild-why": "^8.2.6",
     "@size-limit/preset-small-lib": "^8.2.6",
     "@types/react": "^18.2.14",
