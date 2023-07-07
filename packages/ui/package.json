@@ -1,20 +1,56 @@
 {
-  "name": "ui",
+  "name": "@commerce/ui",
   "version": "0.0.0",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
+  "description": "A lightweight, framework agnostic component library for React",
+  "author": "Guilherme Fontes <gui.fontes.amorim@gmail.com> (@guifontes)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yokaito/e-commerce",
+    "directory": "packages/ui"
+  },
+  "browserslist": "supports es6-module and not dead and last 2 version",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=16"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "lint": "eslint \"**/*.ts*\"",
-    "generate:component": "turbo gen react-component"
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "40 KB"
+    }
+  ],
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@commerce/eslint-config": "workspace:*",
+    "@commerce/shared": "workspace:*",
+    "@size-limit/esbuild-why": "^8.2.6",
+    "@size-limit/preset-small-lib": "^8.2.6",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "eslint": "^8.44.0",
-    "eslint-config-custom": "workspace:*",
     "react": "^18.2.0",
-    "tsconfig": "workspace:*",
+    "size-limit": "^8.2.6",
     "typescript": "^5.1.6"
+  },
+  "volta": {
+    "node": "16.18.0",
+    "yarn": "1.19.1"
   }
 }

@@ -1,4 +1,5 @@
 {
+  "version": "0.0.0",
   "name": "commerce",
   "description": "Digital commerce toolkit for frontend developers.",
   "repository": "git@github.com:Yokaito/e-commerce.git",
@@ -10,14 +11,13 @@
     "lint": "turbo run lint",
     "size": "turbo run size",
     "release": "lerna version patch --yes && lerna publish from-git --yes",
-    "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{js,jsx,ts,tsx,md}\""
   },
   "devDependencies": {
+    "@commerce/eslint-config": "workspace:*",
     "@turbo/gen": "^1.10.7",
     "conventional-changelog-conventionalcommits": "^6.1.0",
     "eslint": "^8.44.0",
-    "eslint-config-custom": "workspace:*",
     "lerna": "^7.1.1",
     "plop": "^3.1.2",
     "prettier": "^3.0.0",

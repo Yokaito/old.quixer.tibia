@@ -1,0 +1,10 @@
+{
+  "name": "@commerce/shared",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "tsconfig.json",
+    "base.json",
+    "nextjs.json"
+  ]
+}
