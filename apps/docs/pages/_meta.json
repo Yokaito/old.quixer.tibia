@@ -1,0 +1,15 @@
+{
+  "index": {
+    "title": "Quixer",
+    "type": "page",
+    "display": "hidden"
+  },
+  "docs": {
+    "title": "Documentation",
+    "type": "page"
+  },
+  "components": {
+    "title": "UI Components",
+    "type": "page"
+  }
+}
