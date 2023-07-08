@@ -4,6 +4,10 @@
   "command": {
     "publish": {
       "message": "Release: %v"
+    },
+    "version": {
+      "allowBranch": "main",
+      "conventionalCommits": true
     }
   },
   "changelogPreset": {
