@@ -2,7 +2,7 @@ const Configuration = {
   extends: [`@commitlint/config-conventional`],
   ignores: [(message) => message.includes(`Release`)],
   rules: {
-    "type-enum": [
+    'type-enum': [
       2,
       `always`,
       [
@@ -18,6 +18,6 @@ const Configuration = {
       ],
     ],
   },
-};
+}
 
-module.exports = Configuration;
+module.exports = Configuration
