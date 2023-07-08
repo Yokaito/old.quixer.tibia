@@ -13,8 +13,9 @@
     "directory": "packages/ui"
   },
   "browserslist": "supports es6-module and not dead and last 2 version",
-  "module": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "engines": {
     "node": ">=16"
@@ -24,8 +25,8 @@
     "src"
   ],
   "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
     "lint": "eslint src/**/*.{ts,tsx}",
     "size": "size-limit",
     "analyze": "size-limit --why"
@@ -43,12 +44,18 @@
   "devDependencies": {
     "@quixer/eslint-config": "workspace:*",
     "@quixer/shared": "workspace:*",
+    "@rollup/plugin-commonjs": "^25.0.2",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-typescript": "^11.1.2",
     "@size-limit/esbuild-why": "^8.2.6",
     "@size-limit/preset-small-lib": "^8.2.6",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "eslint": "^8.44.0",
     "react": "^18.2.0",
+    "rollup": "^3.26.2",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-postcss": "^4.0.2",
     "size-limit": "^8.2.6",
     "typescript": "^5.1.6"
   },
