@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.8](https://github.com/Yokaito/quixer/compare/v0.0.7...v0.0.8) (2023-07-08)
+
+**Note:** Version bump only for package @quixer/eslint-config
+
 ## 0.0.7 (2023-07-08)
 
 ### Chores
