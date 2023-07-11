@@ -3,6 +3,7 @@ const commonjs = require('@rollup/plugin-commonjs')
 const typescript = require('@rollup/plugin-typescript')
 const dts = require('rollup-plugin-dts')
 const postcss = require('rollup-plugin-postcss')
+const peerDepsExternal = require('rollup-plugin-peer-deps-external')
 
 const packageJson = require('./package.json')
 
@@ -22,11 +23,13 @@ const config = [
       },
     ],
     plugins: [
+      peerDepsExternal(),
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       postcss({
-        extract: 'quixer-ui.css',
+        include: ['**/components/**/*.scss'],
+        extract: 'index.css',
         minimize: true,
       }),
     ],
@@ -35,7 +38,7 @@ const config = [
     input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts.default()],
-    external: [/\.css$/],
+    external: [/\.scss$/],
   },
 ]
 

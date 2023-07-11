@@ -25,7 +25,7 @@
     "src"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rimraf dist && rollup -c",
     "dev": "rollup -c -w",
     "lint": "eslint src/**/*.{ts,tsx}",
     "size": "size-limit",
@@ -51,10 +51,15 @@
     "@size-limit/preset-small-lib": "^8.2.6",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "classnames": "^2.3.2",
     "eslint": "^8.44.0",
+    "node-sass": "^9.0.0",
+    "postcss": "^8.4.25",
     "react": "^18.2.0",
+    "rimraf": "^5.0.1",
     "rollup": "^3.26.2",
     "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "size-limit": "^8.2.6",
     "typescript": "^5.1.6"

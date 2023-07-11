@@ -1,5 +1,5 @@
 import React from 'react'
-import './Link.css'
+import './Link.scss'
 
 export const Link = () => {
   return <a className="qx-link-wrapper">Link</a>
