@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.10](https://github.com/Yokaito/quixer/compare/v0.0.9...v0.0.10) (2023-07-11)
+
+### Features
+
+- add classnames and base scss to put a body variables to use in all components ([8b43acf](https://github.com/Yokaito/quixer/commit/8b43acf43b89cf75d5f52b19e6ed380859983fdf))
+
 ## [0.0.9](https://github.com/Yokaito/quixer/compare/v0.0.8...v0.0.9) (2023-07-08)
 
 ### Chores
