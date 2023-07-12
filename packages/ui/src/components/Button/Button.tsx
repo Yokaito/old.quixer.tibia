@@ -2,28 +2,16 @@ import React from 'react'
 import classnames from 'classnames'
 import './Button.scss'
 
-export const Button = () => {
-  const [count, setCount] = React.useState(1)
+interface ButtonProps {
+  label: string
+}
 
-  const buttonClass = classnames('qx-button', {
-    'qx-button--active': count >= 5,
-  })
-
-  const buttonClassDecrement = classnames('qx-button', {
-    'qx-button--active': count < 5,
-  })
+export const Button = ({ label }: ButtonProps) => {
+  const buttonClass = classnames('qx-button')
 
   return (
     <>
-      <button className={buttonClass} onClick={() => setCount(count + 1)}>
-        Increment {count}
-      </button>
-      <button
-        className={buttonClassDecrement}
-        onClick={() => setCount(count - 1)}
-      >
-        Decrement {count}
-      </button>
+      <button className={buttonClass}>{label}</button>
     </>
   )
 }

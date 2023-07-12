@@ -1,21 +1,5 @@
 @import '../../styles/global.scss';
 
 .qx-button {
-  border: 1px solid var(--qx-color-primary);
-  border-radius: 4px;
-  padding: 8px 16px;
-  transition: all 0.3s ease-in-out;
   color: var(--qx-color-primary);
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--qx-color-primary);
-    color: var(--qx-color-secondary);
-  }
-
-  &--active {
-    background-color: var(--qx-color-active);
-    color: var(--qx-color-secondary);
-  }
 }

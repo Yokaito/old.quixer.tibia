@@ -1,6 +1,7 @@
 {
   "extends": "@quixer/shared/tsconfig.json",
   "compilerOptions": {
+    "types": ["jest", "@testing-library/jest-dom"],
     "outDir": "dist",
     "declarationDir": "types",
     "emitDeclarationOnly": true,
