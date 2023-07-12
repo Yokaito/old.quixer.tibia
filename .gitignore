@@ -64,7 +64,6 @@ jspm_packages/
 
 # gatsby files
 .cache/
-public
 !apps/site/public
 
 
