@@ -32,8 +32,9 @@
     "analyze": "size-limit --why",
     "test": "jest --no-cache",
     "test:coverage": "jest --coverage",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006 -s public",
+    "build-storybook": "storybook build -s public",
+    "serve-storybook": "serve storybook-static"
   },
   "size-limit": [
     {
@@ -88,6 +89,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.63.6",
+    "serve": "^14.2.0",
     "size-limit": "^8.2.6",
     "storybook": "7.0.26",
     "typescript": "^5.1.6"
