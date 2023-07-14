@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.13](https://github.com/Yokaito/quixer/compare/v0.0.12...v0.0.13) (2023-07-14)
+
+### Features
+
+- **ui:** add button to add in wishlist with default animation ([762392f](https://github.com/Yokaito/quixer/commit/762392f620d326f8255682fa9a7ff5302e757b33))
+
 ## [0.0.12](https://github.com/Yokaito/quixer/compare/v0.0.11...v0.0.12) (2023-07-12)
 
 ### Chores
