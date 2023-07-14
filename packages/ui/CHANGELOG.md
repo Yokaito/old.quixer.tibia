@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.12](https://github.com/Yokaito/quixer/compare/v0.0.11...v0.0.12) (2023-07-12)
+
+### Chores
+
+- **ui:** add folder ui/public to deploy in vercel ([9ec74e1](https://github.com/Yokaito/quixer/commit/9ec74e1f227292fcd4774157f8adfe8e0b41171f))
+
 ## 0.0.11 (2023-07-12)
 
 ### Features
