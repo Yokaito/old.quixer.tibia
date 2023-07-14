@@ -1,0 +1,16 @@
+.qx-wishlist {
+  fill: transparent;
+  stroke: #ff2581;
+  stroke-width: 20px;
+  cursor: pointer;
+  transition: fill 0.5s ease;
+
+  &--subscribed {
+    fill: #ff2581;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
