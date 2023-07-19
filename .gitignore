@@ -112,3 +112,5 @@ packages/gatsby-**/**/*.json
 /package-lock.json
 /tmp
 oclif.manifest.json
+
+.vercel
