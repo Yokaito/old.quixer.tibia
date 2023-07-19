@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.14 (2023-07-19)
+
+### Features
+
+- **commerce:** init project e-commerce with nextjs 13 ([d1f3174](https://github.com/Yokaito/quixer/commit/d1f31748b7bbf154fde1339db40980850c4c0796))
+
+### Chores
+
+- **all:** add .vercel to gitignore ([a37d4e0](https://github.com/Yokaito/quixer/commit/a37d4e0a137d7ccca9581e366b7f1b370f016959))
+
 ## [0.0.13](https://github.com/Yokaito/quixer/compare/v0.0.12...v0.0.13) (2023-07-14)
 
 ### Features
