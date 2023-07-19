@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.15](https://github.com/Yokaito/quixer/compare/v0.0.14...v0.0.15) (2023-07-19)
+
+### Chores
+
+- **commerce:** add file tracing root to attempt to remove error in vercel deploy ([ae07854](https://github.com/Yokaito/quixer/commit/ae07854b445c52c6cac59054a30b1bfa5dd79ead))
+
 ## 0.0.14 (2023-07-19)
 
 ### Features
