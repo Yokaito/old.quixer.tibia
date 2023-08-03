@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.16 (2023-08-03)
+
+### Features
+
+- first test with calendar to show ([1b7ef5e](https://github.com/Yokaito/quixer/commit/1b7ef5e01f410ac37195b03c5d71bd155986011a))
+
+### Refactoring
+
+- change commerce to gym ([e7db82a](https://github.com/Yokaito/quixer/commit/e7db82acb8597c391285bd9666c18f99c83d14cb))
+
 ## [0.0.15](https://github.com/Yokaito/quixer/compare/v0.0.14...v0.0.15) (2023-07-19)
 
 ### Chores
