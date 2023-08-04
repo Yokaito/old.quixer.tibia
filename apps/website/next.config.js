@@ -2,10 +2,7 @@ const path = require('path')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  i18n: {
-    locales: ['en', 'es'],
-    defaultLocale: 'en',
-  },
+  transpilePackages: ['next-international', 'international-types'],
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
