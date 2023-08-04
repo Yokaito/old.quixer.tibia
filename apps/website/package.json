@@ -1,0 +1,24 @@
+{
+  "name": "website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "@quixer/eslint-config": "workspace:*",
+    "@types/node": "^20.4.0",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "sass": "^1.63.6",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "next": "13.4.9",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

@@ -39,7 +39,7 @@ const config: DocsThemeConfig = {
     text: (
       <p>
         🎉 We are thrilled to introduce Quixer, a package with components to
-        your e-commerce
+        your website tibia
       </p>
     ),
   },

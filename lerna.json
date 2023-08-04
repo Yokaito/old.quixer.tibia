@@ -52,5 +52,5 @@
     "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
     "userUrlFormat": "{{host}}/{{user}}"
   },
-  "packages": ["packages/*"]
+  "packages": ["packages/*", "apps/*"]
 }
