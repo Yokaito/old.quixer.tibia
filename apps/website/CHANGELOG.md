@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.18](https://github.com/Yokaito/quixer/compare/v0.0.17...v0.0.18) (2023-08-04)
+
+### Features
+
+- add sass to website project with default resets, tokens and include-media ([259945a](https://github.com/Yokaito/quixer/commit/259945a40068ce50fb2417847b612aebf445156a))
+
 ## [0.0.17](https://github.com/Yokaito/quixer/compare/v0.0.16...v0.0.17) (2023-08-04)
 
 ### Chores
