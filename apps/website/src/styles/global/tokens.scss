@@ -1,0 +1,40 @@
+@import '../vendors/include-media';
+
+body {
+  // WEIGHT
+  --qx-text-weight-light               : 300;
+  --qx-text-weight-regular             : 400;
+  --qx-text-weight-medium              : 500;
+  --qx-text-weight-bold                : 700;
+  --qx-text-weight-black               : 900;
+
+  // MAX LINES
+  --qx-text-max-lines                  : 2;
+
+  // TYPOGRAPHY SCALE
+  // Use a type scale to add rhythm to your typography and
+  // ensure consistency throughout the project.
+  // Access https://type-scale.com and pick a scale that
+  // suits the store's branding.
+  --qx-text-scale-mobile               : 1.13;
+  --qx-text-scale-desktop              : 1.25;
+
+  --qx-scale                           : var(--qx-text-scale-mobile);
+
+  @include media(">=notebook") {
+    --qx-scale                         : var(--qx-text-scale-desktop);
+  }
+
+  // NUMERIC SCALE
+  --qx-text-size-base                  : 16px; // 1rem
+
+  --qx-text-size-0                     : 12px; // Smallest
+  --qx-text-size-1                     : 14px; // Smaller                               // Mobile    Desktop
+  --qx-text-size-2                     : var(--qx-text-size-base);                      // 16px      16px
+  --qx-text-size-3                     : calc(var(--qx-text-size-2) * var(--qx-scale)); // 18px      20px
+  --qx-text-size-4                     : calc(var(--qx-text-size-3) * var(--qx-scale)); // 20px      25px
+  --qx-text-size-5                     : calc(var(--qx-text-size-4) * var(--qx-scale)); // 23px      31px
+  --qx-text-size-6                     : calc(var(--qx-text-size-5) * var(--qx-scale)); // 26px      39px
+  --qx-text-size-7                     : calc(var(--qx-text-size-6) * var(--qx-scale)); // 29px      48px
+  --qx-text-size-8                     : calc(var(--qx-text-size-7) * var(--qx-scale)); // 33px      61px
+}

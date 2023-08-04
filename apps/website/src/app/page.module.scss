@@ -1,2 +1,9 @@
+@import 'src/styles/scaffold';
+
 .main {
+  background-color: red;
+
+  @include media('>=tablet') {
+    background-color: green;
+  }
 }
