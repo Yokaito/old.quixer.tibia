@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.16 (2023-08-03)
+
+### Refactoring
+
+- change commerce to gym ([e7db82a](https://github.com/Yokaito/quixer/commit/e7db82acb8597c391285bd9666c18f99c83d14cb))
+
 ## [0.0.15](https://github.com/Yokaito/quixer/compare/v0.0.14...v0.0.15) (2023-07-19)
 
 **Note:** Version bump only for package @quixer/ui
