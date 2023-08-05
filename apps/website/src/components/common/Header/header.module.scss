@@ -1,3 +1,9 @@
+@import 'src/styles/scaffold';
+
 .qxHeader {
   height: 100px;
+
+  @include media('>=notebook') {
+    visibility: hidden;
+  }
 }

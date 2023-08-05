@@ -15,14 +15,6 @@
       'navigation content sidebar';
   }
 
-  [data-qx-header] {
-    grid-area: header;
-
-    @include media('>=notebook') {
-      visibility: hidden;
-    }
-  }
-
   [data-qx-navigation] {
     grid-area: navigation;
   }
