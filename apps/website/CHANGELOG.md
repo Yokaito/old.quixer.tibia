@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.20](https://github.com/Yokaito/quixer/compare/v0.0.19...v0.0.20) (2023-08-05)
+
+### Chores
+
+- change eslint to version instead of workspace ([614226f](https://github.com/Yokaito/quixer/commit/614226f7ad071301bbd189ce9c7767a5651a07e7))
+
 ## 0.0.19 (2023-08-04)
 
 ### Features

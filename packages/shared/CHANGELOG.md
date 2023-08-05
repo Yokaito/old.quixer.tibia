@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.20](https://github.com/Yokaito/quixer/compare/v0.0.19...v0.0.20) (2023-08-05)
+
+**Note:** Version bump only for package @quixer/shared
+
 ## 0.0.19 (2023-08-04)
 
 ### Features
