@@ -6,11 +6,13 @@ export default async function Home() {
   const locale = getCurrentLocale()
 
   return (
-    <main className={styles.main}>
-      <div>
-        <span>Current Locale: {locale}</span>
-        <p>{t('hello')}</p>
-      </div>
-    </main>
+    <div className={styles.main}>
+      <span>Current Locale: {locale}</span>
+      <p>
+        {t('welcome', {
+          name: 'Guilherme',
+        })}
+      </p>
+    </div>
   )
 }

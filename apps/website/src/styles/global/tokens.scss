@@ -1,40 +1,127 @@
 @import '../vendors/include-media';
 
 body {
+  // --------------------------------------------------------
+  // Colors (Branding Core)
+  // --------------------------------------------------------
+  --fs-color-neutral-0: #ffffff;
+  --fs-color-neutral-1: #f1f2f3;
+  --fs-color-neutral-2: #e3e6e8;
+  --fs-color-neutral-3: #c7ccd1;
+  --fs-color-neutral-4: #9099a2;
+  --fs-color-neutral-5: #74808b;
+  --fs-color-neutral-6: #5d666f;
+  --fs-color-neutral-7: #171a1c;
+
+  // --------------------------------------------------------
+  // Typography (Branding Core)
+  // --------------------------------------------------------
+
+  // FACE
+  --qx-text-face-martel: 'Martel', -apple-system, system-ui, BlinkMacSystemFont,
+    sans-serif;
+
   // WEIGHT
-  --qx-text-weight-light               : 300;
-  --qx-text-weight-regular             : 400;
-  --qx-text-weight-medium              : 500;
-  --qx-text-weight-bold                : 700;
-  --qx-text-weight-black               : 900;
+  --qx-text-weight-light: 300;
+  --qx-text-weight-regular: 400;
+  --qx-text-weight-medium: 500;
+  --qx-text-weight-bold: 700;
+  --qx-text-weight-black: 900;
 
   // MAX LINES
-  --qx-text-max-lines                  : 2;
+  --qx-text-max-lines: 2;
 
   // TYPOGRAPHY SCALE
   // Use a type scale to add rhythm to your typography and
   // ensure consistency throughout the project.
   // Access https://type-scale.com and pick a scale that
   // suits the store's branding.
-  --qx-text-scale-mobile               : 1.13;
-  --qx-text-scale-desktop              : 1.25;
+  --qx-text-scale-mobile: 1.13;
+  --qx-text-scale-desktop: 1.25;
 
-  --qx-scale                           : var(--qx-text-scale-mobile);
+  --qx-scale: var(--qx-text-scale-mobile);
 
-  @include media(">=notebook") {
-    --qx-scale                         : var(--qx-text-scale-desktop);
+  @include media('>=notebook') {
+    --qx-scale: var(--qx-text-scale-desktop);
   }
 
   // NUMERIC SCALE
-  --qx-text-size-base                  : 16px; // 1rem
+  --qx-text-size-base: 16px; // 1rem
 
-  --qx-text-size-0                     : 12px; // Smallest
-  --qx-text-size-1                     : 14px; // Smaller                               // Mobile    Desktop
-  --qx-text-size-2                     : var(--qx-text-size-base);                      // 16px      16px
-  --qx-text-size-3                     : calc(var(--qx-text-size-2) * var(--qx-scale)); // 18px      20px
-  --qx-text-size-4                     : calc(var(--qx-text-size-3) * var(--qx-scale)); // 20px      25px
-  --qx-text-size-5                     : calc(var(--qx-text-size-4) * var(--qx-scale)); // 23px      31px
-  --qx-text-size-6                     : calc(var(--qx-text-size-5) * var(--qx-scale)); // 26px      39px
-  --qx-text-size-7                     : calc(var(--qx-text-size-6) * var(--qx-scale)); // 29px      48px
-  --qx-text-size-8                     : calc(var(--qx-text-size-7) * var(--qx-scale)); // 33px      61px
+  --qx-text-size-0: 12px; // Smallest
+  --qx-text-size-1: 14px; // Smaller                               // Mobile    Desktop
+  --qx-text-size-2: var(--qx-text-size-base); // 16px      16px
+  --qx-text-size-3: calc(
+    var(--qx-text-size-2) * var(--qx-scale)
+  ); // 18px      20px
+  --qx-text-size-4: calc(
+    var(--qx-text-size-3) * var(--qx-scale)
+  ); // 20px      25px
+  --qx-text-size-5: calc(
+    var(--qx-text-size-4) * var(--qx-scale)
+  ); // 23px      31px
+  --qx-text-size-6: calc(
+    var(--qx-text-size-5) * var(--qx-scale)
+  ); // 26px      39px
+  --qx-text-size-7: calc(
+    var(--qx-text-size-6) * var(--qx-scale)
+  ); // 29px      48px
+  --qx-text-size-8: calc(
+    var(--qx-text-size-7) * var(--qx-scale)
+  ); // 33px      61px
+
+  // Z-INDEX
+  --qx-z-index-below: -1;
+  --qx-z-index-default: 0;
+  --qx-z-index-top: 1;
+  --qx-z-index-high: 2;
+  --qx-z-index-highest: 3;
+
+  // --------------------------------------------------------
+  // Spacing (UI Essentials)
+  // --------------------------------------------------------
+
+  // NUMERIC SCALE
+  --qx-spacing-0: 0.25rem; //  4px
+  --qx-spacing-1: 0.5rem; //  8px
+  --qx-spacing-2: 0.75rem; // 12px
+  --qx-spacing-3: 1rem; // 16px (--qx-text-size-base)
+  --qx-spacing-4: 1.5rem; // 24px
+  --qx-spacing-5: 2rem; // 32px
+  --qx-spacing-6: 2.5rem; // 40px
+  --qx-spacing-7: 3rem; // 48px
+  --qx-spacing-8: 3.5rem; // 56px
+  --qx-spacing-9: 4rem; // 64px
+  --qx-spacing-10: 4.5rem; // 72px
+  --qx-spacing-11: 5rem; // 80px
+  --qx-spacing-12: 5.5rem; // 88px
+  --qx-spacing-13: 6rem; // 96px
+
+  // PADDING
+  --qx-grid-padding: var(--qx-spacing-3);
+
+  @include media('>=tablet') {
+    --qx-grid-padding: var(--qx-spacing-4);
+  }
+
+  @include media('>=notebook') {
+    --qx-grid-padding: var(--qx-spacing-5);
+  }
+
+  // CONTAINER
+  --qx-grid-max-width: var(--qx-grid-breakpoint-notebook);
+
+  // GAPS
+  --qx-grid-gap-0: var(--qx-spacing-1);
+  --qx-grid-gap-1: var(--qx-spacing-2);
+  --qx-grid-gap-2: var(--qx-spacing-3);
+  --qx-grid-gap-3: var(--qx-spacing-4);
+  --qx-grid-gap-4: var(--qx-spacing-5);
+
+  // BREAKPOINTS
+  --qx-grid-breakpoint-phone: #{map-get($breakpoints, 'phone')};
+  --qx-grid-breakpoint-phonemid: #{map-get($breakpoints, 'phonemid')};
+  --qx-grid-breakpoint-tablet: #{map-get($breakpoints, 'tablet')};
+  --qx-grid-breakpoint-notebook: #{map-get($breakpoints, 'notebook')};
+  --qx-grid-breakpoint-desktop: #{map-get($breakpoints, 'desktop')};
 }
