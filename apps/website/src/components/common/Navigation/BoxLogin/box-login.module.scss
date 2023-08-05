@@ -1,0 +1,10 @@
+@import 'src/styles/scaffold';
+
+.qxBoxLogin {
+  [data-qx-box-login-link] {
+    text-decoration: none;
+    font-size: var(--qx-text-size-0);
+
+    @include truncate-title(1);
+  }
+}

@@ -1,0 +1,33 @@
+@import 'src/styles/scaffold';
+
+.qxButton {
+  &[data-qx-button] {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: filter 0.2s ease-in-out;
+    text-transform: capitalize;
+    padding: 0 var(--qx-spacing-1);
+
+    @include truncate-title(1);
+
+    &:hover {
+      filter: brightness(1.1) contrast(1.1) saturate(1.1);
+    }
+  }
+
+  &[data-qx-button-variant='larger'] {
+    background-image: url('../../../assets/images/buttons/button-extend.webp');
+    width: 150px;
+    height: 34px;
+    background-repeat: no-repeat;
+  }
+
+  &[data-qx-button-variant='regular'] {
+    background-image: url('../../../assets/images/buttons/button.webp');
+    width: 142px;
+    height: 34px;
+    background-repeat: no-repeat;
+  }
+}

@@ -1,2 +1,6 @@
 .qxNavigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--qx-grid-gap-2);
 }

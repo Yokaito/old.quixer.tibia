@@ -1,0 +1,9 @@
+.fondamentoTitle {
+  font-family: var(--qx-text-face-fondamento);
+  font-weight: var(--qx-text-weight-medium);
+  color: var(--qx-color-text-0);
+  text-shadow: -1px -1px 0 var(--qx-color-default-black),
+    1px -1px 0 var(--qx-color-neutral-7),
+    -1px 1px 0 var(--qx-color-default-black),
+    1px 1px 0 var(--qx-color-default-black);
+}
