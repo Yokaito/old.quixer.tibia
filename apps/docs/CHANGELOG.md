@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.21 (2023-08-05)
+
+### Bug Fixes
+
+- visibility header hidden when desktop ([362a1d4](https://github.com/Yokaito/quixer/commit/362a1d4db8d3b309c858436c251d939c4238e135))
+
 ## [0.0.20](https://github.com/Yokaito/quixer/compare/v0.0.19...v0.0.20) (2023-08-05)
 
 **Note:** Version bump only for package docs
