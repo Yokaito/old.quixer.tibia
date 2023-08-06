@@ -1,5 +1,21 @@
 export default {
-  'quixer.login-box.login': 'Se connecter',
-  'quixer.login-box.register': 'Créer un compte',
-  'quixer.menu-box.download': 'Télécharger',
+  quixer: {
+    box: {
+      login: {
+        login: 'Se connecter',
+        register: 'Créer un compte',
+      },
+      download: {
+        download: 'Télécharger',
+      },
+    },
+    menu: {
+      item: {
+        news: 'Nouvelles',
+        'latest-news': 'Dernières nouvelle',
+        'news-archive': 'Archive des nouvelles',
+        'event-schedule': 'Calendrier des événements',
+      },
+    },
+  },
 } as const

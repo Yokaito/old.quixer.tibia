@@ -20,8 +20,6 @@
   [data-qx-content] {
     width: var(--qx-menu-box-content-width);
     height: 100%;
-    background-image: var(--qx-menu-box-content-background-image);
-    background-repeat: repeat-y;
     position: relative;
     padding: var(--qx-menu-box-content-padding);
     display: flex;
@@ -29,6 +27,11 @@
     gap: var(--qx-menu-box-content-gap);
     justify-content: center;
     align-items: center;
+
+    &[data-qx-context-background='true'] {
+      background-image: var(--qx-menu-box-content-background-image);
+      background-repeat: repeat-y;
+    }
   }
 
   [data-qx-chain] {

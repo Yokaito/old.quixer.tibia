@@ -2,9 +2,13 @@
 
 body {
   background-image: url('../../assets/images/background/background-artwork.webp');
-  background-position: center top;
+  background-position: left top;
   background-repeat: no-repeat;
   background-color: var(--qx-color-background-0);
+
+  @include media('>=notebook') {
+    background-position: center top;
+  }
 }
 
 main,

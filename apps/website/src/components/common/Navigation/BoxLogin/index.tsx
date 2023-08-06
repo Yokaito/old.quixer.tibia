@@ -14,14 +14,14 @@ export const BoxLogin = async () => {
       <Link data-qx-logo-artwork href="/">
         <Image src={LogoTibiaArtWork} alt="logo tibia artwork" />
       </Link>
-      <MenuBox>
-        <Button>{t('quixer.login-box.login')}</Button>
+      <MenuBox showChain>
+        <Button>{t('quixer.box.login.login')}</Button>
         <Link
           data-qx-box-login-link
           href="/register"
           className="fondamentoTitle"
         >
-          {t('quixer.login-box.register')}
+          {t('quixer.box.login.register')}
         </Link>
       </MenuBox>
     </div>
