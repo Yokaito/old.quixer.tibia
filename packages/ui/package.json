@@ -1,6 +1,6 @@
 {
   "name": "@quixer/ui",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "A lightweight, framework agnostic component library for React",
   "author": "Guilherme Fontes <gui.fontes.amorim@gmail.com> (@guifontes)",
   "license": "MIT",

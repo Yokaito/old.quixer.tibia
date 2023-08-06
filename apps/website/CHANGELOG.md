@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.23](https://github.com/Yokaito/quixer/compare/v0.0.22...v0.0.23) (2023-08-06)
+
+### Features
+
+- add menu navigation ([27a3ce0](https://github.com/Yokaito/quixer/commit/27a3ce044cde5f12b708202ae6b43fa561d040a2))
+
 ## [0.0.22](https://github.com/Yokaito/quixer/compare/v0.0.21...v0.0.22) (2023-08-06)
 
 ### Chores
