@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.25](https://github.com/Yokaito/quixer/compare/v0.0.24...v0.0.25) (2023-08-06)
+
+### Features
+
+- add prisma to website project to control database ([768a71a](https://github.com/Yokaito/quixer/commit/768a71a860cb38914b9efdfc1c463a8df63c9d67))
+
 ## [0.0.24](https://github.com/Yokaito/quixer/compare/v0.0.23...v0.0.24) (2023-08-06)
 
 ### Features
