@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.22](https://github.com/Yokaito/quixer/compare/v0.0.21...v0.0.22) (2023-08-06)
+
+### Chores
+
+- add sharp to nextjs use optimatization of imgaes ([bf7b1a5](https://github.com/Yokaito/quixer/commit/bf7b1a5cf2d732ff659e760258be6240f74eda60))
+
 ## 0.0.21 (2023-08-05)
 
 ### Features
