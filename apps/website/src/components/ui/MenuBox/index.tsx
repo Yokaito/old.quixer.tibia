@@ -1,8 +1,6 @@
 import styles from './menu-box.module.scss'
 import { BorderBox } from '@/components/ui/'
 
-import Image from 'next/image'
-
 type MenuBoxProps = {
   children: React.ReactNode
 }

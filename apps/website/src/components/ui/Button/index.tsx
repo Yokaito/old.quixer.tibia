@@ -1,6 +1,5 @@
 import { ButtonHTMLAttributes, forwardRef } from 'react'
 import styles from './button.module.scss'
-import Link from 'next/link'
 
 type Variant = 'regular' | 'larger'
 
@@ -10,8 +9,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    */
   variant?: Variant
 }
-
-type Ref = HTMLButtonElement
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button({ variant = 'regular', children, className, ...props }, ref) {
