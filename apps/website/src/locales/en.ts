@@ -1,5 +1,5 @@
 export default {
-  hello: 'Hello',
-  'hello.world': 'Hello world!',
-  welcome: 'Hello {name}!',
+  'quixer.login-box.login': 'Login',
+  'quixer.login-box.register': 'Create account',
+  'quixer.menu-box.download': 'Download',
 } as const

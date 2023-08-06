@@ -8,11 +8,7 @@ export default async function Home() {
   return (
     <div className={styles.main}>
       <span>Current Locale: {locale}</span>
-      <p>
-        {t('welcome', {
-          name: 'Guilherme',
-        })}
-      </p>
+      <p>{t('quixer.login-box.login')}</p>
     </div>
   )
 }
