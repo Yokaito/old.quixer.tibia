@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.24](https://github.com/Yokaito/quixer/compare/v0.0.23...v0.0.24) (2023-08-06)
+
+### Features
+
+- add routes to serve client tibia to login,crash,reports and infos ([6bfb4b9](https://github.com/Yokaito/quixer/commit/6bfb4b97a98b55231aa0e27d2f16308c1701d0b5))
+
 ## [0.0.23](https://github.com/Yokaito/quixer/compare/v0.0.22...v0.0.23) (2023-08-06)
 
 ### Features
