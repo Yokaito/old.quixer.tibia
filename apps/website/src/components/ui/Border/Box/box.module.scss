@@ -1,0 +1,5 @@
+.qxBorderBox {
+  &[data-qx-border-box-inverted='true'] {
+    transform: rotate(180deg);
+  }
+}

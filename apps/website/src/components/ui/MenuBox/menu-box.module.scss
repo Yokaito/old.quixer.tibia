@@ -17,10 +17,6 @@
   width: var(--qx-menu-box-width);
   align-items: center;
 
-  [data-qx-border-box-inverted='true'] {
-    transform: rotate(180deg);
-  }
-
   [data-qx-content] {
     width: var(--qx-menu-box-content-width);
     height: 100%;
