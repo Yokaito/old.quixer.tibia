@@ -1,6 +1,16 @@
 @import 'src/styles/scaffold';
 
 .qxBoxLogin {
+  &[data-qx-box-login] {
+    position: relative;
+  }
+
+  [data-qx-logo-artwork] {
+    position: absolute;
+    top: -155px;
+    right: -6px;
+  }
+
   [data-qx-box-login-link] {
     text-decoration: none;
     font-size: var(--qx-text-size-0);
