@@ -6,6 +6,7 @@ import '@/styles/global/layout.scss'
 import '@/styles/global/typography.scss'
 
 import Layout from '@/components/Layout'
+import { NextAuthProvider } from './providers'
 
 const fondamento = Fondamento({
   weight: ['400'],
@@ -57,7 +58,9 @@ export default function RootLayout({
       <body
         className={`${fondamento.variable} ${martel.variable} ${poppins.variable} ${roboto.variable} ${roboto.className}`}
       >
-        <Layout>{children}</Layout>
+        <NextAuthProvider>
+          <Layout>{children}</Layout>
+        </NextAuthProvider>
       </body>
     </html>
   )
