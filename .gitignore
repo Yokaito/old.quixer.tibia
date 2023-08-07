@@ -60,7 +60,7 @@ jspm_packages/
 *.tgz
 
 # dotenv environment variable files
-.env*
+.env
 
 # gatsby files
 .cache/
