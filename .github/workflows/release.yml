@@ -52,7 +52,7 @@ jobs:
       - name: Configure CI Git User
         run: |
           git config user.name quixerbot
-          git config user.email quixerbot@github.com
+          git config user.email quixerbot@gmail.com
 
       - name: Install dependencies
         run: pnpm install
