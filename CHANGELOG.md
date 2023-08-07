@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.26 (2023-08-07)
+
+### Features
+
+- add next auth to use in website ([28e6e19](https://github.com/Yokaito/quixer/commit/28e6e19ed30cf89fa8a02ebb72c04c0db2ce2948))
+
+### Chores
+
+- add env example ([085bd18](https://github.com/Yokaito/quixer/commit/085bd18662c8f7107d01b80600453eff3badd669))
+
 ## [0.0.25](https://github.com/Yokaito/quixer/compare/v0.0.24...v0.0.25) (2023-08-06)
 
 ### Features

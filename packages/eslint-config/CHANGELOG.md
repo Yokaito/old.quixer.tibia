@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.26 (2023-08-07)
+
+### Chores
+
+- add env example ([085bd18](https://github.com/Yokaito/quixer/commit/085bd18662c8f7107d01b80600453eff3badd669))
+
 ## [0.0.25](https://github.com/Yokaito/quixer/compare/v0.0.24...v0.0.25) (2023-08-06)
 
 **Note:** Version bump only for package @quixer/eslint-config
