@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.28 (2023-08-07)
+
+### Chores
+
+- **website:** add prisma generate before build ([bc08b0f](https://github.com/Yokaito/quixer/commit/bc08b0f9a924b026f46302ed5c01e000a26093f3))
+
 ## 0.0.27 (2023-08-07)
 
 **Note:** Version bump only for package website
