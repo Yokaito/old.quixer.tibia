@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import styles from './menu-item.module.scss'
+import { usePathname } from 'next/navigation'
+import { useCurrentLocale } from '@/locales/client'
 import { useState } from 'react'
 import Image from 'next/image'
 
@@ -54,6 +56,9 @@ type MenuItemProps = {
 
 export const MenuItem = ({ icon, label, subItem }: MenuItemProps) => {
   const [showMenu, setShowMenu] = useState(false)
+  const pathname = usePathname()
+  const currentLocale = useCurrentLocale()
+  const normalizedPathname = pathname.replace(`${currentLocale}`, '')
 
   const iconToUse = IconsToUse.find((item) => item.id === icon)?.icon || Icon1
 
@@ -68,12 +73,16 @@ export const MenuItem = ({ icon, label, subItem }: MenuItemProps) => {
       <div data-qx-menu-sub-list data-qx-menu-sub-list-active={showMenu}>
         <div data-qx-chain data-qx-chain-right="false" />
         <div data-qx-chain data-qx-chain-right="true" />
-        {subItem.map((subItemMenu, index) => (
-          <Link key={index} href={subItemMenu.href} data-qx-menu-sub-item>
-            <span data-qx-menu-sub-item-active>{`>`}</span>
-            {subItemMenu.label}
-          </Link>
-        ))}
+        {subItem.map((subItemMenu, index) => {
+          const isActive = normalizedPathname === subItemMenu.href
+
+          return (
+            <Link key={index} href={subItemMenu.href} data-qx-menu-sub-item>
+              {isActive && <span data-qx-menu-sub-item-active>{`>`}</span>}
+              {subItemMenu.label}
+            </Link>
+          )
+        })}
       </div>
     </div>
   )
