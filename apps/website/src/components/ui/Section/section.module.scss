@@ -1,0 +1,47 @@
+.qxSection {
+  position: relative;
+  border-left: 2px solid var(--qx-color-border-1);
+  border-right: 2px solid var(--qx-color-border-1);
+  background-color: var(--qx-color-background-3);
+
+  [data-fs-border-image] {
+    display: block;
+    background-image: url('../../../assets/images/borders/border-1.webp');
+    background-repeat: repeat;
+    border: 0;
+    height: 6px;
+    width: 100%;
+  }
+
+  [data-fs-corner-image] {
+    position: absolute;
+    display: block;
+    background-image: url('../../../assets/images/borders/corner.webp');
+    background-repeat: no-repeat;
+    width: 17px;
+    height: 17px;
+
+    &[data-fs-corner-image-position='rightUp'] {
+      right: -5px;
+      top: -4px;
+    }
+
+    &[data-fs-corner-image-position='rightDown'] {
+      right: -5px;
+      bottom: -3px;
+      transform: rotate(90deg);
+    }
+
+    &[data-fs-corner-image-position='leftUp'] {
+      left: -5px;
+      top: -4px;
+      transform: rotate(270deg);
+    }
+
+    &[data-fs-corner-image-position='leftDown'] {
+      left: -5px;
+      bottom: -3px;
+      transform: rotate(180deg);
+    }
+  }
+}

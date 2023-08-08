@@ -25,6 +25,9 @@
 
   [data-qx-main] {
     grid-area: content;
+    display: flex;
+    flex-direction: column;
+    gap: var(--qx-spacing-3);
   }
 
   [data-qx-navigation],
