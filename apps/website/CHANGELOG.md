@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.29 (2023-08-08)
+
+### Chores
+
+- lint files ([55b50bd](https://github.com/Yokaito/quixer/commit/55b50bd8e75ec9732c6d7b59fa37f19e18b4abb6))
+
 ## 0.0.28 (2023-08-07)
 
 ### Chores
