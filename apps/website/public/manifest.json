@@ -1,10 +1,10 @@
 {
   "name": "quixer-template-tibia",
-  "short_name": "mitg",
+  "short_name": "quixer",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FFB923",
-  "theme_color": "#FFB923",
+  "background_color": "#694BC3",
+  "theme_color": "#694BC3",
   "orientation": "portrait-primary",
   "icons": [
     {

@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: 'icon',
-      url: '/logo/mitg-icon.svg',
+      url: '/logo/quixer-icon.svg',
     },
   ],
 }
