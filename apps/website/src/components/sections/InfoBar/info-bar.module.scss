@@ -1,0 +1,33 @@
+.qxInfoBar {
+  [data-qx-info-bar-wrapper] {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 var(--qx-spacing-1);
+  }
+
+  [data-qx-info-bar-streamings],
+  [data-qx-info-bar-status] {
+    gap: var(--qx-spacing-2);
+  }
+
+  [data-qx-info-bar-streamings],
+  [data-qx-info-bar-status],
+  [data-qx-info-bar-link] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  [data-qx-info-bar-link] {
+    color: var(--qx-color-default-white);
+    font-size: var(--qx-text-size-0);
+    text-decoration: none;
+    gap: var(--qx-spacing-0);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

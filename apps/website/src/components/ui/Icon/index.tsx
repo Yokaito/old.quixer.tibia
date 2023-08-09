@@ -20,7 +20,7 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
    *
    * Example: <Icon name="Bell" />
    */
-  name: 'Twitch'
+  name: 'Twitch' | 'Youtube' | 'Download' | 'Eye' | 'Broadcast' | 'UsersThree'
   /**
    * SVG weight.
    *
