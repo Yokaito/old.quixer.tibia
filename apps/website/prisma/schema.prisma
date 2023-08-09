@@ -524,6 +524,8 @@ model player_wheeldata {
 model players {
   id                                                       Int                    @id @default(autoincrement())
   name                                                     String                 @unique(map: "players_unique") @db.VarChar(255)
+  ishidden                                                 Boolean                @default(false)
+  mainCharacter                                            Boolean                @default(false)
   group_id                                                 Int                    @default(1)
   account_id                                               Int                    @default(0) @db.UnsignedInt
   level                                                    Int                    @default(1)

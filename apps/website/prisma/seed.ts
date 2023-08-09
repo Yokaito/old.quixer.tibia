@@ -7,6 +7,7 @@ const mockPlayers = (accountId: number) => {
     {
       name: 'Rook Sample',
       group_id: 1,
+      ishidden: true,
       account_id: accountId,
       level: 2,
       vocation: 0,
@@ -38,6 +39,7 @@ const mockPlayers = (accountId: number) => {
     {
       name: 'Sorcerer Sample',
       group_id: 1,
+      ishidden: true,
       account_id: accountId,
       level: 8,
       vocation: 1,
@@ -69,6 +71,7 @@ const mockPlayers = (accountId: number) => {
     {
       name: 'Druid Sample',
       group_id: 1,
+      ishidden: true,
       account_id: accountId,
       level: 8,
       vocation: 2,
@@ -100,6 +103,7 @@ const mockPlayers = (accountId: number) => {
     {
       name: 'Paladin Sample',
       group_id: 1,
+      ishidden: true,
       account_id: accountId,
       level: 8,
       vocation: 3,
@@ -131,6 +135,7 @@ const mockPlayers = (accountId: number) => {
     {
       name: 'Knight Sample',
       group_id: 1,
+      ishidden: true,
       account_id: accountId,
       level: 8,
       vocation: 4,
@@ -160,7 +165,8 @@ const mockPlayers = (accountId: number) => {
       skill_dist_tries: BigInt(0),
     },
     {
-      name: '[GM] Kamity',
+      name: '[GM] Quixer',
+      mainCharacter: true,
       group_id: 6,
       account_id: accountId,
       level: 8,
@@ -197,7 +203,7 @@ export const main = async (): Promise<void> => {
   const user = await prisma.accounts.create({
     data: {
       name: 'god',
-      email: '@god',
+      email: 'god@god.com',
       password: '21298df8a3277357ee55b01df9530b535cf08ec1', // god
       type: 5,
     },
