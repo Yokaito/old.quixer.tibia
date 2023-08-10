@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.31 (2023-08-09)
+
+### Features
+
+- **website:** add route to login in client tibia ([2498b75](https://github.com/Yokaito/quixer/commit/2498b75a093048f1a4043d733c2c74763192926a))
+- **website:** add section info bar in top of the page ([95e6bb7](https://github.com/Yokaito/quixer/commit/95e6bb7e6544384058813dc9fd7a4b12d4856fd7))
+
 ## [0.0.30](https://github.com/Yokaito/quixer/compare/v0.0.29...v0.0.30) (2023-08-08)
 
 ### Refactoring
