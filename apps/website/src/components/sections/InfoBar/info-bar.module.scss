@@ -4,7 +4,6 @@
     flex-direction: row;
     justify-content: space-between;
     height: 100%;
-    padding: 0 var(--qx-spacing-1);
   }
 
   [data-qx-info-bar-streamings],
@@ -22,7 +21,7 @@
 
   [data-qx-info-bar-link] {
     color: var(--qx-color-default-white);
-    font-size: var(--qx-text-size-0);
+    font-size: 10px;
     text-decoration: none;
     gap: var(--qx-spacing-0);
 

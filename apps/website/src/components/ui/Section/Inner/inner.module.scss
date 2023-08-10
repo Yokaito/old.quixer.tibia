@@ -1,0 +1,11 @@
+.qxInnerSection {
+  &[data-qx-inner-section-wrapper] {
+    padding: var(--qx-spacing-0);
+  }
+
+  [data-qx-inner-section-container] {
+    border: 1px solid var(--qx-color-border-2);
+    padding: var(--qx-spacing-0);
+    background-color: var(--qx-color-background-4);
+  }
+}

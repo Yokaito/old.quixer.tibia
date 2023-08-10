@@ -3,7 +3,21 @@
   font-weight: var(--qx-text-weight-medium);
   color: var(--qx-color-text-0);
   text-shadow: -1px -1px 0 var(--qx-color-default-black),
-    1px -1px 0 var(--qx-color-neutral-7),
+    1px -1px 0 var(--qx-color-shadow-0),
     -1px 1px 0 var(--qx-color-default-black),
     1px 1px 0 var(--qx-color-default-black);
+}
+
+.sectionTitle {
+  font-family: var(--qx-text-face-fondamento);
+  color: var(--qx-color-text-0);
+  text-shadow: -1px -1px 0 var(--qx-color-default-black),
+    2px -2px 0 var(--qx-color-shadow-0),
+    -1px 1px 0 var(--qx-color-default-black),
+    1px 1px 0 var(--qx-color-default-black);
+  font-weight: var(--qx-text-weight-bold);
+  font-size: var(--qx-text-size-2);
+  user-select: none;
+  padding-top: var(--qx-spacing-0);
+  text-transform: capitalize;
 }
