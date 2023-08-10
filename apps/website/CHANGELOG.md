@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.32](https://github.com/Yokaito/quixer/compare/v0.0.31...v0.0.32) (2023-08-10)
+
+### Chores
+
+- **website:** eslintignore change location ([643be01](https://github.com/Yokaito/quixer/commit/643be01906e259543e12af27b01bdc12e3418c65))
+
 ## 0.0.31 (2023-08-09)
 
 ### Features
