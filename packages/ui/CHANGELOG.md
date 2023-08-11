@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.33 (2023-08-11)
+
+### Bug Fixes
+
+- types section component ([8c8ad84](https://github.com/Yokaito/quixer/commit/8c8ad840acb2a94a1355a5835de0f2955551310d))
+
 ## [0.0.32](https://github.com/Yokaito/quixer/compare/v0.0.31...v0.0.32) (2023-08-10)
 
 **Note:** Version bump only for package @quixer/ui
