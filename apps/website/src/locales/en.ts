@@ -3,6 +3,8 @@ export default {
     box: {
       login: {
         login: 'Login',
+        loggedIn: 'My Account',
+        logout: 'Logout',
         register: 'Register',
       },
       download: {
@@ -15,6 +17,12 @@ export default {
         'latest-news': 'Latest News',
         'news-archive': 'News Archive',
         'event-schedule': 'Event Schedule',
+      },
+    },
+    info: {
+      bar: {
+        online: 'Players Online',
+        fankit: 'Fankit',
       },
     },
   },

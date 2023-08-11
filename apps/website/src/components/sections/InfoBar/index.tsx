@@ -3,8 +3,11 @@ import Icon from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/Section/Header'
 import styles from './info-bar.module.scss'
 import Link from 'next/link'
+import { getI18n } from '@/locales/server'
 
-export const InfoBar = () => {
+export const InfoBar = async () => {
+  const t = await getI18n()
+
   return (
     <Section className={`${styles.qxInfoBar}`}>
       <SectionHeader>
@@ -26,13 +29,13 @@ export const InfoBar = () => {
             </Link>
             <Link data-qx-info-bar-link href="/">
               <Icon name="Download" width={20} height={20} />
-              <span>Fankit</span>
+              <span>{t('quixer.info.bar.fankit')}</span>
             </Link>
           </div>
           <div data-qx-info-bar-status>
             <Link data-qx-info-bar-link href="/">
               <Icon name="UsersThree" width={20} height={20} />
-              <span>3323 Players Online</span>
+              <span>3323 {t('quixer.info.bar.online')}</span>
             </Link>
           </div>
         </div>

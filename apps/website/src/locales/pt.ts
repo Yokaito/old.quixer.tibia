@@ -3,6 +3,8 @@ export default {
     box: {
       login: {
         login: 'Entrar',
+        loggedIn: 'Minha conta',
+        logout: 'Sair',
         register: 'Registrar',
       },
       download: {
@@ -16,6 +18,10 @@ export default {
         'news-archive': 'Arquivo de notícias',
         'event-schedule': 'Calendário de eventos',
       },
+    },
+    infoBar: {
+      online: 'Players Online',
+      fankit: 'Fankit',
     },
   },
 } as const

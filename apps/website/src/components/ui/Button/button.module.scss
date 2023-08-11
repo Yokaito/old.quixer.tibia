@@ -17,6 +17,13 @@
     }
   }
 
+  &[data-qx-button-link] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
   &[data-qx-button-variant='larger'] {
     background-image: url('../../../assets/images/buttons/button-extend.webp');
     width: 150px;

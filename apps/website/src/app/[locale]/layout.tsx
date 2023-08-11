@@ -6,7 +6,9 @@ import '@/styles/global/layout.scss'
 import '@/styles/global/typography.scss'
 
 import Layout from '@/components/Layout'
-import { NextAuthProvider } from './providers'
+import { Providers } from './providers'
+import { authOptions } from '@/lib/auth'
+import { getServerSession } from 'next-auth'
 
 const fondamento = Fondamento({
   weight: ['400'],
@@ -48,19 +50,23 @@ export const metadata: Metadata = {
   ],
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode
+  params: { locale: string }
 }) {
+  const session = await getServerSession(authOptions)
+
   return (
     <html lang="en">
       <body
         className={`${fondamento.variable} ${martel.variable} ${poppins.variable} ${roboto.variable} ${roboto.className}`}
       >
-        <NextAuthProvider>
+        <Providers params={params} session={session}>
           <Layout>{children}</Layout>
-        </NextAuthProvider>
+        </Providers>
       </body>
     </html>
   )
