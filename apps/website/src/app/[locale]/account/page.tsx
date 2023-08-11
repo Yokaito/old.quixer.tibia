@@ -1,5 +1,3 @@
-export const Page = async () => {
+export default async function Account() {
   return <>account</>
 }
-
-export default Page
