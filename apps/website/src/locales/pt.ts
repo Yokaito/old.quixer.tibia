@@ -19,9 +19,11 @@ export default {
         'event-schedule': 'Calendário de eventos',
       },
     },
-    infoBar: {
-      online: 'Players Online',
-      fankit: 'Fankit',
+    info: {
+      bar: {
+        online: 'Players Online',
+        fankit: 'Fankit',
+      },
     },
   },
 } as const
