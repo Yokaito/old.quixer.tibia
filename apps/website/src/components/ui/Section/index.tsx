@@ -1,9 +1,7 @@
 import { HTMLAttributes, forwardRef } from 'react'
 import styles from './section.module.scss'
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode
-}
+interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export const Section = forwardRef<HTMLDivElement, Props>(
   ({ children, className, ...otherProps }, ref) => {
