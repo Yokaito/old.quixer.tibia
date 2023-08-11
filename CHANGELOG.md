@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.34](https://github.com/Yokaito/quixer/compare/v0.0.33...v0.0.34) (2023-08-11)
+
+### Bug Fixes
+
+- **website:** fix messages locale ([7b4c38d](https://github.com/Yokaito/quixer/commit/7b4c38dc80cc8d97bb6e12a436ce9eb3faf0dbdc))
+
 ## 0.0.33 (2023-08-11)
 
 ### Bug Fixes
