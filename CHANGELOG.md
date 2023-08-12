@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.36](https://github.com/Yokaito/quixer/compare/v0.0.35...v0.0.36) (2023-08-12)
+
+### Bug Fixes
+
+- **website:** name infobar to info and button register to /account/create ([e399baf](https://github.com/Yokaito/quixer/commit/e399bafed735e9d2ba06c1adc2752e7a265945d8))
+
 ## [0.0.35](https://github.com/Yokaito/quixer/compare/v0.0.34...v0.0.35) (2023-08-12)
 
 ### Features
