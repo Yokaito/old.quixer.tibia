@@ -6,7 +6,11 @@
   box-shadow: 3px 3px 3px var(--qx-color-shadow-1);
   border: 1px solid var(--qx-color-border-4);
   background-color: var(--qx-color-background-5);
-  margin-bottom: var(--qx-spacing-0);
+  margin-bottom: var(--qx-spacing-3);
   padding: var(--qx-spacing-0);
   outline: 1px solid var(--qx-color-border-5);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
