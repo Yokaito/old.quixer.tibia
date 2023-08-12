@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.35](https://github.com/Yokaito/quixer/compare/v0.0.34...v0.0.35) (2023-08-12)
+
+### Features
+
+- **website:** add login page with nextjs 13 slots to validate session ([c5c88ee](https://github.com/Yokaito/quixer/commit/c5c88ee98c94c77fb4333d2f8f241f3d3cbc8383))
+
 ## [0.0.34](https://github.com/Yokaito/quixer/compare/v0.0.33...v0.0.34) (2023-08-11)
 
 ### Bug Fixes
