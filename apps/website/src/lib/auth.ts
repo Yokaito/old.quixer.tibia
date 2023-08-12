@@ -11,7 +11,7 @@ const schema = z.object({
 
 export const authOptions: NextAuthOptions = {
   pages: {
-    signIn: '/login',
+    signIn: '/account',
   },
   session: {
     strategy: 'jwt',

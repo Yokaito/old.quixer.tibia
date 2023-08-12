@@ -1,0 +1,79 @@
+.qxContainer {
+  [data-qx-container-header] {
+    position: relative;
+
+    [data-qx-container-header-title] {
+      background-color: var(--qx-color-background-6);
+      padding: var(--qx-spacing-0) var(--qx-spacing-2);
+      color: var(--qx-color-default-white);
+      font-size: var(--qx-text-size-1);
+      font-weight: var(--qx-text-weight-medium);
+      font-family: var(--qx-text-face-poppins);
+    }
+
+    [data-qx-container-corner] {
+      position: absolute;
+      height: 5px;
+      width: 5px;
+      background-image: url('../../../assets/images/borders/box-frame-edge.gif');
+      background-repeat: no-repeat;
+
+      &[data-qx-container-corner='rightUp'] {
+        top: 0;
+        right: 0;
+      }
+
+      &[data-qx-container-corner='leftUp'] {
+        top: 0;
+        left: 0;
+        transform: rotate(90deg);
+      }
+
+      &[data-qx-container-corner='rightDown'] {
+        bottom: 0;
+        right: 0;
+        transform: rotate(270deg);
+      }
+
+      &[data-qx-container-corner='leftDown'] {
+        bottom: 0;
+        left: 0;
+        transform: rotate(180deg);
+      }
+    }
+
+    [data-qx-container-border='top'],
+    [data-qx-container-border='bottom'] {
+      display: block;
+      background-image: url('../../../assets/images/borders/table-headline-border.gif');
+      height: 4px;
+      width: 100%;
+      background-repeat: repeat-x;
+    }
+
+    [data-qx-container-border='right'],
+    [data-qx-container-border='left'] {
+      display: block;
+      background-image: url('../../../assets/images/borders/box-frame-vertical.gif');
+      background-repeat: repeat-y;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 4px;
+
+      &[data-qx-container-border='left'] {
+        right: auto;
+        left: 0;
+      }
+    }
+  }
+
+  [data-qx-container-content] {
+    margin: 0 1px;
+    border: 2px solid var(--qx-color-border-3);
+    border-top: none;
+    padding: var(--qx-spacing-1);
+    background-color: var(--qx-color-background-7);
+  }
+}

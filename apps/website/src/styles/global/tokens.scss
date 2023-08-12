@@ -5,6 +5,18 @@ body {
   // Colors (Branding Core)
   // --------------------------------------------------------
 
+  // INTENT
+  --qx-color-error: #c91b1b;
+  --qx-color-success: #2e7d32;
+  --qx-color-warning: #f57c00;
+  --qx-color-info: #1976d2;
+
+  // TOASTIFY
+  --toastify-icon-color-info: var(--qx-color-info);
+  --toastify-icon-color-success: var(--qx-color-success);
+  --toastify-icon-color-warning: var(--qx-color-warning);
+  --toastify-icon-color-error: var(--qx-color-error);
+
   // TEXT
   --qx-color-text-0: #ffd698;
   --qx-color-text-1: #5a2800;
@@ -16,14 +28,20 @@ body {
   --qx-color-background-3: #debb9d;
   --qx-color-background-4: #fff2db;
   --qx-color-background-5: #d4c0a1;
+  --qx-color-background-6: #5f4d41;
+  --qx-color-background-7: #f1e0c5;
 
   // SHADOWS
   --qx-color-shadow-0: #2c2c2c;
+  --qx-color-shadow-1: #875f3e;
 
   // BORDERS
   --qx-color-border-0: #4b7874;
   --qx-color-border-1: #3a3738;
   --qx-color-border-2: #793d03;
+  --qx-color-border-3: #55636c;
+  --qx-color-border-4: #faf0d7;
+  --qx-color-border-5: #5f4d41;
 
   // DEFAULT
   --qx-color-default-black: #000000;

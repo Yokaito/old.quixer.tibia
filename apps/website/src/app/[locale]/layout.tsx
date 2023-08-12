@@ -4,6 +4,8 @@ import '@/styles/global/tokens.scss'
 import '@/styles/global/resets.scss'
 import '@/styles/global/layout.scss'
 import '@/styles/global/typography.scss'
+import 'react-toastify/dist/ReactToastify.css'
+import '@/styles/global/toastify.scss'
 
 import Layout from '@/components/Layout'
 import { Providers } from './providers'

@@ -2,6 +2,7 @@
 
 import { SessionProvider } from 'next-auth/react'
 import { I18nProviderClient } from '@/locales/client'
+import { ToastContainer } from 'react-toastify'
 import { Session } from 'next-auth'
 
 import en from '@/locales/en'
@@ -29,6 +30,7 @@ export const Providers = ({ children, params: { locale }, session }: Props) => {
       fallbackLocale={defaultFallback?.messages}
     >
       <SessionProvider session={session}>{children}</SessionProvider>
+      <ToastContainer />
     </I18nProviderClient>
   )
 }

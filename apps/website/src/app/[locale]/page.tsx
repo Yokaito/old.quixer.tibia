@@ -1,4 +1,4 @@
-import Newsticker from '@/components/sections/newsticker'
+import { NewstickerSection } from '@/components/sections'
 import { getI18n, getCurrentLocale } from '@/locales/server'
 
 export default async function Home() {
@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <>
-      <Newsticker />
+      <NewstickerSection />
       <div>
         <span>Current Locale: {locale}</span>
         <p>{t('quixer.box.login.login')}</p>

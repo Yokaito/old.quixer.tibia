@@ -11,13 +11,13 @@ export const Section = forwardRef<HTMLDivElement, Props>(
         ref={ref}
         {...otherProps}
       >
-        <span data-fs-corner-image data-fs-corner-image-position="rightUp" />
-        <span data-fs-corner-image data-fs-corner-image-position="rightDown" />
-        <span data-fs-border-image />
+        <span data-qx-corner-image data-qx-corner-image-position="rightUp" />
+        <span data-qx-corner-image data-qx-corner-image-position="rightDown" />
+        <span data-qx-border-image />
         {children}
-        <span data-fs-border-image />
-        <span data-fs-corner-image data-fs-corner-image-position="leftUp" />
-        <span data-fs-corner-image data-fs-corner-image-position="leftDown" />
+        <span data-qx-border-image />
+        <span data-qx-corner-image data-qx-corner-image-position="leftUp" />
+        <span data-qx-corner-image data-qx-corner-image-position="leftDown" />
       </section>
     )
   }

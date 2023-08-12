@@ -12,8 +12,15 @@
 
     @include truncate-title(1);
 
-    &:hover {
-      filter: brightness(1.1) contrast(1.1) saturate(1.1);
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.8;
+    }
+
+    &:not(&:disabled) {
+      &:hover {
+        filter: brightness(1.1) contrast(1.1) saturate(1.1);
+      }
     }
   }
 

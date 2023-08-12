@@ -39,7 +39,7 @@ const mockData = [
   },
 ]
 
-export const Newsticker = () => {
+export const NewstickerSection = () => {
   return (
     <Section className={`${styles.qxNewsticker}`}>
       <SectionHeader backgroundColor="green">
@@ -58,4 +58,4 @@ export const Newsticker = () => {
   )
 }
 
-export default Newsticker
+export default NewstickerSection

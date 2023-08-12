@@ -11,9 +11,8 @@ export const ButtonSignIn = () => {
   const text = session.data
     ? t('quixer.box.login.loggedIn')
     : t('quixer.box.login.login')
-  const href = session.data ? '/account' : '/login'
 
-  return <ButtonLink text={text} href={href} />
+  return <ButtonLink text={text} href="/account" />
 }
 
 export default ButtonSignIn

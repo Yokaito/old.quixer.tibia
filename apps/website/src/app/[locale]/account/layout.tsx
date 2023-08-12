@@ -1,17 +1,14 @@
 import { authOptions } from '@/lib/auth'
 import { getServerSession } from 'next-auth'
-import { redirect } from 'next/navigation'
+import { PropsWithChildren } from 'react'
 
-export default async function AccountLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+interface LayoutProps extends PropsWithChildren {
+  account: React.ReactNode
+  login: React.ReactNode
+}
+
+export default async function Layout({ account, login }: LayoutProps) {
   const session = await getServerSession(authOptions)
 
-  if (!session) {
-    redirect('/login')
-  }
-
-  return <>{children}</>
+  return <>{session ? account : login}</>
 }

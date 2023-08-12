@@ -5,7 +5,7 @@ import styles from './info-bar.module.scss'
 import Link from 'next/link'
 import { getI18n } from '@/locales/server'
 
-export const InfoBar = async () => {
+export const InfoBarSection = async () => {
   const t = await getI18n()
 
   return (
@@ -43,3 +43,5 @@ export const InfoBar = async () => {
     </Section>
   )
 }
+
+export default InfoBarSection
