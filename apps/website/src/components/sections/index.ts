@@ -1,3 +1,3 @@
-export * from './infobar'
+export * from './info'
 export * from './login'
 export * from './newsticker'

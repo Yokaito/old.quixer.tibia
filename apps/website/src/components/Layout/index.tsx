@@ -1,6 +1,6 @@
 import { Header, Navigation, Sidebar } from '@/components/common'
 import styles from './layout.module.scss'
-import { InfoBarSection } from '../sections'
+import { InfoSection } from '../sections'
 
 type Props = {
   children: React.ReactNode
@@ -14,7 +14,7 @@ export const Layout = ({ children }: Props) => {
         <Navigation />
         <Sidebar />
         <main data-qx-main>
-          <InfoBarSection />
+          <InfoSection />
           {children}
         </main>
       </div>

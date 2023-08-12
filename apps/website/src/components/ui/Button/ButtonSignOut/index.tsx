@@ -18,7 +18,7 @@ export const ButtonSignOut = () => {
       })
     }
 
-    router.push('/registrar')
+    router.push('/account/create')
   }, [session, router])
 
   return (
