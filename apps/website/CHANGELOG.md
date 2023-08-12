@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.37](https://github.com/Yokaito/quixer/compare/v0.0.36...v0.0.37) (2023-08-12)
+
+### Features
+
+- **website:** initiate create account page and route to get players online ([f7af0e7](https://github.com/Yokaito/quixer/commit/f7af0e75b9d50d5d419b27c7fbed81fd04f1ab36))
+
 ## [0.0.36](https://github.com/Yokaito/quixer/compare/v0.0.35...v0.0.36) (2023-08-12)
 
 ### Bug Fixes
