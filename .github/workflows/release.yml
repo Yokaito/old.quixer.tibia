@@ -17,6 +17,16 @@ jobs:
       DATABASE_URL: 'mysql://root:root@localhost:3306/quixer'
 
     steps:
+      - name: Shutdown Ubuntu MySQL (SUDO)
+        run: sudo service mysql stop
+
+      - name: Set up Mysql
+        uses: mirromutth/mysql-action@v1.1
+        with:
+          mysql version: '8.0'
+          mysql database: 'quixer'
+          mysql root password: 'root'
+
       - name: Check out code
         uses: actions/checkout@v3
         with:
@@ -27,7 +37,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
       - uses: pnpm/action-setup@v2
@@ -42,6 +51,7 @@ jobs:
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
       - uses: actions/cache@v3
         name: Setup pnpm cache
         with:
@@ -54,16 +64,6 @@ jobs:
         run: |
           git config user.name quixerbot
           git config user.email quixerbot@gmail.com
-
-      - name: Shutdown Ubuntu MySQL (SUDO)
-        run: sudo service mysql stop
-
-      - name: Set up Mysql
-        uses: mirromutth/mysql-action@v1.1
-        with:
-          mysql version: '8.0'
-          mysql database: 'quixer'
-          mysql root password: 'root'
 
       - name: Install dependencies
         run: pnpm install
