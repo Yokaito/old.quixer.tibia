@@ -15,6 +15,7 @@
     },
     "start": {},
     "size": {},
+    "migrate": {},
     "dev": {
       "cache": false,
       "persistent": true
