@@ -1,5 +1,5 @@
 # This Action should run on main branch and verify lint, test, and then publish the version on npm
-name: CD
+name: Release
 
 on:
   push:
@@ -14,6 +14,7 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+      DATABASE_URL: 'mysql://root:root@localhost:3306/quixer'
 
     steps:
       - name: Check out code
@@ -22,37 +23,32 @@ jobs:
           token: ${{ secrets.QUIXER_GITHUB_BOT_TOKEN }}
           fetch-depth: 2
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6.32.9
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: "https://registry.npmjs.org"
-
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 7
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
 
       - name: Configure CI Git User
         run: |
           git config user.name quixerbot
           git config user.email quixerbot@gmail.com
+
+      - name: Shutdown Ubuntu MySQL (SUDO)
+        run: sudo service mysql stop
+
+      - name: Set up Mysql
+        uses: mirromutth/mysql-action@v1.1
+        with:
+          mysql version: '8.0'
+          mysql database: 'quixer'
+          mysql root password: 'root'
 
       - name: Install dependencies
         run: pnpm install
