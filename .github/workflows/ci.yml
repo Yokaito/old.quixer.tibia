@@ -1,5 +1,5 @@
 # This Action should run on main branch and verify lint, test, and then publish the version on npm
-name: CD
+name: Build
 
 on:
   push:

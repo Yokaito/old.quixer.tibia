@@ -1,5 +1,5 @@
 # This Action should run on main branch and verify lint, test, and then publish the version on npm
-name: CD
+name: Release
 
 on:
   push:
@@ -26,7 +26,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: "https://registry.npmjs.org"
+          registry-url: 'https://registry.npmjs.org'
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
