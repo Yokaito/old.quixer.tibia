@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.39](https://github.com/Yokaito/quixer/compare/v0.0.38...v0.0.39) (2023-08-13)
+
+### Refactoring
+
+- workflow build in pull requests ([b8bb182](https://github.com/Yokaito/quixer/commit/b8bb182e4b9611225d24f4309612231df786ea15))
+
 ## 0.0.38 (2023-08-13)
 
 ### Bug Fixes
