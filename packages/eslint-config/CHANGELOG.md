@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.38 (2023-08-13)
+
+### Bug Fixes
+
+- release pnpm issue ([e148a73](https://github.com/Yokaito/quixer/commit/e148a736329a19fd92786f71cdc3ecb9f24f0058))
+
 ## [0.0.37](https://github.com/Yokaito/quixer/compare/v0.0.36...v0.0.37) (2023-08-12)
 
 **Note:** Version bump only for package @quixer/eslint-config
