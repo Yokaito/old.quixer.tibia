@@ -53,6 +53,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Run Migration
+        run: pnpm migrate
+
       - name: Build
         run: pnpm build
 
