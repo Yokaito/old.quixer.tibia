@@ -1,0 +1,49 @@
+@import 'src/styles/scaffold';
+
+.qxAccountSection {
+  [data-qx-account-section-title-wrapper] {
+    margin-top: var(--qx-spacing-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--qx-spacing-3);
+
+    [data-qx-account-section-title] {
+      font-size: var(--qx-text-size-3);
+      color: var(--qx-color-text-1);
+      font-weight: var(--qx-text-weight-bold);
+      font-family: var(--qx-text-face-poppins);
+      text-align: center;
+    }
+
+    [data-qx-account-section-title-border='right'] {
+      transform: rotate(180deg);
+    }
+  }
+
+  [data-qx-account-premium-benefits-list] {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: var(--qx-spacing-1);
+
+    @include media('>=notebook') {
+      gap: var(--qx-spacing-3);
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    [data-qx-account-premium-benefits-item] {
+      display: flex;
+      align-items: center;
+      gap: var(--qx-spacing-0);
+
+      span {
+        font-size: var(--qx-text-size-1);
+        color: var(--qx-color-text-1);
+        font-weight: var(--qx-text-weight-regular);
+        font-family: var(--qx-text-face-poppins);
+        text-align: left;
+      }
+    }
+  }
+}

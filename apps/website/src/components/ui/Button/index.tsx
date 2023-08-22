@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, forwardRef } from 'react'
 import styles from './button.module.scss'
 
-type Variant = 'regular' | 'larger'
+type Variant = 'regular' | 'larger' | 'info' | 'green' | 'red'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
