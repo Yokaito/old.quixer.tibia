@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.40](https://github.com/Yokaito/quixer/compare/v0.0.39...v0.0.40) (2023-08-22)
+
+### Features
+
+- **wip:** add account status with list of characters ([2ee8d85](https://github.com/Yokaito/quixer/commit/2ee8d8539cd09e80c0e76a77914146c1b6a651b9))
+
 ## [0.0.39](https://github.com/Yokaito/quixer/compare/v0.0.38...v0.0.39) (2023-08-13)
 
 ### Refactoring
