@@ -5,7 +5,8 @@ import { appRouter } from '@/server/routers/_app'
 export const serverClient = appRouter.createCaller({
   links: [
     httpBatchLink({
-      url: 'http://localhost:3000/api/trpc',
+      // eslint-disable-next-line turbo/no-undeclared-env-vars
+      url: `${process.env.NEXT_PUBLIC_URL}/api/trpc`,
     }),
   ],
 })

@@ -11,11 +11,13 @@ export default function Provider({ children }: { children: React.ReactNode }) {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: 'http://localhost:3000/api/trpc',
+          // eslint-disable-next-line turbo/no-undeclared-env-vars
+          url: `${process.env.NEXT_PUBLIC_URL}/api/trpc`,
         }),
       ],
     })
   )
+
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
