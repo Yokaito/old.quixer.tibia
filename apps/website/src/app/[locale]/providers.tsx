@@ -2,6 +2,7 @@
 
 import { SessionProvider } from 'next-auth/react'
 import { I18nProviderClient } from '@/locales/client'
+import TRPCProvider from '@/lib/trpc/Provider'
 import { ToastContainer } from 'react-toastify'
 import { Session } from 'next-auth'
 
@@ -29,8 +30,10 @@ export const Providers = ({ children, params: { locale }, session }: Props) => {
       locale={locale}
       fallbackLocale={defaultFallback?.messages}
     >
-      <SessionProvider session={session}>{children}</SessionProvider>
-      <ToastContainer />
+      <TRPCProvider>
+        <SessionProvider session={session}>{children}</SessionProvider>
+        <ToastContainer />
+      </TRPCProvider>
     </I18nProviderClient>
   )
 }
