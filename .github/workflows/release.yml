@@ -15,6 +15,9 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       DATABASE_URL: 'mysql://root:root@localhost:3306/quixer'
+      NEXT_PUBLIC_URL: 'http://localhost:3000'
+      NEXTAUTH_SECRET: 'quixer'
+      NEXTAUTH_URL: 'http://localhost:3000'
 
     steps:
       - name: Shutdown Ubuntu MySQL (SUDO)
