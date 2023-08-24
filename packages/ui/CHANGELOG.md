@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.41 (2023-08-24)
+
+### Features
+
+- add trpc to use in project website ([904fd9d](https://github.com/Yokaito/quixer/commit/904fd9dc08a76df6fa2710046ed972e8b4d391a8))
+
 ## [0.0.40](https://github.com/Yokaito/quixer/compare/v0.0.39...v0.0.40) (2023-08-22)
 
 **Note:** Version bump only for package @quixer/ui
