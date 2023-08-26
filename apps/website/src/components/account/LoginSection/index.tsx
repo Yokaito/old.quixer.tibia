@@ -3,7 +3,7 @@ import InnerContainer from '@/components/ui/Container/Inner'
 import { SectionHeader } from '@/components/ui/Section/Header'
 import InnerSection from '@/components/ui/Section/Inner'
 import { getI18n } from '@/locales/server'
-import { LoginForm } from '@/components/account/LoginForm'
+import { LoginForm } from '@/components/account/LoginSection/form'
 
 export const LoginSection = async () => {
   const t = await getI18n()

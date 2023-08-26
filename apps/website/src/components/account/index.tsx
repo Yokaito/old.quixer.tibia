@@ -10,7 +10,7 @@ import IconPremium3 from '@/assets/images/icons/32/premium_icon_secondary_battle
 import BorderTitle from '@/assets/images/borders/headline-bracer.gif'
 import InnerContainer from '@/components/ui/Container/Inner'
 import { AccountStatusSection } from '@/components/account/StatusSection'
-import AccountCharacterList from '@/components/account/CharacterList'
+import AccountCharacterList from '@/components/account/CharacterSection'
 import { getI18n } from '@/locales/server'
 import { getServerSession } from 'next-auth'
 import authOptions from '@/lib/auth'

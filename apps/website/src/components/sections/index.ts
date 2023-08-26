@@ -1,4 +1,3 @@
 export * from './info'
-export * from './login'
+export * from '../account/LoginSection'
 export * from './newsticker'
-export * from './account'
