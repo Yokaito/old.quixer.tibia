@@ -53,7 +53,7 @@ export default {
         freePermanent: 'Seu premium não expira',
         timeExpired: 'Seu tempo premium expirou em',
         timeLeft: 'Seu tempo premium expira em',
-        balance: 'Saldo de tempo premium {days} dias',
+        balance: 'Saldo de dias premium é: {days}',
       },
       actions: {
         menage: 'Gerenciar conta',

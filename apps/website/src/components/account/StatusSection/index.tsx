@@ -10,6 +10,7 @@ import authOptions from '@/lib/auth'
 import { convertUnixTimeToDate } from '@/utils/date-format'
 import { ButtonSignOut } from '@/components/ui/Button/ButtonSignOut'
 import { otConfig } from '@/quixer'
+import { Case, Default, Switch } from '@/components/ui'
 
 export const AccountStatusSection = async () => {
   const locale = getCurrentLocale()
@@ -31,28 +32,60 @@ export const AccountStatusSection = async () => {
 
           <div data-qx-account-section-info-text>
             <h2 data-qx-account-section-premium={session?.user.isPremium}>
-              {session?.user.isPremium || otConfig.server.premiumIsFree
-                ? t('quixer.account.status.premium')
-                : t('quixer.account.status.free')}
+              <Switch>
+                <Case condition={otConfig.server.premiumIsFree}>
+                  <>{t('quixer.account.status.freePremium')}</>
+                </Case>
+                <Case condition={session?.user.isPremium as boolean}>
+                  <>{t('quixer.account.status.premium')}</>
+                </Case>
+                <Default>
+                  <>{t('quixer.account.status.free')}</>
+                </Default>
+              </Switch>
             </h2>
             <p>
-              {otConfig.server.premiumIsFree
-                ? `${t('quixer.account.status.timeLeft')} Inf`
-                : session?.user.isPremium
-                ? t('quixer.account.status.timeLeft')
-                : ` ${t(
-                    'quixer.account.status.timeExpired'
-                  )}} ${convertUnixTimeToDate(
-                    session?.user.premiumDateExpireUnixTime || 0,
-                    locale
-                  )}`}
+              <Switch>
+                <Case condition={otConfig.server.premiumIsFree}>
+                  <>{t('quixer.account.status.freePermanent')}</>
+                </Case>
+                <Case condition={session?.user.isPremium as boolean}>
+                  <>
+                    {t('quixer.account.status.timeLeft')}{' '}
+                    {convertUnixTimeToDate(
+                      session?.user.premiumDateExpireUnixTime || 0,
+                      locale
+                    )}
+                  </>
+                </Case>
+                <Default>
+                  <>
+                    {t('quixer.account.status.timeExpired')}{' '}
+                    {convertUnixTimeToDate(
+                      session?.user.premiumDateExpireUnixTime || 0,
+                      locale
+                    )}
+                  </>
+                </Default>
+              </Switch>
             </p>
             <p>
-              {t('quixer.account.status.balance', {
-                days: otConfig.server.premiumIsFree
-                  ? 'Inf'
-                  : session?.user.premiumDays,
-              })}
+              <Switch>
+                <Case condition={otConfig.server.premiumIsFree}>
+                  <>
+                    {t('quixer.account.status.balance', {
+                      days: 0,
+                    })}
+                  </>
+                </Case>
+                <Default>
+                  <>
+                    {t('quixer.account.status.balance', {
+                      days: session?.user.premiumDays,
+                    })}
+                  </>
+                </Default>
+              </Switch>
             </p>
           </div>
         </div>
