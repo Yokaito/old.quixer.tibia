@@ -1,5 +1,6 @@
-import { publicProcedure, router } from '@/server/trpc'
+import { router, publicProcedure } from '@/server/trpc'
 import { prisma } from '@/lib/prisma'
+import { loggedInProcedure } from '@/server/middlewares'
 
 export const playersRouter = router({
   online: publicProcedure.query(async () => {
@@ -22,6 +23,19 @@ export const playersRouter = router({
 
     return {
       online: playersOnline.length,
+    }
+  }),
+  myCharacters: loggedInProcedure.query(async ({ ctx }) => {
+    const { session } = ctx
+
+    const characters = await prisma.players.findMany({
+      where: {
+        account_id: Number(session.user.id),
+      },
+    })
+
+    return {
+      characters,
     }
   }),
 })

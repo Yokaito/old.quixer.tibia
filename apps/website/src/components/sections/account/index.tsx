@@ -11,12 +11,18 @@ import BorderTitle from '@/assets/images/borders/headline-bracer.gif'
 import InnerContainer from '@/components/ui/Container/Inner'
 import { AccountStatusSection } from '@/components/account/StatusSection'
 import AccountCharacterList from '@/components/account/CharacterList'
+import { getI18n } from '@/locales/server'
+import { getServerSession } from 'next-auth'
+import authOptions from '@/lib/auth'
 
-export const AccountSection = () => {
+export const AccountSection = async () => {
+  const t = await getI18n()
+  const session = await getServerSession(authOptions)
+
   return (
     <Section className={`${styles.qxAccountSection}`}>
       <SectionHeader backgroundColor="green">
-        <h1 className="sectionTitle">Account Management</h1>
+        <h1 className="sectionTitle">{t('quixer.account.management')}</h1>
       </SectionHeader>
       <InnerSection data-qx-account-section-wrapper>
         <div data-qx-account-section-title-wrapper>
@@ -26,7 +32,9 @@ export const AccountSection = () => {
             data-qx-account-section-title-border
           />
           <h1 data-qx-account-section-title>
-            Welcome to your account Guilherme!
+            {t('quixer.account.hello', {
+              name: session?.user?.name,
+            })}
           </h1>
           <Image
             src={BorderTitle}
@@ -34,29 +42,26 @@ export const AccountSection = () => {
             data-qx-account-section-title-border="right"
           />
         </div>
-        <Container title="Account Status">
+        <Container title={t('quixer.account.titles.status')}>
           <AccountStatusSection />
           <InnerContainer>
             <div data-qx-account-premium-benefits-list>
               <div data-qx-account-premium-benefits-item>
                 <Image src={IconPremium2} alt="icon" />
-                <span>wear Premium outfits</span>
+                <span>{t('quixer.account.premium.benefits.outfits')}</span>
               </div>
               <div data-qx-account-premium-benefits-item>
                 <Image src={IconPremium1} alt="icon" />
-                <span>use two Hunting Task slots for free</span>
+                <span>{t('quixer.account.premium.benefits.hunting')}</span>
               </div>
               <div data-qx-account-premium-benefits-item>
                 <Image src={IconPremium3} alt="icon" />
-                <span>
-                  organise characters and creatures nearby in secondary battle
-                  lists
-                </span>
+                <span>{t('quixer.account.premium.benefits.battle')}</span>
               </div>
             </div>
           </InnerContainer>
         </Container>
-        <Container title="Account Status">
+        <Container title={t('quixer.account.titles.characters')}>
           <AccountCharacterList />
         </Container>
       </InnerSection>

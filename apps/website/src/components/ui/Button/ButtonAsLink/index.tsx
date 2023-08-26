@@ -1,7 +1,7 @@
 import { LinkHTMLAttributes, forwardRef } from 'react'
 import styles from '../button.module.scss'
 
-type Variant = 'regular' | 'larger'
+type Variant = 'regular' | 'larger' | 'info' | 'green' | 'red'
 
 interface ButtonLinkProps extends LinkHTMLAttributes<HTMLAnchorElement> {
   /**

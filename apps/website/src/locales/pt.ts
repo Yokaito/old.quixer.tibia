@@ -13,6 +13,39 @@ export default {
       login: 'Entrar',
       email: 'Email',
       password: 'Senha',
+      characters: {
+        create: 'Criar personagem',
+        table: {
+          name: 'Nome',
+          status: 'Status',
+          actions: 'Ações',
+        },
+      },
+      titles: {
+        status: 'Status da conta',
+        characters: 'Personagens',
+      },
+      hello: `Bem-vindo à sua conta {name}`,
+      premium: {
+        benefits: {
+          outfits: 'usar roupas Premium',
+          hunting: 'use dois slots de tarefa de caça gratuitamente',
+          battle:
+            'organizar personagens e criaturas próximos na listas de batalha',
+        },
+      },
+      status: {
+        free: 'Conta gratuita',
+        premium: 'Conta premium',
+        timeExpired: 'Seu tempo premium expirou em',
+        timeLeft: 'Seu tempo premium expira em',
+        balance: 'Saldo de tempo premium {days} dias',
+      },
+      actions: {
+        menage: 'Gerenciar conta',
+        premium: 'Comprar premium',
+        logout: 'Sair',
+      },
     },
     box: {
       login: {

@@ -40,6 +40,10 @@
         font-weight: 700;
         font-size: 14pt;
         color: var(--qx-color-error);
+
+        &[data-qx-account-section-premium='true'] {
+          color: var(--qx-color-success);
+        }
       }
 
       p {

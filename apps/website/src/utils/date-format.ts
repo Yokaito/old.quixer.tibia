@@ -14,3 +14,13 @@ export const createDateAsUTC = (date: Date) => {
     )
   )
 }
+
+export const convertUnixTimeToDate = (unixTime: number, locale: string) => {
+  const date = new Intl.DateTimeFormat(locale, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(new Date(unixTime * 1000))
+
+  return date
+}

@@ -10,7 +10,7 @@ export const BoxLogin = async () => {
   return (
     <div className={`${styles.qxBoxLogin}`} data-qx-box-login>
       <Link data-qx-logo-artwork href="/">
-        <Image src={LogoTibiaArtWork} alt="logo tibia artwork" />
+        <Image src={LogoTibiaArtWork} alt="logo tibia artwork" priority />
       </Link>
       <MenuBox showChain>
         <ButtonSignIn />

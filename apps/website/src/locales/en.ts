@@ -13,6 +13,39 @@ export default {
       login: 'Login',
       email: 'Email',
       password: 'Password',
+      characters: {
+        create: 'Create Character',
+        table: {
+          name: 'Name',
+          status: 'Status',
+          actions: 'Actions',
+        },
+      },
+      titles: {
+        status: 'Account Status',
+        characters: 'Characters',
+      },
+      hello: `Welcome to your account {name}`,
+      premium: {
+        benefits: {
+          outfits: 'wear Premium outfits',
+          hunting: 'use two Hunting Task slots for free',
+          battle:
+            'organise characters and creatures nearby in secondary battle lists',
+        },
+      },
+      status: {
+        free: 'Free Account',
+        premium: 'Premium Account',
+        timeExpired: 'Your premium time expired at',
+        timeLeft: 'Your premium time expires in',
+        balance: 'Balance of Premium Time {days} days',
+      },
+      actions: {
+        menage: 'Manage Account',
+        premium: 'Get Premium',
+        logout: 'Logout',
+      },
     },
     box: {
       login: {

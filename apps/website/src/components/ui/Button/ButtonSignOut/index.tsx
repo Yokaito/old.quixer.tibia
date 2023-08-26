@@ -5,8 +5,13 @@ import { useI18n } from '@/locales/client'
 import { useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { signOut } from 'next-auth/react'
+import Button from '..'
 
-export const ButtonSignOut = () => {
+type Props = {
+  variant?: 'link' | 'button'
+}
+
+export const ButtonSignOut = ({ variant = 'link' }: Props) => {
   const session = useSession()
   const router = useRouter()
   const t = useI18n()
@@ -20,6 +25,16 @@ export const ButtonSignOut = () => {
 
     router.push('/account/create')
   }, [session, router])
+
+  if (variant === 'button') {
+    return (
+      <Button variant="red" onClick={handleClick}>
+        {session?.data
+          ? t('quixer.box.login.logout')
+          : t('quixer.box.login.register')}
+      </Button>
+    )
+  }
 
   return (
     <button

@@ -4,9 +4,11 @@ import { SectionHeader } from '@/components/ui/Section/Header'
 import styles from './info-bar.module.scss'
 import Link from 'next/link'
 import { getI18n } from '@/locales/server'
+import { serverClient } from '@/lib/trpc/server'
 
 export const InfoSection = async () => {
   const t = await getI18n()
+  const playersOnline = await serverClient.players.online()
 
   return (
     <Section className={`${styles.qxInfoBar}`}>
@@ -35,7 +37,9 @@ export const InfoSection = async () => {
           <div data-qx-info-bar-status>
             <Link data-qx-info-bar-link href="/">
               <Icon name="UsersThree" width={20} height={20} />
-              <span>3323 {t('quixer.info.bar.online')}</span>
+              <span>
+                {playersOnline.online} {t('quixer.info.bar.online')}
+              </span>
             </Link>
           </div>
         </div>
