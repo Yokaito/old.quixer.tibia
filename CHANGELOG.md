@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.42](https://github.com/Yokaito/quixer/compare/v0.0.41...v0.0.42) (2023-08-24)
+
+### Refactoring
+
+- add procces env in batchLinks server and client of tRPC ([adcfe8a](https://github.com/Yokaito/quixer/commit/adcfe8a9fe19dd4c4267bf4fbb7988804f304088))
+
 ## 0.0.41 (2023-08-24)
 
 ### Features
