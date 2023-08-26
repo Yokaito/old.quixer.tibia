@@ -1,7 +1,7 @@
 import type { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import z from 'zod'
-import { serverClient } from './trpc/server'
+import { loginFunction } from '@/server/utils/login.function'
 
 const schema = z.object({
   email: z.string().email(),
@@ -32,10 +32,7 @@ export const authOptions: NextAuthOptions = {
         try {
           const values = schema.parse(credentials)
 
-          const user = await serverClient.account.login({
-            email: values.email,
-            password: values.password,
-          })
+          const user = await loginFunction(values.email, values.password)
 
           return {
             id: user?.id.toString(),
