@@ -10,9 +10,9 @@
 
   [data-qx-character-list-container] {
     display: flex;
-    box-shadow: 3px 3px 2px #875f3e;
-    outline: 1px solid #5f4d41;
-    background-color: #d4c0a1;
+    box-shadow: 3px 3px 2px var(--qx-color-shadow-1);
+    outline: 1px solid var(--qx-color-border-5);
+    background-color: var(--qx-color-background-5);
   }
 
   table {
@@ -22,20 +22,20 @@
 
     thead th {
       text-align: start;
-      border: 1px solid #faf0d7;
+      border: 1px solid var(--qx-color-border-4);
       padding: var(--qx-spacing-0);
     }
 
     tbody {
       tr:nth-child(odd) {
-        background-color: rgb(241, 224, 198);
+        background-color: var(--qx-color-background-8);
       }
     }
 
     tbody td {
       padding: var(--qx-spacing-0);
       text-align: start;
-      border: 1px solid #faf0d7;
+      border: 1px solid var(--qx-color-border-4);
     }
   }
 

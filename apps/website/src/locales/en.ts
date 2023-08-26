@@ -24,6 +24,7 @@ export default {
       titles: {
         status: 'Account Status',
         characters: 'Characters',
+        general: 'General Information',
       },
       hello: `Welcome to your account {name}`,
       premium: {
@@ -34,9 +35,22 @@ export default {
             'organise characters and creatures nearby in secondary battle lists',
         },
       },
+      general: {
+        labels: {
+          email: 'Email address:',
+          created: 'Created:',
+          lastLogin: 'Last login:',
+          accountStatus: 'Account status:',
+          tibiaCoins: 'Tibia Coins:',
+          loyaltyPoints: 'Loyalty Points:',
+          loyaltyTitle: 'Loyalty Title:',
+        },
+      },
       status: {
         free: 'Free Account',
         premium: 'Premium Account',
+        freePremium: 'Free Premium Account',
+        freePermanent: 'Your premium dont expire',
         timeExpired: 'Your premium time expired at',
         timeLeft: 'Your premium time expires in',
         balance: 'Balance of Premium Time {days} days',
@@ -45,6 +59,9 @@ export default {
         menage: 'Manage Account',
         premium: 'Get Premium',
         logout: 'Logout',
+        changePassword: 'Change Password',
+        changeEmail: 'Change Email',
+        terminate: 'Terminate Account',
       },
     },
     box: {

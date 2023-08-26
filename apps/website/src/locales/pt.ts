@@ -24,6 +24,7 @@ export default {
       titles: {
         status: 'Status da conta',
         characters: 'Personagens',
+        general: 'Informações gerais',
       },
       hello: `Bem-vindo à sua conta {name}`,
       premium: {
@@ -34,9 +35,22 @@ export default {
             'organizar personagens e criaturas próximos na listas de batalha',
         },
       },
+      general: {
+        labels: {
+          email: 'Endereço de e-mail:',
+          created: 'Criado:',
+          lastLogin: 'Último login:',
+          accountStatus: 'Status da conta:',
+          tibiaCoins: 'Tibia Coins:',
+          loyaltyPoints: 'Pontos de fidelidade:',
+          loyaltyTitle: 'Título de fidelidade:',
+        },
+      },
       status: {
         free: 'Conta gratuita',
         premium: 'Conta premium',
+        freePremium: 'Conta premium gratuita',
+        freePermanent: 'Seu premium não expira',
         timeExpired: 'Seu tempo premium expirou em',
         timeLeft: 'Seu tempo premium expira em',
         balance: 'Saldo de tempo premium {days} dias',
@@ -45,6 +59,9 @@ export default {
         menage: 'Gerenciar conta',
         premium: 'Comprar premium',
         logout: 'Sair',
+        changePassword: 'Alterar senha',
+        changeEmail: 'Alterar e-mail',
+        terminate: 'Encerrar conta',
       },
     },
     box: {

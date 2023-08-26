@@ -20,6 +20,9 @@ export const convertUnixTimeToDate = (unixTime: number, locale: string) => {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
   }).format(new Date(unixTime * 1000))
 
   return date

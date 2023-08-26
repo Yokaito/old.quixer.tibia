@@ -1,0 +1,103 @@
+@import 'src/styles/scaffold';
+
+.qxGeneralInformationSection {
+  [data-qx-general-information-wrapper] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--qx-spacing-1);
+    height: max-content;
+  }
+
+  [data-qx-general-information-actions] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: var(--qx-spacing-1);
+
+    @include media('>=notebook') {
+      justify-content: flex-end;
+      flex-direction: row;
+      gap: var(--qx-spacing-2);
+    }
+  }
+
+  [data-qx-general-information-container] {
+    box-shadow: 3px 3px 2px var(--qx-color-shadow-1);
+    outline: 1px solid var(--qx-color-border-5);
+    background-color: var(--qx-color-background-5);
+  }
+
+  [data-qx-general-information-premium],
+  [data-qx-general-information-loyalty] {
+    display: flex;
+    flex-direction: column;
+
+    [data-qx-general-information-premium-status],
+    [data-qx-general-information-loyalty-title] {
+      font-weight: var(--qx-text-weight-bold);
+    }
+
+    [data-qx-general-information-premium-status] {
+      color: var(--qx-color-error);
+    }
+
+    [data-qx-general-information-premium-status='true'] {
+      color: var(--qx-color-success);
+    }
+
+    [data-qx-general-information-premium-time],
+    [data-qx-general-information-loyalty-next] {
+      font-size: var(--qx-text-size-0);
+    }
+  }
+
+  [data-qx-general-information-coins] {
+    display: flex;
+    align-items: center;
+    gap: var(--qx-spacing-2);
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: var(--qx-spacing-0);
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tbody {
+      tr:nth-child(odd) {
+        background-color: var(--qx-color-background-8);
+      }
+    }
+
+    tbody td {
+      padding: var(--qx-spacing-0) 2px;
+      text-align: start;
+      border: 1px solid var(--qx-color-border-4);
+    }
+
+    [data-qx-general-information-value],
+    [data-qx-general-information-label] {
+      color: var(--qx-color-text-1);
+      font-size: var(--qx-text-size-1);
+    }
+
+    [data-qx-general-information-value] {
+      padding-left: var(--qx-spacing-1);
+    }
+
+    [data-qx-general-information-label] {
+      font-weight: var(--qx-text-weight-bold);
+      width: 110px;
+
+      @include media('>=notebook') {
+        width: 150px;
+      }
+    }
+  }
+}
