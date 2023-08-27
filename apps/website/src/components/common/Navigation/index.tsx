@@ -12,7 +12,7 @@ export const Navigation = async () => {
     <nav data-qx-navigation className={`${styles.qxNavigation}`}>
       <BoxLogin />
       <MenuBox showChain>
-        <Button>{t('quixer.box.download.download')}</Button>
+        <Button variant="regular">{t('quixer.box.download.download')}</Button>
       </MenuBox>
       <Menu />
     </nav>

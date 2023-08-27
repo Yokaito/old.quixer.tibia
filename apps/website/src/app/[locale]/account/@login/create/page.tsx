@@ -1,4 +1,4 @@
-import CreateAccountSection from '@/components/sections/create/account'
+import CreateAccountSection from '@/components/account/CreateSection'
 
 export default async function Page() {
   return <CreateAccountSection />

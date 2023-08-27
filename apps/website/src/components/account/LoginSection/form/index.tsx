@@ -76,10 +76,10 @@ export const LoginForm = () => {
         <span data-qx-login-form-error>{errors?.password?.message}</span>
       </div>
       <div data-qx-login-form-actions>
-        <Button type="button" disabled={isSubmitting}>
+        <Button variant="regular" type="button" disabled={isSubmitting}>
           Lost Account
         </Button>
-        <Button type="submit" disabled={isSubmitting}>
+        <Button variant="regular" type="submit" disabled={isSubmitting}>
           {t('quixer.account.login')}
         </Button>
       </div>

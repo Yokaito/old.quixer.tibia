@@ -1,11 +1,32 @@
 export default {
   quixer: {
+    success: {
+      createAccount: 'Conta criada com sucesso! Entrando...',
+    },
     errors: {
       email: 'Por favor, insira um endereço de e-mail válido',
       minLength: 'Por favor, insira pelo menos {min} caracteres',
       maxLength: 'Por favor, insira no máximo {max} caracteres',
       required: 'Este campo é obrigatório',
       invalidLogin: 'Credenciais de login inválidas',
+      passwordMatch: 'As senhas não coincidem',
+      consent: 'Você deve consentir em armazenar suas sessões de jogo.',
+      terms: 'Você deve concordar com o Contrato de Serviço Tibia.',
+    },
+    geral: {
+      attention: 'Atenção',
+      name: 'Nome',
+      email: 'Email',
+      password: 'Senha',
+      confirmPassword: 'Confirmar Senha',
+      fieldConsent: 'Consentimento',
+      fieldTerms: 'Termos',
+      consent:
+        'Eu concordo que a CipSoft GmbH salve sessões de jogo com o único propósito de melhorar a experiência de jogo ou fazer cumprir as Regras do Tibia. As sessões de jogo salvas conterão toda a experiência do usuário, incluindo, entre outros, bate-papos e interação do jogador. Estou ciente de que posso revogar meu consentimento para o armazenamento de minhas sessões de jogo a qualquer momento na página de gerenciamento de minha conta no Tibia.',
+      terms:
+        'Eu concordo com o Acordo de Serviço do Tibia, as Regras do Tibia e a Política de Privacidade do Tibia.',
+      createAccount: 'Criar Conta',
+      selectCheckbox: 'Marque a seguinte caixa de seleção:',
     },
     account: {
       management: 'Gerenciamento de conta',
