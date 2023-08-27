@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.44](https://github.com/Yokaito/quixer/compare/v0.0.43...v0.0.44) (2023-08-27)
+
+### Refactoring
+
+- **website:** remove ternary and add component switch ([f55ebfa](https://github.com/Yokaito/quixer/commit/f55ebfad1c66d454369cf69073b9107439d93798))
+
 ## [0.0.43](https://github.com/Yokaito/quixer/compare/v0.0.42...v0.0.43) (2023-08-26)
 
 ### Bug Fixes
