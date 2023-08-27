@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.43](https://github.com/Yokaito/quixer/compare/v0.0.42...v0.0.43) (2023-08-26)
+
+### Bug Fixes
+
+- **website:** serverClient inside authOptions then split function to a separate file instead a route ([66f3730](https://github.com/Yokaito/quixer/commit/66f373083f01eaccf6ea24838f80082b70a4d6da))
+
 ## [0.0.42](https://github.com/Yokaito/quixer/compare/v0.0.41...v0.0.42) (2023-08-24)
 
 ### Refactoring
