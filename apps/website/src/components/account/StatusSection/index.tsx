@@ -24,14 +24,25 @@ export const AccountStatusSection = async () => {
         className={`${styles.qxAccountStatusSection}`}
       >
         <div data-qx-account-section-info>
-          {session?.user.isPremium ? (
-            <Image src={StatusImagePremium} alt="status account" />
-          ) : (
-            <Image src={StatusImageFree} alt="status account" />
-          )}
+          <Switch>
+            <Case
+              condition={
+                session?.user.isPremium || otConfig.server.premiumIsFree
+              }
+            >
+              <Image src={StatusImagePremium} alt="status account" />
+            </Case>
+            <Default>
+              <Image src={StatusImageFree} alt="status account" />
+            </Default>
+          </Switch>
 
           <div data-qx-account-section-info-text>
-            <h2 data-qx-account-section-premium={session?.user.isPremium}>
+            <h2
+              data-qx-account-section-premium={
+                session?.user.isPremium || otConfig.server.premiumIsFree
+              }
+            >
               <Switch>
                 <Case condition={otConfig.server.premiumIsFree}>
                   <>{t('quixer.account.status.freePremium')}</>
