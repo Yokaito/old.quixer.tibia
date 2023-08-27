@@ -11,6 +11,7 @@ import Icon from '@/components/ui/Icon'
 import Link from 'next/link'
 import { getI18n } from '@/locales/server'
 import ButtonLink from '@/components/ui/Button/ButtonAsLink'
+import ModalDeleteCharacter from '../Modals/DeleteCharacter'
 
 export const AccountCharacterList = async () => {
   const { characters } = await serverClient.players.myCharacters()
@@ -80,12 +81,10 @@ export const AccountCharacterList = async () => {
                     >
                       <Icon name="NotePencil" width={18} height={18} />
                     </Link>
-                    <Link
-                      data-qx-item-link
-                      href={`/account/character/delete/${character.name}`}
-                    >
-                      <Icon name="Trash" width={18} height={18} />
-                    </Link>
+                    <ModalDeleteCharacter
+                      characterId={character.id}
+                      characterName={character.name}
+                    />
                   </div>
                 </td>
               </tr>

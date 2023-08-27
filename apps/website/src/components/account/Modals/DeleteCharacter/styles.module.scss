@@ -1,0 +1,14 @@
+.qxModalDeleteCharacterWrapper {
+  [data-qx-button] {
+    color: var(--qx-color-text-1);
+  }
+}
+
+.qxModalDeleteCharacter {
+  [data-qx-footer-modal] {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--qx-spacing-2);
+  }
+}
