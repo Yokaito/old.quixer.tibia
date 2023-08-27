@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.47](https://github.com/Yokaito/quixer/compare/v0.0.46...v0.0.47) (2023-08-27)
+
+### Chores
+
+- **website:** update pkgs to remove a bug in next and avoid infinite loop inside slots ([f45133b](https://github.com/Yokaito/quixer/commit/f45133be8fc80dcb1000583d3e4644177e2b579e))
+
 ## [0.0.46](https://github.com/Yokaito/quixer/compare/v0.0.45...v0.0.46) (2023-08-27)
 
 ### Features
