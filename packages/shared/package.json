@@ -1,6 +1,6 @@
 {
   "name": "@quixer/shared",
-  "version": "0.0.45",
+  "version": "0.0.46",
   "license": "MIT",
   "publishConfig": {
     "access": "public"

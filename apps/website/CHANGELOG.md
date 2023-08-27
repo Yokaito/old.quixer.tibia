@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.46](https://github.com/Yokaito/quixer/compare/v0.0.45...v0.0.46) (2023-08-27)
+
+### Features
+
+- **website:** add translate in response tRPC ([b66f3e9](https://github.com/Yokaito/quixer/commit/b66f3e9bd6cb98a44c0bf355def9db9472db2b59))
+
 ## 0.0.45 (2023-08-27)
 
 ### Features
