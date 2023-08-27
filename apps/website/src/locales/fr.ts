@@ -13,6 +13,8 @@ export default {
       consent:
         "Vous devez consentir à l'enregistrement de vos sessions de jeu.",
       terms: "Vous devez accepter l'accord de service Tibia.",
+      emailAlreadyTaken: 'Cet email est déjà pris',
+      nameAlreadyTaken: 'Le nom est déjà pris',
     },
     geral: {
       attention: 'Attention',

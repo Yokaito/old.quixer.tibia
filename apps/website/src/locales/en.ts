@@ -12,6 +12,8 @@ export default {
       passwordMatch: 'Passwords do not match',
       consent: 'You must consent to the storing of your play sessions.',
       terms: 'You must agree to the Tibia Service Agreement.',
+      emailAlreadyTaken: 'Email is already taken',
+      nameAlreadyTaken: 'Name is already taken',
     },
     geral: {
       attention: 'Attention',

@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma'
+import { getI18n } from '@/locales/server'
 import { loggedInProcedure } from '@/server/middlewares'
 import { publicProcedure, router } from '@/server/trpc'
 import { TRPCError } from '@trpc/server'
@@ -16,6 +17,8 @@ export const accountRouter = router({
       })
     )
     .mutation(async ({ input }) => {
+      const t = await getI18n()
+
       const emailIsTaken = await prisma.accounts.findUnique({
         where: {
           email: input.email,
@@ -26,7 +29,7 @@ export const accountRouter = router({
         throw new TRPCError({
           code: 'BAD_REQUEST',
           cause: 'email',
-          message: 'Email is already taken',
+          message: t('quixer.errors.emailAlreadyTaken'),
         })
       }
 
@@ -40,7 +43,7 @@ export const accountRouter = router({
         throw new TRPCError({
           code: 'BAD_REQUEST',
           cause: 'name',
-          message: 'Name is already taken',
+          message: t('quixer.errors.nameAlreadyTaken'),
         })
       }
 

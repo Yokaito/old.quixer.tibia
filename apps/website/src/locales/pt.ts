@@ -12,6 +12,8 @@ export default {
       passwordMatch: 'As senhas não coincidem',
       consent: 'Você deve consentir em armazenar suas sessões de jogo.',
       terms: 'Você deve concordar com o Contrato de Serviço Tibia.',
+      emailAlreadyTaken: 'Email já está sendo usado',
+      nameAlreadyTaken: 'Nome já está sendo usado',
     },
     geral: {
       attention: 'Atenção',
