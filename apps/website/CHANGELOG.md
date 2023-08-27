@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.45 (2023-08-27)
+
+### Features
+
+- **website:** add create account page ([85be7b4](https://github.com/Yokaito/quixer/commit/85be7b43d32482b4ff997732dea3cbd4c7f903a8))
+- **website:** add modal using create portal ([81628ca](https://github.com/Yokaito/quixer/commit/81628ca5723385d428f8ed366c38fdd1b13672d3))
+
 ## [0.0.44](https://github.com/Yokaito/quixer/compare/v0.0.43...v0.0.44) (2023-08-27)
 
 ### Refactoring
