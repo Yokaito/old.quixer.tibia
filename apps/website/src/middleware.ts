@@ -16,7 +16,12 @@ export function middleware(request: NextRequest) {
     request.cookies.set('Next-Locale', 'en')
   }
 
-  return I18nMiddleware(request)
+  /**
+   * TODO - Has a mismatch type in i18nMiddleware and NextRequest
+   * @see For more details:
+   * For now we need to use the any type to avoid the error
+   */
+  return I18nMiddleware(request as any)
 }
 
 export const config = {
