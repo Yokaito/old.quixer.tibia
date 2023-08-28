@@ -1,0 +1,21 @@
+.qxAccountWelcomeSection {
+  &[data-qx-account-section-title-wrapper] {
+    margin-top: var(--qx-spacing-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--qx-spacing-3);
+
+    [data-qx-account-section-title] {
+      font-size: var(--qx-text-size-3);
+      color: var(--qx-color-text-1);
+      font-weight: var(--qx-text-weight-bold);
+      font-family: var(--qx-text-face-poppins);
+      text-align: center;
+    }
+
+    [data-qx-account-section-title-border='right'] {
+      transform: rotate(180deg);
+    }
+  }
+}

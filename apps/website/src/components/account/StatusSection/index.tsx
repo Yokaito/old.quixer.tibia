@@ -10,7 +10,10 @@ import authOptions from '@/lib/auth'
 import { convertUnixTimeToDate } from '@/utils/date-format'
 import { ButtonSignOut } from '@/components/ui/Button/ButtonSignOut'
 import { otConfig } from '@/quixer'
-import { Case, Default, Switch } from '@/components/ui'
+import { Case, Container, Default, Switch } from '@/components/ui'
+import IconPremium1 from '@/assets/images/icons/32/premium_icon-prey_hunting_task.png'
+import IconPremium2 from '@/assets/images/icons/32/premium_icon_outfit.png'
+import IconPremium3 from '@/assets/images/icons/32/premium_icon_secondary_battlelists.png'
 
 export const AccountStatusSection = async () => {
   const locale = getCurrentLocale()
@@ -18,102 +21,120 @@ export const AccountStatusSection = async () => {
   const session = await getServerSession(authOptions)
 
   return (
-    <InnerContainer>
-      <div
-        data-qx-account-section-status
-        className={`${styles.qxAccountStatusSection}`}
-      >
-        <div data-qx-account-section-info>
-          <Switch>
-            <Case
-              condition={
-                session?.user.isPremium || otConfig.server.premiumIsFree
-              }
-            >
-              <Image src={StatusImagePremium} alt="status account" />
-            </Case>
-            <Default>
-              <Image src={StatusImageFree} alt="status account" />
-            </Default>
-          </Switch>
+    <Container
+      className={styles.qxAccountStatusSection}
+      title={t('quixer.account.titles.status')}
+    >
+      <InnerContainer>
+        <div data-qx-account-section-status>
+          <div data-qx-account-section-info>
+            <Switch>
+              <Case
+                condition={
+                  session?.user.isPremium || otConfig.server.premiumIsFree
+                }
+              >
+                <Image src={StatusImagePremium} alt="status account" />
+              </Case>
+              <Default>
+                <Image src={StatusImageFree} alt="status account" />
+              </Default>
+            </Switch>
 
-          <div data-qx-account-section-info-text>
-            <h2
-              data-qx-account-section-premium={
-                session?.user.isPremium || otConfig.server.premiumIsFree
-              }
-            >
-              <Switch>
-                <Case condition={otConfig.server.premiumIsFree}>
-                  <>{t('quixer.account.status.freePremium')}</>
-                </Case>
-                <Case condition={session?.user.isPremium as boolean}>
-                  <>{t('quixer.account.status.premium')}</>
-                </Case>
-                <Default>
-                  <>{t('quixer.account.status.free')}</>
-                </Default>
-              </Switch>
-            </h2>
-            <p>
-              <Switch>
-                <Case condition={otConfig.server.premiumIsFree}>
-                  <>{t('quixer.account.status.freePermanent')}</>
-                </Case>
-                <Case condition={session?.user.isPremium as boolean}>
-                  <>
-                    {t('quixer.account.status.timeLeft')}{' '}
-                    {convertUnixTimeToDate(
-                      session?.user.premiumDateExpireUnixTime || 0,
-                      locale
-                    )}
-                  </>
-                </Case>
-                <Default>
-                  <>
-                    {t('quixer.account.status.timeExpired')}{' '}
-                    {convertUnixTimeToDate(
-                      session?.user.premiumDateExpireUnixTime || 0,
-                      locale
-                    )}
-                  </>
-                </Default>
-              </Switch>
-            </p>
-            <p>
-              <Switch>
-                <Case condition={otConfig.server.premiumIsFree}>
-                  <>
-                    {t('quixer.account.status.balance', {
-                      days: 0,
-                    })}
-                  </>
-                </Case>
-                <Default>
-                  <>
-                    {t('quixer.account.status.balance', {
-                      days: session?.user.premiumDays,
-                    })}
-                  </>
-                </Default>
-              </Switch>
-            </p>
+            <div data-qx-account-section-info-text>
+              <h2
+                data-qx-account-section-premium={
+                  session?.user.isPremium || otConfig.server.premiumIsFree
+                }
+              >
+                <Switch>
+                  <Case condition={otConfig.server.premiumIsFree}>
+                    <>{t('quixer.account.status.freePremium')}</>
+                  </Case>
+                  <Case condition={session?.user.isPremium as boolean}>
+                    <>{t('quixer.account.status.premium')}</>
+                  </Case>
+                  <Default>
+                    <>{t('quixer.account.status.free')}</>
+                  </Default>
+                </Switch>
+              </h2>
+              <p>
+                <Switch>
+                  <Case condition={otConfig.server.premiumIsFree}>
+                    <>{t('quixer.account.status.freePermanent')}</>
+                  </Case>
+                  <Case condition={session?.user.isPremium as boolean}>
+                    <>
+                      {t('quixer.account.status.timeLeft')}{' '}
+                      {convertUnixTimeToDate(
+                        session?.user.premiumDateExpireUnixTime || 0,
+                        locale
+                      )}
+                    </>
+                  </Case>
+                  <Default>
+                    <>
+                      {t('quixer.account.status.timeExpired')}{' '}
+                      {convertUnixTimeToDate(
+                        session?.user.premiumDateExpireUnixTime || 0,
+                        locale
+                      )}
+                    </>
+                  </Default>
+                </Switch>
+              </p>
+              <p>
+                <Switch>
+                  <Case condition={otConfig.server.premiumIsFree}>
+                    <>
+                      {t('quixer.account.status.balance', {
+                        days: 0,
+                      })}
+                    </>
+                  </Case>
+                  <Default>
+                    <>
+                      {t('quixer.account.status.balance', {
+                        days: session?.user.premiumDays,
+                      })}
+                    </>
+                  </Default>
+                </Switch>
+              </p>
+            </div>
+          </div>
+          <div data-qx-account-section-status-actions>
+            <ButtonLink
+              href="/account/management"
+              variant="info"
+              text={t('quixer.account.actions.menage')}
+            />
+            <ButtonLink
+              href="/shop/premium"
+              variant="green"
+              text={t('quixer.account.actions.premium')}
+            />
+            <ButtonSignOut variant="button" />
           </div>
         </div>
-        <div data-qx-account-section-status-actions>
-          <ButtonLink
-            href="/account/management"
-            variant="info"
-            text={t('quixer.account.actions.menage')}
-          />
-          <ButtonLink
-            href="/shop/premium"
-            variant="green"
-            text={t('quixer.account.actions.premium')}
-          />
-          <ButtonSignOut variant="button" />
+      </InnerContainer>
+      <InnerContainer>
+        <div data-qx-account-premium-benefits-list>
+          <div data-qx-account-premium-benefits-item>
+            <Image src={IconPremium2} alt="icon" />
+            <span>{t('quixer.account.premium.benefits.outfits')}</span>
+          </div>
+          <div data-qx-account-premium-benefits-item>
+            <Image src={IconPremium1} alt="icon" />
+            <span>{t('quixer.account.premium.benefits.hunting')}</span>
+          </div>
+          <div data-qx-account-premium-benefits-item>
+            <Image src={IconPremium3} alt="icon" />
+            <span>{t('quixer.account.premium.benefits.battle')}</span>
+          </div>
         </div>
-      </div>
-    </InnerContainer>
+      </InnerContainer>
+    </Container>
   )
 }

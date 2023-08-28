@@ -1,7 +1,7 @@
 @import 'src/styles/scaffold';
 
 .qxAccountStatusSection {
-  &[data-qx-account-section-status] {
+  [data-qx-account-section-status] {
     display: flex;
     flex-direction: column;
     gap: var(--qx-spacing-3);
@@ -50,6 +50,32 @@
         font-weight: var(--qx-text-weight-regular);
         font-size: var(--qx-text-size-0);
         color: var(--qx-color-text-1);
+      }
+    }
+  }
+
+  [data-qx-account-premium-benefits-list] {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: var(--qx-spacing-1);
+
+    @include media('>=notebook') {
+      gap: var(--qx-spacing-3);
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    [data-qx-account-premium-benefits-item] {
+      display: flex;
+      align-items: center;
+      gap: var(--qx-spacing-0);
+
+      span {
+        font-size: var(--qx-text-size-1);
+        color: var(--qx-color-text-1);
+        font-weight: var(--qx-text-weight-regular);
+        font-family: var(--qx-text-face-poppins);
+        text-align: left;
       }
     }
   }
