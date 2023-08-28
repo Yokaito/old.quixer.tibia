@@ -1,7 +1,7 @@
 import type { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import z from 'zod'
-import { loginFunction } from '@/server/utils/login.function'
+import { loginFunction } from '@/sdk/server/utils/login.function'
 
 const schema = z.object({
   email: z.string().email(),

@@ -1,4 +1,4 @@
-import { ContextType } from '@/lib/trpc/context'
+import { ContextType } from '@/sdk/lib/trpc/context'
 import { initTRPC } from '@trpc/server'
 
 export const t = initTRPC.context<ContextType>().create()

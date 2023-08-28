@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 import BorderTitle from '@/assets/images/borders/headline-bracer.gif'
 import { getServerSession } from 'next-auth'
-import authOptions from '@/lib/auth'
-import { getI18n } from '@/locales/server'
+import authOptions from '@/sdk/lib/nextauth'
+import { getI18n } from '@/sdk/locales/server'
 import styles from './styles.module.scss'
 
 export const AccountWelcomeSection = async () => {

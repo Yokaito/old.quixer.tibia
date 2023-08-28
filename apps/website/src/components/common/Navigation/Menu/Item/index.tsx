@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import styles from './menu-item.module.scss'
 import { usePathname } from 'next/navigation'
-import { useCurrentLocale } from '@/locales/client'
+import { useCurrentLocale } from '@/sdk/locales/client'
 import { useState } from 'react'
 import Image from 'next/image'
 

@@ -1,7 +1,7 @@
 import styles from './menu.module.scss'
 import { MenuBox } from '@/components/ui'
 import { MenuItem } from './Item'
-import { getI18n } from '@/locales/server'
+import { getI18n } from '@/sdk/locales/server'
 
 const getMenuTranslated = async () => {
   const t = await getI18n()

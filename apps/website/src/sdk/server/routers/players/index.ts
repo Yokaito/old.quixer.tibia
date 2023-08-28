@@ -1,6 +1,6 @@
-import { router, publicProcedure } from '@/server/trpc'
-import { prisma } from '@/lib/prisma'
-import { loggedInProcedure } from '@/server/middlewares'
+import { router, publicProcedure } from '@/sdk/server/trpc'
+import { prisma } from '@/sdk/lib/prisma'
+import { loggedInProcedure } from '@/sdk/server/middlewares'
 
 export const playersRouter = router({
   online: publicProcedure.query(async () => {

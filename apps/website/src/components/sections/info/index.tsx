@@ -3,8 +3,8 @@ import Icon from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/Section/Header'
 import styles from './info-bar.module.scss'
 import Link from 'next/link'
-import { getI18n } from '@/locales/server'
-import { serverClient } from '@/lib/trpc/server'
+import { getI18n } from '@/sdk/locales/server'
+import { serverClient } from '@/sdk/lib/trpc/server'
 
 export const InfoSection = async () => {
   const t = await getI18n()

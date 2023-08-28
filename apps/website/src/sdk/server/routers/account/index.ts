@@ -1,7 +1,7 @@
-import { prisma } from '@/lib/prisma'
-import { getI18n } from '@/locales/server'
-import { loggedInProcedure } from '@/server/middlewares'
-import { publicProcedure, router } from '@/server/trpc'
+import { prisma } from '@/sdk/lib/prisma'
+import { getI18n } from '@/sdk/locales/server'
+import { loggedInProcedure } from '@/sdk/server/middlewares'
+import { publicProcedure, router } from '@/sdk/server/trpc'
 import { TRPCError } from '@trpc/server'
 import sha1 from 'sha1'
 

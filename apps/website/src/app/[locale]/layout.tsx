@@ -9,7 +9,7 @@ import '@/styles/global/toastify.scss'
 
 import Layout from '@/components/Layout'
 import { Providers } from './providers'
-import { authOptions } from '@/lib/auth'
+import { authOptions } from '@/sdk/lib/nextauth'
 import { getServerSession } from 'next-auth'
 
 const fondamento = Fondamento({

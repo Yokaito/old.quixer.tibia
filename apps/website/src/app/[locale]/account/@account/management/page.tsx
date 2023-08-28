@@ -1,7 +1,7 @@
 import { Section } from '@/components/ui'
 import { SectionHeader } from '@/components/ui/Section/Header'
 import InnerSection from '@/components/ui/Section/Inner'
-import { getI18n } from '@/locales/server'
+import { getI18n } from '@/sdk/locales/server'
 import { GeneralInformationSection } from '@/components/Management'
 
 export default async function AccountManagement() {

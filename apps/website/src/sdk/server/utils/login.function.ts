@@ -1,5 +1,5 @@
-import { prisma } from '@/lib/prisma'
-import { verifyPremiumTime } from '@/utils/premium-time'
+import { prisma } from '@/sdk/lib/prisma'
+import { verifyPremiumTime } from '@/sdk/utils/premium-time'
 import { TRPCError } from '@trpc/server'
 import sha1 from 'sha1'
 

@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import env from '@/env'
+import env from '@/sdk/env'
 
 const prismaGlobal = global as typeof global & {
   prisma?: PrismaClient

@@ -1,7 +1,7 @@
 'use client'
 import { useSession } from 'next-auth/react'
 import styles from './button.signout.module.scss'
-import { useI18n } from '@/locales/client'
+import { useI18n } from '@/sdk/locales/client'
 import { useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { signOut } from 'next-auth/react'

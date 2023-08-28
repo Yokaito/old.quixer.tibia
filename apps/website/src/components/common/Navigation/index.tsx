@@ -3,7 +3,7 @@ import BoxLogin from './BoxLogin'
 import Menu from './Menu'
 import { MenuBox } from '@/components/ui'
 import Button from '@/components/ui/Button'
-import { getI18n } from '@/locales/server'
+import { getI18n } from '@/sdk/locales/server'
 
 export const Navigation = async () => {
   const t = await getI18n()

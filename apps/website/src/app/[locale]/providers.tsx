@@ -1,14 +1,14 @@
 'use client'
 
 import { SessionProvider } from 'next-auth/react'
-import { I18nProviderClient } from '@/locales/client'
-import TRPCProvider from '@/lib/trpc/Provider'
+import { I18nProviderClient } from '@/sdk/locales/client'
+import { TRPCProvider } from '@/sdk/providers'
 import { ToastContainer } from 'react-toastify'
 import { Session } from 'next-auth'
 
-import en from '@/locales/en'
-import fr from '@/locales/fr'
-import pt from '@/locales/pt'
+import en from '@/sdk/locales/en'
+import fr from '@/sdk/locales/fr'
+import pt from '@/sdk/locales/pt'
 
 type Props = {
   children?: React.ReactNode

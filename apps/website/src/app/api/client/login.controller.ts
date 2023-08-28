@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
 import z from 'zod'
 import sha1 from 'sha1'
-import { prisma } from '@/lib/prisma'
-import { verifyPremiumTime } from '@/utils/premium-time'
-import createCharacter from '@/utils/create-character'
+import { prisma } from '@/sdk/lib/prisma'
+import { verifyPremiumTime } from '@/sdk/utils/premium-time'
+import createCharacter from '@/sdk/utils/create-character'
 import { otConfig } from '@/quixer'
 
 /**
