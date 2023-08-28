@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.48](https://github.com/Yokaito/quixer/compare/v0.0.47...v0.0.48) (2023-08-28)
+
+### Refactoring
+
+- **website:** create folder sdk and put all files related inside ([038eeae](https://github.com/Yokaito/quixer/commit/038eeae57fa017efa49d171f806da92e8290e778))
+
 ## [0.0.47](https://github.com/Yokaito/quixer/compare/v0.0.46...v0.0.47) (2023-08-27)
 
 ### Chores
