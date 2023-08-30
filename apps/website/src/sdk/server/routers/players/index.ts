@@ -35,6 +35,13 @@ export const playersRouter = router({
       where: {
         account_id: Number(session.user.id),
       },
+      include: {
+        worlds: {
+          select: {
+            name: true,
+          },
+        },
+      },
     })
 
     return {

@@ -1,6 +1,5 @@
 import { serverClient } from '@/sdk/lib/trpc/server'
 import styles from './list.module.scss'
-import { otConfig } from '@/quixer'
 import { getVocationName } from '@/sdk/utils/get-vocation'
 import DailyRewardNotCollectedIcon from '@/assets/images/icons/global/dailyreward-notcollected.png'
 import DailyRewardCollectedIcon from '@/assets/images/icons/global/dailyreward-collected.png'
@@ -56,7 +55,7 @@ export const AccountCharacterListSection = async () => {
                     </p>
                     <p data-qx-item-info-specifications>
                       {getVocationName(character.vocation)} - Level{' '}
-                      {character.level} - {otConfig.server.worldName}
+                      {character.level} - {character.worlds.name}
                     </p>
                   </td>
                   <td data-qx-item-status>
