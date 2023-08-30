@@ -42,7 +42,7 @@ export const AccountCharacterListSection = async () => {
                 <tr
                   key={character.id}
                   data-qx-item
-                  data-qx-item-main-character={character.mainCharacter}
+                  data-qx-item-main-character={character.main}
                 >
                   <td width="15px" data-qx-item-index>
                     {idx + 1}.
@@ -50,7 +50,7 @@ export const AccountCharacterListSection = async () => {
                   <td width="50%" data-qx-item-info>
                     <p data-qx-item-info-name>
                       {character.name}
-                      {character.mainCharacter && (
+                      {character.main && (
                         <Image src={MainCharacterIcon} alt="main character" />
                       )}
                     </p>

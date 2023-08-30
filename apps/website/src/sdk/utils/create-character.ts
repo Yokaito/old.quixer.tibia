@@ -3,7 +3,7 @@ import { getVocationName } from './get-vocation'
 
 export const createCharacter = (player: players) => {
   return {
-    worldid: 0,
+    worldid: player.world_id,
     name: player.name,
     ismale: player.sex === 1,
     tutorial: player.istutorial,
@@ -17,7 +17,7 @@ export const createCharacter = (player: players) => {
     addonsflags: player.lookaddons,
     ishidden: player.ishidden,
     istournamentparticipant: false,
-    ismaincharacter: player.mainCharacter,
+    ismaincharacter: player.main,
     dailyrewardstate: player.isreward ? 1 : 0,
     remainingdailytournamentplaytime: false,
   }

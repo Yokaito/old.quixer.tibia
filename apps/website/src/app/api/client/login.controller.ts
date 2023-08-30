@@ -88,32 +88,36 @@ export const LoginController = async (
       },
     })
 
+    const worlds = await prisma.worlds.findMany()
+
     const characters = accountCharacters.map((character) =>
       createCharacter(character)
     )
 
+    const worldToSend = worlds.map((world) => {
+      return {
+        id: world.id,
+        name: world.name,
+        externaladdress: world.ip,
+        externaladdressprotected: world.ip,
+        externaladdressunprotected: world.ip,
+        externalport: world.port,
+        externalportprotected: world.port,
+        externalportunprotected: world.port,
+        location: world.location,
+        anticheatprotection: world.battle_eye,
+        istournamentworld: false,
+        currenttournamentphase: 0,
+        previewstate: 0,
+        pvptype: world.pvp_type,
+        restrictedstore: false,
+      }
+    })
+
     const objectToClientTibia = {
       playdata: {
         characters,
-        worlds: [
-          {
-            id: otConfig.server.worldid,
-            name: otConfig.server.worldName,
-            externaladdress: otConfig.server.ip,
-            externaladdressprotected: otConfig.server.ip,
-            externaladdressunprotected: otConfig.server.ip,
-            externalport: otConfig.server.loginProtocolPort,
-            externalportprotected: otConfig.server.gameProtocolPort,
-            externalportunprotected: otConfig.server.gameProtocolPort,
-            location: otConfig.server.location,
-            anticheatprotection: otConfig.server.battleEyeActive,
-            istournamentworld: false,
-            currenttournamentphase: 0,
-            previewstate: 0,
-            pvptype: otConfig.server.pvpType,
-            restrictedstore: false,
-          },
-        ],
+        worlds: worldToSend,
       },
       session: {
         emailcoderequest: false,

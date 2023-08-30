@@ -521,11 +521,34 @@ model player_wheeldata {
   @@index([player_id], map: "player_id")
 }
 
+model worlds {
+  id             Int        @id @default(autoincrement())
+  name           String     @unique(map: "worlds_name_unique") @db.VarChar(80)
+  creation       DateTime?  @default(now()) @db.DateTime(0)
+  location       String     @default("") @db.VarChar(255)
+  pvp_type       Int        @default(0) @db.Int
+  premium_type   Int        @default(0) @db.Int
+  transfer_type  Int        @default(0) @db.Int
+  battle_eye     Boolean    @default(false)
+  world_type     Int        @default(0) @db.Int
+  ip             String     @db.VarChar(255)
+  port           Int
+  players        players[]
+}
+
+model player_groups {
+  id          Int        @id @default(autoincrement())
+  group_id    Int       @default(1)
+  name        String  @db.VarChar(255)
+  players     players[]
+}
+
 model players {
   id                                                       Int                    @id @default(autoincrement())
   name                                                     String                 @unique(map: "players_unique") @db.VarChar(255)
   ishidden                                                 Boolean                @default(false)
-  mainCharacter                                            Boolean                @default(false)
+  main                                                     Boolean                @default(false)
+  world_id                                                 Int                    @default(1)
   group_id                                                 Int                    @default(1)
   account_id                                               Int                    @default(0) @db.UnsignedInt
   level                                                    Int                    @default(1)
@@ -648,9 +671,13 @@ model players {
   player_storage                                           player_storage[]
   player_wheeldata                                         player_wheeldata[]
   players_online                                           players_online?
+  worlds                                                   worlds                 @relation(fields: [world_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "players_worlds_fk")
   accounts                                                 accounts               @relation(fields: [account_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "players_account_fk")
+  group_idToplayer_groups                                  player_groups          @relation(fields: [group_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "players_group_fk")
 
   @@index([account_id], map: "account_id")
+  @@index([group_id], map: "group_id")
+  @@index([world_id], map: "world_id")
   @@index([vocation], map: "vocation")
 }
 

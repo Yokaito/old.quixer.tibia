@@ -2,12 +2,13 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-const mockPlayers = (accountId: number) => {
+const mockPlayers = (accountId: number, worldId: number) => {
   return [
     {
       name: 'Rook Sample',
       group_id: 1,
       ishidden: true,
+      world_id: worldId,
       account_id: accountId,
       level: 2,
       vocation: 0,
@@ -40,6 +41,7 @@ const mockPlayers = (accountId: number) => {
       name: 'Sorcerer Sample',
       group_id: 1,
       ishidden: true,
+      world_id: worldId,
       account_id: accountId,
       level: 8,
       vocation: 1,
@@ -72,6 +74,7 @@ const mockPlayers = (accountId: number) => {
       name: 'Druid Sample',
       group_id: 1,
       ishidden: true,
+      world_id: worldId,
       account_id: accountId,
       level: 8,
       vocation: 2,
@@ -104,6 +107,7 @@ const mockPlayers = (accountId: number) => {
       name: 'Paladin Sample',
       group_id: 1,
       ishidden: true,
+      world_id: worldId,
       account_id: accountId,
       level: 8,
       vocation: 3,
@@ -136,6 +140,7 @@ const mockPlayers = (accountId: number) => {
       name: 'Knight Sample',
       group_id: 1,
       ishidden: true,
+      world_id: worldId,
       account_id: accountId,
       level: 8,
       vocation: 4,
@@ -166,8 +171,9 @@ const mockPlayers = (accountId: number) => {
     },
     {
       name: '[GM] Quixer',
-      mainCharacter: true,
+      main: true,
       group_id: 6,
+      world_id: worldId,
       account_id: accountId,
       level: 8,
       vocation: 0,
@@ -209,8 +215,57 @@ export const main = async (): Promise<void> => {
     },
   })
 
+  const world = await prisma.worlds.create({
+    data: {
+      name: 'OTServBR-Global',
+      location: 'BRA',
+      pvp_type: 1,
+      premium_type: 0,
+      transfer_type: 0,
+      battle_eye: false,
+      world_type: 0,
+      ip: '127.0.0.1',
+      port: 7172,
+    },
+  })
+
+  await prisma.player_groups.createMany({
+    data: [
+      {
+        id: 1,
+        name: 'player',
+        group_id: 1,
+      },
+      {
+        id: 2,
+        name: 'tutor',
+        group_id: 2,
+      },
+      {
+        id: 3,
+        name: 'senior tutor',
+        group_id: 3,
+      },
+      {
+        id: 4,
+        name: 'gamemaster',
+        group_id: 4,
+      },
+      {
+        id: 5,
+        name: 'community manager',
+        group_id: 5,
+      },
+      {
+        id: 6,
+        name: 'god',
+        group_id: 6,
+      },
+    ],
+  })
+
   await prisma.players.createMany({
-    data: mockPlayers(user.id),
+    data: mockPlayers(user.id, world.id),
   })
 }
 
