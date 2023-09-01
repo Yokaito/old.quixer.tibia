@@ -1,7 +1,26 @@
 export default {
   quixer: {
+    character: {
+      create: {
+        guide:
+          'Veuillez choisir un nom et un sexe pour votre personnage ainsi que le monde du jeu dans lequel vous souhaitez que le personnage vive. Si vous ne trouvez aucun nom fantastique, cliquez sur le lien situé sous le champ du nom pour obtenir des suggestions de nom. Dans tous les cas, le nom ne doit pas violer les conventions de dénomination énoncées dans les règles du Tibia, sinon votre personnage pourrait être supprimé ou son nom verrouillé.',
+        worlds: 'Mondes de jeu',
+        filter: 'Filtrer par emplacement du monde du jeu',
+        filterDescription:
+          'Pour une bonne connexion et ainsi la meilleure expérience de jeu possible, veuillez sélectionner un monde de jeu situé le plus près de chez vous.',
+        filterPvp: 'Filtrer par type de monde de jeu PvP',
+        filterPvpDescription:
+          'Il existe cinq types de mondes de jeu différents qui diffèrent par la rigueur des règles PvP. Pour une description détaillée, veuillez consulter notre manuel. Si vous ne parvenez pas à choisir un type de monde de jeu, nous vous recommandons de jouer en PvP facultatif.',
+        'no-pvp':
+          "Ce n'est que si les deux parties sont d'accord que les personnages peuvent être combattus",
+        pvp: "tuer d'autres personnages est possible, mais restreint",
+        pvpEnforced:
+          "Tuer d'autres personnages est possible, mais restreint (anciennes règles PvP)",
+      },
+    },
     success: {
       createAccount: 'Compte créé avec succès! Connexion...',
+      createCharacter: 'Personnage créé avec succès ! Redirection...',
     },
     errors: {
       email: 'Veuillez saisir une adresse e-mail valide',
@@ -15,8 +34,16 @@ export default {
       terms: "Vous devez accepter l'accord de service Tibia.",
       emailAlreadyTaken: 'Cet email est déjà pris',
       nameAlreadyTaken: 'Le nom est déjà pris',
+      worldNotFound: 'Monde introuvable',
+      nameIsNotPermitted: "Le nom n'est pas autorisé",
     },
     geral: {
+      world: 'Monde',
+      back: 'Retour',
+      send: 'Envoyer',
+      sex: 'Sexe',
+      male: 'Mâle',
+      female: 'Femelle',
       attention: 'Attention',
       name: 'Nom',
       email: 'Email',

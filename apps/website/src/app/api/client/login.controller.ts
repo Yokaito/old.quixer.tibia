@@ -3,7 +3,7 @@ import z from 'zod'
 import sha1 from 'sha1'
 import { prisma } from '@/sdk/lib/prisma'
 import { verifyPremiumTime } from '@/sdk/utils/premium-time'
-import createCharacter from '@/sdk/utils/create-character'
+import { createCharacterForClient } from '@/sdk/utils/create-character'
 import { otConfig } from '@/quixer'
 
 /**
@@ -88,10 +88,15 @@ export const LoginController = async (
       },
     })
 
-    const worlds = await prisma.worlds.findMany()
+    const worlds = await prisma.worlds.findMany({
+      include: {
+        world_location: true,
+        world_pvptype: true,
+      },
+    })
 
     const characters = accountCharacters.map((character) =>
-      createCharacter(character)
+      createCharacterForClient(character)
     )
 
     const worldToSend = worlds.map((world) => {
@@ -104,12 +109,12 @@ export const LoginController = async (
         externalport: world.port,
         externalportprotected: world.port,
         externalportunprotected: world.port,
-        location: world.location,
+        location: world.world_location.clientValue,
         anticheatprotection: world.battle_eye,
         istournamentworld: false,
         currenttournamentphase: 0,
         previewstate: 0,
-        pvptype: world.pvp_type,
+        pvptype: world.world_pvptype.clientType,
         restrictedstore: false,
       }
     })

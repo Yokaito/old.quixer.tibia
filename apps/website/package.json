@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "migrate": "prisma migrate dev",
+    "seed": "prisma db seed",
     "prisma-reset": "prisma migrate reset"
   },
   "devDependencies": {
@@ -19,6 +20,7 @@
     "prisma": "^5.2.0",
     "sass": "^1.66.1",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {

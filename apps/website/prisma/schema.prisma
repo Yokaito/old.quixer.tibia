@@ -521,12 +521,28 @@ model player_wheeldata {
   @@index([player_id], map: "player_id")
 }
 
+
+model world_pvptype {
+  id          Int           @id @default(autoincrement())
+  name        String        @db.VarChar(255)
+  clientType  Int           @default(0) @db.UnsignedTinyInt
+  serverType  String        @db.VarChar(255) @default("no-pvp")  // ['no-pvp', 'pvp', 'pvp-enforced']
+  worlds      worlds[]
+}
+
+model world_location {
+  id            Int           @id @default(autoincrement())
+  name          String        @db.VarChar(255)
+  clientValue   String       @db.VarChar(255)
+  worlds        worlds[]
+}
+
 model worlds {
   id             Int        @id @default(autoincrement())
   name           String     @unique(map: "worlds_name_unique") @db.VarChar(80)
   creation       DateTime?  @default(now()) @db.DateTime(0)
-  location       String     @default("") @db.VarChar(255)
-  pvp_type       Int        @default(0) @db.Int
+  location       Int        @default(0) @db.Int
+  pvp_type       Int        @default(0) @db.Int // 0 = no-pvp, 1 = pvp, 2 = retro pvp
   premium_type   Int        @default(0) @db.Int
   transfer_type  Int        @default(0) @db.Int
   battle_eye     Boolean    @default(false)
@@ -534,6 +550,17 @@ model worlds {
   ip             String     @db.VarChar(255)
   port           Int
   players        players[]
+  world_location world_location @relation(fields: [location], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "worlds_world_location_fk")
+  world_pvptype  world_pvptype @relation(fields: [pvp_type], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "worlds_world_pvptype_fk")
+
+  @@index([location], map: "location")
+  @@index([pvp_type], map: "pvp_type")
+
+}
+
+model player_banned_names {
+  id          Int        @id @default(autoincrement())
+  name        String     @db.VarChar(255)
 }
 
 model player_groups {

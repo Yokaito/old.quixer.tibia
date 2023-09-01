@@ -1,4 +1,15 @@
 {
+  "ts-node": {
+    "require": ["tsconfig-paths/register"],
+    "compilerOptions": {
+      "module": "commonjs",
+      "baseUrl": "./",
+      "paths": {
+        "@/*": ["./src/*"],
+        "@/quixer": ["./quixer.config.ts"]
+      }
+    }
+  },
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

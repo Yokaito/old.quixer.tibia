@@ -1,0 +1,207 @@
+@import 'src/styles/scaffold';
+
+.qxCreateCharacterSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--qx-spacing-4);
+
+  [data-qx-create-info-guide] {
+    padding: 0 var(--qx-spacing-2);
+    padding-top: var(--qx-spacing-4);
+    text-align: center;
+    color: var(--qx-color-text-1);
+    font-size: var(--qx-text-size-2);
+    font-weight: var(--qx-text-weight-medium);
+  }
+
+  [data-qx-create-character-worlds] {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    [data-qx-worlds-title] {
+      padding: 0 var(--qx-spacing-0);
+    }
+
+    [data-qx-worlds-world-items] {
+      background-color: var(--qx-color-background-9);
+      display: grid;
+      gap: var(--qx-spacing-1);
+      grid-template-columns: repeat(2, 1fr);
+
+      @include media('>=notebook') {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    [data-qx-worlds-location],
+    [data-qx-worlds-pvp-type],
+    [data-qx-worlds-world-items] {
+      padding: var(--qx-spacing-4) var(--qx-spacing-2);
+    }
+
+    > * {
+      border-bottom: 2px solid var(--qx-color-border-4);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  [data-qx-create-info-character] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--qx-spacing-1);
+
+    @include media('>=notebook') {
+      flex-direction: row;
+      gap: var(--qx-spacing-4);
+      align-items: center;
+    }
+  }
+
+  [data-qx-create-info-sex],
+  [data-qx-create-info-radio] {
+    display: flex;
+    gap: var(--qx-spacing-1);
+  }
+
+  [data-qx-create-info-name] {
+    flex: 1;
+    display: flex;
+    gap: var(--qx-spacing-2);
+    align-items: center;
+    height: max-content;
+
+    @include input();
+
+    &[data-qx-form-input-error='true'] {
+      input {
+        outline-color: var(--qx-color-error);
+      }
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+
+  [data-qx-form-errors-wrapper] {
+    padding: var(--qx-spacing-2);
+  }
+
+  [data-qx-form-errors-wrapper],
+  [data-qx-form-errors-list] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--qx-spacing-1);
+  }
+
+  [data-qx-form-error-item] {
+    span {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--qx-spacing-0);
+      font-size: var(--qx-text-size-1);
+      color: var(--qx-color-error);
+      b {
+        color: var(--qx-color-text-1);
+        text-transform: capitalize;
+        font-weight: var(--qx-text-weight-bold);
+      }
+    }
+  }
+
+  [data-qx-form-error-item] {
+    display: flex;
+    align-items: center;
+    gap: var(--qx-spacing-0);
+  }
+
+  [data-qx-form-errors-title] {
+    font-size: var(--qx-text-size-2);
+    font-weight: var(--qx-text-weight-bold);
+    color: var(--qx-color-text-1);
+  }
+
+  [data-qx-create-form-actions] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  [data-qx-worlds-world-item] {
+    display: flex;
+    gap: var(--qx-spacing-1);
+    align-items: center;
+    cursor: pointer;
+  }
+
+  [data-qx-worlds-location],
+  [data-qx-worlds-pvp-type] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--qx-spacing-3);
+  }
+
+  [data-qx-worlds-items] {
+    display: flex;
+    gap: var(--qx-spacing-4);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  [data-qx-worlds-title],
+  [data-qx-worlds-subtitle],
+  [data-qx-worlds-input-label],
+  [data-qx-create-info-title] {
+    color: var(--qx-color-text-1);
+    font-size: var(--qx-text-size-2);
+    font-weight: var(--qx-text-weight-bold) !important;
+  }
+
+  [data-qx-create-info-radio] {
+    color: var(--qx-color-text-1);
+    font-size: var(--qx-text-size-2);
+  }
+
+  [data-qx-worlds-world-item-title] {
+    color: var(--qx-color-text-1);
+    font-size: var(--qx-text-size-2);
+  }
+
+  [data-qx-worlds-input-label] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  [data-qx-worlds-input-wrapper] {
+    display: flex;
+    gap: var(--qx-spacing-1);
+    align-items: center;
+  }
+
+  [data-qx-worlds-button] {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: max-content;
+    margin-bottom: var(--qx-spacing-1);
+  }
+  [data-qx-worlds-input-span] {
+    text-align: center;
+    max-width: 200px;
+  }
+
+  [data-qx-worlds-paragraph],
+  [data-qx-worlds-input-span] {
+    font-size: var(--qx-text-size-1);
+    font-weight: var(--qx-text-weight-light);
+    color: var(--qx-color-text-1);
+  }
+}

@@ -1,7 +1,25 @@
 export default {
   quixer: {
+    character: {
+      create: {
+        guide:
+          'Please choose a name and sex for your character as well as the game world on which you want the character to live. If you cannot think of any fantasy names, click on the link below the name field to get some suggestions for a name. In any case the name must not violate the naming conventions stated in the Tibia Rules, or your character might get deleted or name locked.',
+        worlds: 'Game Worlds',
+        filter: 'Filter by game world location',
+        filterDescription:
+          'For a good connection and with this the best possible gaming experience, please select a game world that is situated nearest your own location.',
+        filterPvp: 'Filter by game world PvP type',
+        filterPvpDescription:
+          'There are five different game world types that differ in the strictness of PvP rules. For a detailed description, please have a look at our manual. If you cannot decide for a game world type, we recommend playing on optional PvP.',
+        'no-pvp': 'Only if both sides agree, characters can be fought',
+        pvp: 'Killing other characters is possible, but restricted',
+        pvpEnforced:
+          'Killing other characters is possible, but restricted (old PvP rules)',
+      },
+    },
     success: {
       createAccount: 'Account created successfully! Logging in...',
+      createCharacter: 'Character created successfully! Redirecting...',
     },
     errors: {
       email: 'Please enter a valid email address',
@@ -14,8 +32,16 @@ export default {
       terms: 'You must agree to the Tibia Service Agreement.',
       emailAlreadyTaken: 'Email is already taken',
       nameAlreadyTaken: 'Name is already taken',
+      worldNotFound: 'World not found',
+      nameIsNotPermitted: 'Name is not permitted',
     },
     geral: {
+      world: 'World',
+      back: 'Back',
+      send: 'Send',
+      sex: 'Sex',
+      male: 'Male',
+      female: 'Female',
       attention: 'Attention',
       name: 'Name',
       email: 'Email',
