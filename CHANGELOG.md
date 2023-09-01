@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.50](https://github.com/Yokaito/quixer/compare/v0.0.49...v0.0.50) (2023-09-01)
+
+### Features
+
+- **website:** add new tables worlds and page create character ([e1a727a](https://github.com/Yokaito/quixer/commit/e1a727a537ee0c30d71c1749725b379043f77e13))
+
 ## [0.0.49](https://github.com/Yokaito/quixer/compare/v0.0.48...v0.0.49) (2023-08-30)
 
 ### Features
