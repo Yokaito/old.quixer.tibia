@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.49](https://github.com/Yokaito/quixer/compare/v0.0.48...v0.0.49) (2023-08-30)
+
+### Features
+
+- **website:** change columns and add two new tables worlds and player_groups ([2bea949](https://github.com/Yokaito/quixer/commit/2bea949dd4aee4116a535270edcaedd6e5ecb23f))
+
 ## [0.0.48](https://github.com/Yokaito/quixer/compare/v0.0.47...v0.0.48) (2023-08-28)
 
 ### Refactoring
