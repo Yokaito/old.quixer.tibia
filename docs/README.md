@@ -16,11 +16,12 @@
 
 <div align="center">
   <br />
-  <img src="https://sonarcloud.io/api/project_badges/measure?project=MITHGaming_mitg.misior&metric=sqale_rating" alt="PRs welcome!" />
-  <img src="https://sonarcloud.io/api/project_badges/measure?project=MITHGaming_mitg.misior&metric=security_rating" alt="PRs welcome!" />
-  <img src="https://sonarcloud.io/api/project_badges/measure?project=MITHGaming_mitg.misior&metric=bugs" alt="PRs welcome!" />
-  <img src="https://sonarcloud.io/api/project_badges/measure?project=MITHGaming_mitg.misior&metric=code_smells" alt="PRs welcome!" />
-  <img src="https://sonarcloud.io/api/project_badges/measure?project=MITHGaming_mitg.misior&metric=vulnerabilities" alt="PRs welcome!" /> 
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=Yokaito_quixer&metric=duplicated_lines_density" alt="alert status" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=Yokaito_quixer&metric=sqale_rating" alt="sqale_rating" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=Yokaito_quixer&metric=security_rating" alt="security_rating" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=Yokaito_quixer&metric=bugs" alt="bugs" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=Yokaito_quixer&metric=code_smells" alt="code_smells" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=Yokaito_quixer&metric=vulnerabilities" alt="vulnerabilities" /> 
 </div>
 
 <div align="center">
