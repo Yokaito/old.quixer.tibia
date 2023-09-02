@@ -49,11 +49,11 @@ export const CreateCharacterSection = () => {
   const {
     register,
     handleSubmit,
+    resetField,
     formState: { errors },
   } = useForm<z.infer<typeof schema>>({
     defaultValues: {
       sex: '1',
-      worldId: '1',
     },
     resolver: zodResolver(schema),
   })
@@ -81,6 +81,10 @@ export const CreateCharacterSection = () => {
 
     toast.error(error?.message)
   }, [error])
+
+  useEffect(() => {
+    resetField('worldId')
+  }, [location, pvpType, resetField])
 
   return (
     <div className={styles.qxCreateCharacterSection}>
