@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.53](https://github.com/Yokaito/quixer/compare/v0.0.52...v0.0.53) (2023-09-02)
+
+### Features
+
+- **website:** add section worlds with edit world in admin section ([5f6753b](https://github.com/Yokaito/quixer/commit/5f6753b80501da3375021911281d5023e18745e0))
+
 ## 0.0.52 (2023-09-02)
 
 **Note:** Version bump only for package quixer
