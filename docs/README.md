@@ -11,7 +11,7 @@
 <div align="center">
   <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&style=flat-square&color=5e17eb&labelColor=000000" alt="PRs welcome!" />
 
-  <img alt="License" src="https://img.shields.io/badge/license-MITG-brightgreen?style=flat-square&color=5e17eb&labelColor=000000">
+  <img alt="License" src="https://img.shields.io/badge/license-Quixer-brightgreen?style=flat-square&color=5e17eb&labelColor=000000">
 </div>
 
 <div align="center">
