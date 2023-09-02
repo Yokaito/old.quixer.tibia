@@ -54,6 +54,12 @@ model account_viplist {
   @@index([player_id], map: "player_id")
 }
 
+model account_type {
+  id          Int        @id @default(autoincrement())
+  name        String     @unique() @db.VarChar(255)
+  accounts    accounts[]
+}
+
 model accounts {
   id                  Int                   @id @default(autoincrement()) @db.UnsignedInt
   name                String                @unique(map: "accounts_unique") @db.VarChar(32)
@@ -61,7 +67,7 @@ model accounts {
   email               String                @unique @db.VarChar(255)
   premdays            Int                   @default(0)
   lastday             Int                   @default(0) @db.UnsignedInt
-  type                Int                   @default(1) @db.UnsignedTinyInt
+  type                Int                   @default(1)
   coins               Int                   @default(0) @db.UnsignedInt
   tournament_coins    Int                   @default(0) @db.UnsignedInt
   creation            Int                   @default(0) @db.UnsignedInt
@@ -74,6 +80,9 @@ model accounts {
   coins_transactions  coins_transactions[]
   players             players[]
   store_history       store_history[]
+  account_type        account_type         @relation(fields: [type], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "accounts_account_type_fk")
+
+  @@index([type], map: "type")
 }
 
 model boosted_boss {

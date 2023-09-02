@@ -75,6 +75,31 @@ const mockPlayers = (accountId: number, worldId: number) => {
 }
 
 export const main = async (): Promise<void> => {
+  await prisma.account_type.createMany({
+    data: [
+      {
+        id: 1,
+        name: 'Normal',
+      },
+      {
+        id: 2,
+        name: 'Tutor',
+      },
+      {
+        id: 3,
+        name: 'Senior Tutor',
+      },
+      {
+        id: 4,
+        name: 'Gamemaster',
+      },
+      {
+        id: 5,
+        name: 'God',
+      },
+    ],
+  })
+
   const user = await prisma.accounts.create({
     data: {
       name: 'god',
