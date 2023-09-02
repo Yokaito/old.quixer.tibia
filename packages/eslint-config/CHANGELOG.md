@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.54 (2023-09-02)
+
+**Note:** Version bump only for package @quixer/eslint-config
+
 ## [0.0.53](https://github.com/Yokaito/quixer/compare/v0.0.52...v0.0.53) (2023-09-02)
 
 **Note:** Version bump only for package @quixer/eslint-config
