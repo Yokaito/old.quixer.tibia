@@ -36,6 +36,7 @@ export default {
       nameIsNotPermitted: 'Name is not permitted',
     },
     geral: {
+      admin: 'Admin',
       world: 'World',
       back: 'Back',
       send: 'Send',

@@ -37,6 +37,7 @@ export default {
       nameIsNotPermitted: 'Nome não é permitido',
     },
     geral: {
+      admin: 'Admin',
       world: 'Mundo',
       back: 'Voltar',
       send: 'Enviar',
