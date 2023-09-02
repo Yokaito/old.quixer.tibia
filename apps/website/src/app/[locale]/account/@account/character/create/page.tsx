@@ -1,7 +1,7 @@
+import CreateCharacterSection from '@/components/account/CreateCharacterSection'
 import { Section } from '@/components/ui'
 import { SectionHeader } from '@/components/ui/Section/Header'
 import InnerSection from '@/components/ui/Section/Inner'
-import { CreateCharacterSection } from '@/components/account'
 import { getI18n } from '@/sdk/locales/server'
 
 export default async function AccountCharacterCreate() {

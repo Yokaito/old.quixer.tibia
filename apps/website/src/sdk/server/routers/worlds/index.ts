@@ -18,6 +18,18 @@ export const worldsRouter = router({
           pvp_type: input?.pvpType,
           location: input?.location,
         },
+        include: {
+          world_location: {
+            select: {
+              name: true,
+            },
+          },
+          world_pvptype: {
+            select: {
+              name: true,
+            },
+          },
+        },
       })
 
       return worlds
