@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.55](https://github.com/Yokaito/quixer/compare/v0.0.54...v0.0.55) (2023-09-02)
+
+### Bug Fixes
+
+- add all to before locales in sonar config ([04ef32a](https://github.com/Yokaito/quixer/commit/04ef32af0d52a5367b21ebd287167863d526ed21))
+
 ## 0.0.54 (2023-09-02)
 
 ### Chores
