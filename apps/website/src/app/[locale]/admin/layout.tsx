@@ -1,6 +1,7 @@
 import { Section } from '@/components/ui'
 import { SectionHeader } from '@/components/ui/Section/Header'
 import InnerSection from '@/components/ui/Section/Inner'
+import { AccountType } from '@/constants'
 import authOptions from '@/sdk/lib/nextauth'
 import { getI18n } from '@/sdk/locales/server'
 import { getServerSession } from 'next-auth'
@@ -14,7 +15,7 @@ export default async function AdminPage({ worlds }: AdminPageProps) {
   const t = await getI18n()
   const session = await getServerSession(authOptions)
 
-  if (!session || (session?.user && session?.user.type <= 2)) {
+  if (!session || (session?.user && session?.user.type <= AccountType.TUTOR)) {
     redirect(`/account`)
   }
 

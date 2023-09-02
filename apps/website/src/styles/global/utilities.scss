@@ -31,7 +31,8 @@
     -webkit-box-shadow: 0 0 0 30px white inset !important;
   }
 
-  input {
+  input,
+  select {
     background-color: var(--qx-color-default-white);
     border: 1px solid var(--qx-color-border-5);
     font-size: var(--qx-text-size-1);
@@ -40,6 +41,11 @@
     padding: var(--qx-spacing-0);
     &:focus {
       outline: 1px solid var(--qx-color-border-0);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 }

@@ -2,13 +2,21 @@ import { getServerSession } from 'next-auth/next'
 import { TRPCError } from '@trpc/server'
 import { t } from '@/sdk/server/trpc'
 import authOptions from '@/sdk/lib/nextauth'
+import { PlayerType } from '@/constants'
 import { getI18n } from '@/sdk/locales/server'
 
-export const isAuthenticated = t.middleware(async ({ next, ctx }) => {
+export const isAdmin = t.middleware(async ({ next, ctx }) => {
   const session = await getServerSession(authOptions)
   const t = await getI18n()
 
   if (!session) {
+    throw new TRPCError({
+      code: 'UNAUTHORIZED',
+      message: t('quixer.errors.unauthorized'),
+    })
+  }
+
+  if (session.user.type !== PlayerType.GOD) {
     throw new TRPCError({
       code: 'UNAUTHORIZED',
       message: t('quixer.errors.unauthorized'),
@@ -23,4 +31,4 @@ export const isAuthenticated = t.middleware(async ({ next, ctx }) => {
   })
 })
 
-export const loggedInProcedure = t.procedure.use(isAuthenticated)
+export const adminInProcedure = t.procedure.use(isAdmin)

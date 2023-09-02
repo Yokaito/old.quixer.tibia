@@ -1,25 +1,168 @@
+@import 'src/styles/scaffold';
+
 .qxWorldsSection {
   [data-qx-table-worlds] {
-    border: 1px solid lightgray;
     width: 100%;
     border-collapse: collapse;
 
     tbody {
-      border-bottom: 1px solid lightgray;
+      tr {
+        &:last-child {
+          td {
+            border-bottom: none;
+          }
+        }
+
+        &:nth-child(odd) {
+          td {
+            background-color: var(--qx-color-background-9);
+          }
+        }
+      }
+
+      td {
+        text-align: center;
+        padding: var(--qx-spacing-0) 2px;
+        border-bottom: 1px solid var(--qx-color-border-4);
+        border-right: 1px solid var(--qx-color-border-4);
+        font-size: var(--qx-text-size-1);
+        color: var(--qx-color-text-1);
+
+        @include media('>=tablet') {
+          padding: var(--qx-spacing-0);
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
     }
 
     th {
-      border-bottom: 1px solid lightgray;
-      border-right: 1px solid lightgray;
-      padding: 2px 4px;
+      font-size: var(--qx-text-size-2);
+      font-weight: var(--qx-text-weight-bold);
+      color: var(--qx-color-text-1);
+      background-color: var(--qx-color-background-10);
+      border-bottom: 1px solid var(--qx-color-border-4);
+      border-right: 1px solid var(--qx-color-border-4);
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  [data-qx-world-section-container] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--qx-spacing-2);
+    padding: 0;
+  }
+
+  [data-qx-worlds-page-count] {
+    font-size: var(--qx-text-size-1);
+    font-weight: var(--qx-text-weight-medium);
+    color: var(--qx-color-text-1);
+  }
+
+  [data-qx-world-table-actions] {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  [data-qx-world-pagination] {
+    display: flex;
+    align-items: center;
+    gap: var(--qx-spacing-1);
+  }
+
+  [data-qx-actions-world] {
+    display: flex;
+    align-items: center;
+    gap: var(--qx-spacing-1);
+    justify-content: center;
+    flex-direction: column;
+
+    @include media('>=tablet') {
+      flex-direction: row;
+    }
+  }
+
+  [data-qx-world-header-table] {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--qx-spacing-2);
+
+    @include media('>=tablet') {
+      flex-direction: row;
     }
 
-    tfoot {
-      color: gray;
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus,
+    select:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
     }
 
-    tfoot th {
-      font-weight: normal;
+    select {
+      background-color: var(--qx-color-default-white);
+      border: 1px solid var(--qx-color-border-5);
+      font-size: var(--qx-text-size-1);
+      font-weight: var(--qx-text-weight-regular);
+      color: var(--qx-color-default-black);
+      padding: var(--qx-spacing-0);
+      &:focus {
+        outline: 1px solid var(--qx-color-border-0);
+      }
+    }
+  }
+
+  [data-qx-world-filter] {
+    display: flex;
+    align-items: center;
+    gap: var(--qx-spacing-1);
+
+    label {
+      font-size: var(--qx-text-size-1);
+      color: var(--qx-color-text-1);
+      font-weight: var(--qx-text-weight-medium);
+    }
+
+    @include input();
+    input {
+      min-width: var(--qx-spacing-13);
+    }
+  }
+
+  [data-qx-world-table-pagination-button] {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: max-content;
+    transition: filter 0.2s ease-in-out;
+    padding: var(--qx-spacing-0);
+
+    &:hover {
+      filter: brightness(1.1) contrast(1.1) saturate(1.1);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    &[data-qx-world-table-pagination-button='next'] {
+      img {
+        transform: rotate(90deg);
+      }
+    }
+
+    &[data-qx-world-table-pagination-button='previous'] {
+      img {
+        transform: rotate(-90deg) scaleX(-1);
+      }
     }
   }
 }

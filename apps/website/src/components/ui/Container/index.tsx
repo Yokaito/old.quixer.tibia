@@ -1,12 +1,16 @@
 import { HTMLAttributes, forwardRef } from 'react'
 import styles from './container.module.scss'
+import Image from 'next/image'
+import CloseButtonImg from '@/assets/images/buttons/icon-cancel-over.png'
+import { Button } from '..'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string
+  onClose?: () => void
 }
 
 export const Container = forwardRef<HTMLDivElement, Props>(
-  ({ children, title, className, ...otherProps }, ref) => {
+  ({ children, title, className, onClose, ...otherProps }, ref) => {
     return (
       <div
         className={`${styles.qxContainer} ${className ? className : ''}`}
@@ -18,7 +22,14 @@ export const Container = forwardRef<HTMLDivElement, Props>(
           <span data-qx-container-border="right" />
           <span data-qx-container-corner="rightUp"></span>
           <span data-qx-container-corner="rightDown"></span>
-          <h1 data-qx-container-header-title>{title}</h1>
+          <div data-qx-container-title-wrapper>
+            <h1 data-qx-container-header-title>{title}</h1>
+            {onClose && (
+              <Button data-qx-container-close onClick={onClose}>
+                <Image src={CloseButtonImg} alt="close" />
+              </Button>
+            )}
+          </div>
           <span data-qx-container-border="bottom" />
           <span data-qx-container-border="left" />
           <span data-qx-container-corner="leftUp"></span>

@@ -7,6 +7,7 @@ import { getI18n } from '@/sdk/locales/server'
 import ButtonLink from '@/components/ui/Button/ButtonAsLink'
 import { getServerSession } from 'next-auth'
 import authOptions from '@/sdk/lib/nextauth'
+import { PlayerType } from '@/sdk/constants'
 
 export const Navigation = async () => {
   const t = await getI18n()
@@ -16,7 +17,7 @@ export const Navigation = async () => {
     <nav data-qx-navigation className={`${styles.qxNavigation}`}>
       <BoxLogin />
       <Switch>
-        <Case condition={session!?.user.type >= 3}>
+        <Case condition={session!?.user.type >= PlayerType.TUTOR}>
           <MenuBox showChain>
             <ButtonLink
               variant="regular"

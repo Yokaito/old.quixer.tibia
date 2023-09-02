@@ -1,0 +1,59 @@
+@import 'src/styles/scaffold';
+
+.qxModalEditWorld {
+  [data-qx-world-edit-inputs] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--qx-spacing-1);
+  }
+
+  [data-qx-world-input] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--qx-spacing-0);
+
+    @include input();
+  }
+
+  [data-qx-world-group-input] {
+    display: flex;
+    flex-direction: row;
+    gap: var(--qx-spacing-0);
+  }
+
+  [data-qx-footer-modal] {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--qx-spacing-2);
+  }
+
+  [data-qx-form-errors-wrapper] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--qx-spacing-1);
+    padding: var(--qx-spacing-2);
+  }
+
+  [data-qx-form-errors-title] {
+    font-size: var(--qx-text-size-2);
+    font-weight: var(--qx-text-weight-bold);
+    color: var(--qx-color-text-1);
+  }
+
+  [data-qx-form-error-item] {
+    span {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--qx-spacing-0);
+      font-size: var(--qx-text-size-1);
+      color: var(--qx-color-error);
+      b {
+        color: var(--qx-color-text-1);
+        text-transform: capitalize;
+        font-weight: var(--qx-text-weight-bold);
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { PlayerType } from '@/sdk/constants'
 import {
   createCharacterRookSample,
   createCharacterSample,
@@ -67,7 +68,7 @@ const mockPlayers = (accountId: number, worldId: number) => {
         worldId,
         vocation: 0,
         name: '[GM] Quixer',
-        groupId: 6,
+        groupId: PlayerType.GOD,
       }),
     },
   ]
@@ -87,15 +88,15 @@ export const main = async (): Promise<void> => {
     data: [
       {
         id: 1,
-        name: 'Optional PvP',
+        name: 'Open PvP',
         clientType: 0,
-        serverType: 'no-pvp',
+        serverType: 'pvp',
       },
       {
         id: 2,
-        name: 'Open PvP',
+        name: 'Optional PvP',
         clientType: 1,
-        serverType: 'pvp',
+        serverType: 'no-pvp',
       },
       {
         id: 3,
