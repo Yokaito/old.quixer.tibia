@@ -1,8 +1,6 @@
-import {
-  AccountCharacterListSection,
-  AccountStatusSection,
-  AccountWelcomeSection,
-} from '@/components/account'
+import AccountCharacterListSection from '@/components/account/CharacterListSection'
+import { AccountStatusSection } from '@/components/account/StatusSection'
+import { AccountWelcomeSection } from '@/components/account/WelcomeSection'
 import { Section } from '@/components/ui'
 import { SectionHeader } from '@/components/ui/Section/Header'
 import InnerSection from '@/components/ui/Section/Inner'

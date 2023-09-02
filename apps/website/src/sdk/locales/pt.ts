@@ -1,5 +1,8 @@
 export default {
   quixer: {
+    admin: {
+      title: 'Gerenciamento do servidor',
+    },
     character: {
       create: {
         guide:
