@@ -1,4 +1,4 @@
-import { CreateAccountSection } from '@/components/account'
+import CreateAccountSection from '@/components/account/CreateSection'
 import { Section } from '@/components/ui'
 import { SectionHeader } from '@/components/ui/Section/Header'
 import InnerSection from '@/components/ui/Section/Inner'
