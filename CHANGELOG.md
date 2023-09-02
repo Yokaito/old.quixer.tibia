@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.54 (2023-09-02)
+
+### Chores
+
+- **project:** make sonar cloud ignore locales used by translation ([3231b28](https://github.com/Yokaito/quixer/commit/3231b282c1e5e8a264f0ab23fb5d29bb1b07ca66))
+
 ## [0.0.53](https://github.com/Yokaito/quixer/compare/v0.0.52...v0.0.53) (2023-09-02)
 
 ### Features
