@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import styles from './box.module.scss'
 import BorderBoxImage from '@/assets/images/borders/box.webp'
+import classNames from 'classnames'
 
 type BorderBoxProps = {
   /**
@@ -11,9 +11,13 @@ type BorderBoxProps = {
 }
 
 export const BorderBox = ({ inverted = false }: BorderBoxProps) => {
+  const classname = classNames({
+    'transform rotate-180': inverted,
+  })
+
   return (
     <Image
-      className={`${styles.qxBorderBox}`}
+      className={classname}
       src={BorderBoxImage}
       alt="BorderBox"
       data-qx-border-box-inverted={inverted}

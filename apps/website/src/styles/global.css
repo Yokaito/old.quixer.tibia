@@ -4,7 +4,26 @@
 @import './global/layout.css';
 
 @layer components {
+  .filter-hover {
+    filter: brightness(1.1) contrast(1.1) saturate(1.1);
+  }
 }
 
 @layer utilities {
+  .fondamento-title {
+    @apply font-fondamento;
+    @apply font-medium;
+    @apply text-primary;
+    @apply text-shadow-title;
+  }
+
+  .section-title {
+    @apply font-fondamento;
+    @apply font-bold;
+    @apply text-primary;
+    @apply text-shadow-title;
+    @apply select-none;
+    @apply capitalize;
+    @apply tracking-wider;
+  }
 }

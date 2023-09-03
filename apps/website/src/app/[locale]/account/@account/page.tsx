@@ -12,7 +12,7 @@ export default async function Account() {
   return (
     <Section>
       <SectionHeader backgroundColor="green">
-        <h1 className="sectionTitle">{t('quixer.account.management')}</h1>
+        <h1 className="section-title">{t('quixer.account.management')}</h1>
       </SectionHeader>
       <InnerSection data-qx-account-section-wrapper>
         <AccountWelcomeSection />

@@ -18,8 +18,8 @@ export const NewstickerItem = ({ content, date, icon, inverted }: Props) => {
 
   return (
     <article
-      className={`flex flex-row gap-1 p-[2px] items-start overflow-hidden text-secondary font-roboto text-sm cursor-pointer select-none bg-600 ${
-        inverted && 'bg-500'
+      className={`flex flex-row gap-1 p-[2px] items-start overflow-hidden text-secondary font-roboto text-sm cursor-pointer select-none  ${
+        inverted ? 'bg-500' : 'bg-600'
       }`}
       onClick={() => setOpen(!open)}
     >

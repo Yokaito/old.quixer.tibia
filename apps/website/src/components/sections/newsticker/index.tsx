@@ -42,7 +42,7 @@ export const NewstickerSection = () => {
   return (
     <Section>
       <SectionHeader backgroundColor="green">
-        <h1 className="sectionTitle">news ticker</h1>
+        <h1 className="section-title">news ticker</h1>
       </SectionHeader>
       <InnerSection>
         <div className="flex flex-col">

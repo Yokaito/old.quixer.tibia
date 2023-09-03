@@ -13,7 +13,7 @@ export const Container = forwardRef<HTMLDivElement, Props>(
   ({ children, title, className, onClose, ...otherProps }, ref) => {
     return (
       <div
-        className={`${styles.qxContainer} ${className ? className : ''}`}
+        className={`${styles.qxContainer} ${className}`}
         ref={ref}
         {...otherProps}
       >

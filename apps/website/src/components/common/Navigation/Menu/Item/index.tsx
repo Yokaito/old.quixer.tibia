@@ -66,7 +66,7 @@ export const MenuItem = ({ icon, label, subItem }: MenuItemProps) => {
     <div className={`${styles.qxMenuItem}`}>
       <div data-qx-menu-item onClick={() => setShowMenu(!showMenu)}>
         <Image src={iconToUse} alt={label} />
-        <span data-qx-menu-item-text className="fondamentoTitle">
+        <span data-qx-menu-item-text className="fondamento-title">
           {label}
         </span>
       </div>

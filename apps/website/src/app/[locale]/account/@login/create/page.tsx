@@ -10,7 +10,7 @@ export default async function Page() {
   return (
     <Section>
       <SectionHeader backgroundColor="green">
-        <h1 className="sectionTitle">{t('quixer.geral.createAccount')}</h1>
+        <h1 className="section-title">{t('quixer.geral.createAccount')}</h1>
       </SectionHeader>
       <InnerSection>
         <CreateAccountSection />

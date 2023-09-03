@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -25,6 +27,10 @@ module.exports = {
 
         '2xl': '1440px',
         // => @media (min-width: 1536px) { ... }
+      },
+      textShadow: {
+        title:
+          '-1px -1px 0 #000, 1px -1px 0 #2c2c2c, -1px 1px 0 #000, 1px 1px 0 #000',
       },
       boxShadowColor: {
         primary: '#2c2c2c',
@@ -67,4 +73,16 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    }),
+  ],
 }

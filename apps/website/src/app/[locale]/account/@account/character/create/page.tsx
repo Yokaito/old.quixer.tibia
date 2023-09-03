@@ -10,7 +10,7 @@ export default async function AccountCharacterCreate() {
   return (
     <Section>
       <SectionHeader backgroundColor="green">
-        <h1 className="sectionTitle">
+        <h1 className="section-title">
           {t('quixer.account.characters.create')}
         </h1>
       </SectionHeader>

@@ -1,10 +1,8 @@
 'use client'
-import { useSession } from 'next-auth/react'
-import styles from './button.signout.module.scss'
+import { useSession, signOut } from 'next-auth/react'
 import { useI18n } from '@/sdk/locales/client'
 import { useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { signOut } from 'next-auth/react'
 import Button from '..'
 
 type Props = {
@@ -37,13 +35,10 @@ export const ButtonSignOut = ({ variant = 'link' }: Props) => {
   }
 
   return (
-    <button
-      onClick={handleClick}
-      className={`${styles.qxButtonSignOut} fondamentoTitle`}
-    >
+    <Button onClick={handleClick} className="text-sm ">
       {session?.data
         ? t('quixer.box.login.logout')
         : t('quixer.box.login.register')}
-    </button>
+    </Button>
   )
 }
