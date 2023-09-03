@@ -27,4 +27,35 @@
     @apply capitalize;
     @apply tracking-wider;
   }
+
+  .label {
+    @apply text-secondary;
+    @apply font-normal;
+    @apply text-base;
+  }
+
+  .input {
+    @apply bg-white;
+    @apply border;
+    @apply border-senary;
+    @apply text-sm;
+    @apply leading-4;
+    @apply font-normal;
+    @apply text-black;
+    @apply p-1;
+
+    @apply focus:outline-1;
+    @apply focus:outline;
+    @apply focus:outline-secondary;
+
+    @apply disabled:opacity-50;
+    @apply disabled:cursor-not-allowed;
+  }
+
+  .input:-webkit-autofill,
+  .input:-webkit-autofill:hover,
+  .input:-webkit-autofill:focus,
+  .input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
 }

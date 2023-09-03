@@ -4,7 +4,6 @@ import { Button, Case, Container, Switch } from '@/components/ui'
 import InnerContainer from '@/components/ui/Container/Inner'
 import { trpc } from '@/sdk/lib/trpc/client'
 import { useCallback, useEffect, useState } from 'react'
-import styles from './styles.module.scss'
 import Image from 'next/image'
 import LocationAllImage from '@/assets/images/geral/option_server_location_all.png'
 import OptionalPVPImage from '@/assets/images/geral/option_server_pvp_type_optional.gif'
@@ -87,57 +86,71 @@ export const CreateCharacterSection = () => {
   }, [location, pvpType, resetField])
 
   return (
-    <div className={styles.qxCreateCharacterSection}>
-      <p data-qx-create-info-guide>{t('quixer.character.create.guide')}</p>
+    <div className={`flex flex-col gap-5`}>
+      <p className="px-3 pt-5 text-base font-medium leading-5 text-center text-secondary">
+        {t('quixer.character.create.guide')}
+      </p>
       <Container title={t('quixer.account.characters.create')}>
         <form onSubmit={handleSubmit(handleDataSubmit)}>
-          <InnerContainer data-qx-create-info-character>
-            <div
-              data-qx-create-info-name
-              data-qx-form-input-error={!!errors?.name}
-            >
-              <label data-qx-create-info-title>{t('quixer.geral.name')}:</label>
-              <input type="text" {...register('name')} />
+          <InnerContainer className="flex flex-col gap-2 2xl:flex-row 2xl:gap-5 2xl:items-center">
+            <div className="flex items-center flex-1 gap-3 h-max">
+              <label className="text-base font-bold text-secondary">
+                {t('quixer.geral.name')}:
+              </label>
+              <input
+                type="text"
+                {...register('name')}
+                className={`w-full input ${
+                  !!errors?.name && 'outline outline-1 outline-error'
+                }`}
+              />
             </div>
-            <div data-qx-create-info-sex>
-              <label data-qx-create-info-title>{t('quixer.geral.sex')}:</label>
-              <label data-qx-create-info-radio>
+            <div className="flex items-center gap-2">
+              <label className="text-base font-bold text-secondary">
+                {t('quixer.geral.sex')}:
+              </label>
+              <label className="flex gap-2 text-base text-secondary">
                 <input {...register('sex')} type="radio" name="sex" value={1} />
                 <span>{t('quixer.geral.male')}</span>
               </label>
-              <label data-qx-create-info-radio>
+              <label className="flex gap-2 text-base text-secondary">
                 <input {...register('sex')} type="radio" name="sex" value={0} />
                 <span>{t('quixer.geral.female')}</span>
               </label>
             </div>
           </InnerContainer>
-          <InnerContainer data-qx-create-character-worlds>
-            <div data-qx-worlds-title>
+          <InnerContainer
+            className="flex flex-col"
+            style={{
+              padding: 0,
+            }}
+          >
+            <div className="px-1 text-base font-bold border-b border-quintenary text-secondary">
               <h1>{t('quixer.character.create.worlds')}</h1>
             </div>
-            <div data-qx-worlds-location>
+            <div className="flex flex-col gap-4 px-3 py-5 border-b border-quintenary">
               <div>
-                <h1 data-qx-worlds-subtitle>
+                <h1 className="text-base font-bold text-secondary">
                   {t('quixer.character.create.filter')}
                 </h1>
-                <p data-qx-worlds-paragraph>
+                <p className="text-sm font-light text-secondary">
                   {t('quixer.character.create.filterDescription')}
                 </p>
               </div>
-              <div data-qx-worlds-items>
-                {locations.data?.map((itemLocation, idx) => (
+              <div>
+                {locations.data?.map((itemLocation) => (
                   <label
-                    data-qx-worlds-input-label
+                    className="flex flex-col items-center gap-1 text-base font-bold text-secondary"
                     htmlFor={itemLocation.clientValue}
-                    key={idx}
+                    key={itemLocation.id}
                   >
                     <button
-                      data-qx-worlds-button
+                      className="p-0 mb-2 bg-transparent border-none cursor-pointer w-max"
                       onClick={() => setLocation(itemLocation.id)}
                     >
                       <Image src={LocationAllImage} alt="location" />
                     </button>
-                    <div data-qx-worlds-input-wrapper>
+                    <div className="flex items-center gap-2">
                       <input
                         type="radio"
                         name={itemLocation.clientValue}
@@ -151,26 +164,21 @@ export const CreateCharacterSection = () => {
                 ))}
               </div>
             </div>
-            <div data-qx-worlds-pvp-type>
+            <div className="flex flex-col gap-4 px-3 py-5 border-b border-quintenary">
               <div>
-                <h1 data-qx-worlds-subtitle>
-                  {t('quixer.character.create.filterPvp')}
-                </h1>
-                <p data-qx-worlds-paragraph>
+                <h1>{t('quixer.character.create.filterPvp')}</h1>
+                <p className="text-sm font-light text-secondary">
                   {t('quixer.character.create.filterPvpDescription')}
                 </p>
               </div>
-              <div data-qx-worlds-items>
-                {pvpTypes.data?.map((itemPvpType, idx) => (
+              <div className="flex flex-wrap items-start justify-center gap-5">
+                {pvpTypes.data?.map((itemPvpType) => (
                   <label
-                    data-qx-worlds-input-label
+                    className="flex flex-col items-center gap-1 text-base font-bold text-secondary"
                     htmlFor={itemPvpType.serverType}
-                    key={idx}
+                    key={itemPvpType.id}
                   >
-                    <button
-                      data-qx-worlds-button
-                      onClick={() => setPvpType(itemPvpType.id)}
-                    >
+                    <button onClick={() => setPvpType(itemPvpType.id)}>
                       <Switch>
                         <Case condition={itemPvpType.serverType === 'no-pvp'}>
                           <Image
@@ -194,7 +202,7 @@ export const CreateCharacterSection = () => {
                         </Case>
                       </Switch>
                     </button>
-                    <div data-qx-worlds-input-wrapper>
+                    <div className="flex items-center gap-2">
                       <input
                         type="radio"
                         name={itemPvpType.serverType}
@@ -204,7 +212,7 @@ export const CreateCharacterSection = () => {
                       />
                       <span>{itemPvpType.name}</span>
                     </div>
-                    <span data-qx-worlds-input-span>
+                    <span className="max-w-[200px] text-center text-sm font-light text-secondary">
                       <Switch>
                         <Case condition={itemPvpType.serverType === 'no-pvp'}>
                           <>{t('quixer.character.create.no-pvp')}</>
@@ -225,55 +233,64 @@ export const CreateCharacterSection = () => {
             </div>
 
             {worlds.data?.length !== 0 && (
-              <div data-qx-worlds-world-items>
+              <div className="grid grid-cols-2 gap-2 px-3 py-5 2xl:grid-cols-4 bg-1000">
                 {worlds.data?.map((world) => (
-                  <label data-qx-worlds-world-item key={world.id}>
+                  <label
+                    className="flex items-center gap-2 cursor-pointer"
+                    key={world.id}
+                  >
                     <input
                       type="radio"
                       {...register('worldId')}
                       value={world.id}
                     />
-                    <span data-qx-worlds-world-item-title>{world.name}</span>
+                    <span className="text-base text-secondary">
+                      {world.name}
+                    </span>
                   </label>
                 ))}
               </div>
             )}
           </InnerContainer>
           {Object.keys(errors).length > 0 && (
-            <InnerContainer data-qx-form-errors-wrapper>
-              <h2 data-qx-form-errors-title>{t('quixer.geral.attention')}</h2>
-              {Object.entries(errors).map(([key, value]) => {
-                if (!value.message) return null
+            <InnerContainer className="flex flex-col gap-2 p-3">
+              <h2 className="text-base font-bold text-secondary">
+                {t('quixer.geral.attention')}
+              </h2>
+              <ul className="flex flex-col gap-1">
+                {Object.entries(errors).map(([key, value]) => {
+                  if (!value.message) return null
 
-                let keyName = key
+                  let keyName = key
 
-                switch (key) {
-                  case 'name':
-                    keyName = t('quixer.geral.name')
-                    break
-                  case 'sex':
-                    keyName = t('quixer.geral.sex')
-                    break
-                  case 'worldId':
-                    keyName = t('quixer.geral.world')
-                    break
-                  default:
-                    break
-                }
+                  switch (key) {
+                    case 'name':
+                      keyName = t('quixer.geral.name')
+                      break
+                    case 'sex':
+                      keyName = t('quixer.geral.sex')
+                      break
+                    case 'worldId':
+                      keyName = t('quixer.geral.world')
+                      break
+                    default:
+                      break
+                  }
 
-                return (
-                  <li data-qx-form-error-item key={key}>
-                    <span>
-                      <b>{keyName}:</b>
-                      {value.message}
-                    </span>
-                  </li>
-                )
-              })}
+                  return (
+                    <li className="flex items-center gap-1" key={key}>
+                      <span className="flex items-center gap-1 text-sm text-error">
+                        <b className="text-secondary">{keyName}:</b>
+                        {value.message}
+                      </span>
+                    </li>
+                  )
+                })}
+              </ul>
             </InnerContainer>
           )}
 
-          <div data-qx-create-form-actions>
+          <div className="flex items-center justify-between">
             <Button variant="info" type="submit" onClick={() => router.back()}>
               {t('quixer.geral.back')}
             </Button>
