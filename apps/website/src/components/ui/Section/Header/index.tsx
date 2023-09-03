@@ -15,7 +15,9 @@ export const SectionHeader = ({ children, backgroundColor = 'red' }: Props) => {
 
   return (
     <header className={`${classname} block bg-repeat-x relative`}>
-      <div className="absolute block w-full h-full px-2">{children}</div>
+      <div className="absolute block w-full h-full px-2 mt-[3px]">
+        {children}
+      </div>
     </header>
   )
 }
