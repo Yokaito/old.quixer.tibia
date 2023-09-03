@@ -26,6 +26,7 @@ export default {
       createCharacter: 'Personagem criado com sucesso! Redirecionando...',
       worldEdit: 'Mundo editado com sucesso!',
       worldDeleted: 'Mundo excluído com sucesso!',
+      worldCreated: 'Mundo criado com sucesso!',
     },
     errors: {
       email: 'Por favor, insira um endereço de e-mail válido',
