@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.58](https://github.com/Yokaito/quixer/compare/v0.0.57...v0.0.58) (2023-09-03)
+
+### Chores
+
+- **sonarcloud:** add to not make coverage in de project ([725f576](https://github.com/Yokaito/quixer/commit/725f576c2b9b14b066f44765d7aa28e8c57a15d7))
+
 ## [0.0.57](https://github.com/Yokaito/quixer/compare/v0.0.56...v0.0.57) (2023-09-03)
 
 ### Bug Fixes
