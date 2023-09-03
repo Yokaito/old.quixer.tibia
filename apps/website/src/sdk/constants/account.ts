@@ -2,7 +2,7 @@ export const AccountType = {
   NORMAL: 1,
   TUTOR: 2,
   SENIOR_TUTOR: 3,
-  GAMEMASTER: 4,
+  GAME_MASTER: 4,
   GOD: 5,
 } as const
 

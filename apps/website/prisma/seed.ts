@@ -158,33 +158,38 @@ export const main = async (): Promise<void> => {
     data: [
       {
         id: 1,
-        name: 'player',
-        group_id: 1,
+        name: 'none',
+        group_id: PlayerType.NONE,
       },
       {
         id: 2,
-        name: 'tutor',
-        group_id: 2,
+        name: 'player',
+        group_id: PlayerType.NORMAL,
       },
       {
         id: 3,
-        name: 'senior tutor',
-        group_id: 3,
+        name: 'tutor',
+        group_id: PlayerType.TUTOR,
       },
       {
         id: 4,
-        name: 'gamemaster',
-        group_id: 4,
+        name: 'senior tutor',
+        group_id: PlayerType.SENIOR_TUTOR,
       },
       {
         id: 5,
-        name: 'community manager',
-        group_id: 5,
+        name: 'gamemaster',
+        group_id: PlayerType.GAME_MASTER,
       },
       {
         id: 6,
+        name: 'community manager',
+        group_id: PlayerType.COMMUNITY_MANAGER,
+      },
+      {
+        id: 7,
         name: 'god',
-        group_id: 6,
+        group_id: PlayerType.GOD,
       },
     ],
   })
