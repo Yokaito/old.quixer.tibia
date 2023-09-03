@@ -1,4 +1,4 @@
-import styles from './menu-box.module.scss'
+import classNames from 'classnames'
 import { BorderBox } from '@/components/ui/'
 
 type MenuBoxProps = {
@@ -24,14 +24,38 @@ export const MenuBox = ({
   showChain = false,
   showBackground = true,
 }: MenuBoxProps) => {
+  const classContent = classNames({
+    'w-[160px] h-full relative px-2 py-0 flex flex-col items-center justify-center gap-1':
+      true,
+    "bg-repeat-y bg-[url('../assets/images/background/loginbox-textfield.webp')]":
+      showBackground,
+  })
+
+  const classChain = classNames({
+    "absolute bg-repeat-y w-[7px] h-full top-0 bg-[url('../assets/images/borders/chain.webp')]":
+      true,
+  })
+
   return (
-    <div data-qx-menu-box className={`${styles.qxMenuBox}`}>
+    <div data-qx-menu-box className={`flex flex-col w-[180px] items-center`}>
       <BorderBox />
-      <div data-qx-content data-qx-context-background={showBackground}>
-        {showChain && <div data-qx-chain data-qx-chain-right="false" />}
+      <div className={`${classContent}`}>
+        {showChain && (
+          <div
+            className={`${classChain} left-[-4px]`}
+            data-qx-chain
+            data-qx-chain-right="false"
+          />
+        )}
 
         {children}
-        {showChain && <div data-qx-chain data-qx-chain-right="true" />}
+        {showChain && (
+          <div
+            className={`${classChain} left-auto right-[-4px]`}
+            data-qx-chain
+            data-qx-chain-right="true"
+          />
+        )}
       </div>
       <BorderBox inverted />
     </div>

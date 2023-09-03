@@ -1,23 +1,36 @@
 import { HTMLAttributes, forwardRef } from 'react'
-import styles from './section.module.scss'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export const Section = forwardRef<HTMLDivElement, Props>(
   ({ children, className, ...otherProps }, ref) => {
+    const borderImageClass =
+      "block bg-repeat border-0 h-[6px] w-full bg-[url('../assets/images/borders/border-1.webp')]"
+
+    const cornerClass =
+      "absolute bg-[url('../assets/images/borders/corner.webp')] block bg-no-repeat w-[17px] h-[17px] z-10"
+
     return (
       <section
-        className={`${styles.qxSection} ${className ? className : ''}`}
+        className={`${className} relative border-l-2 border-r-2 bg-400 border-secondary`}
         ref={ref}
         {...otherProps}
       >
-        <span data-qx-corner-image data-qx-corner-image-position="rightUp" />
-        <span data-qx-corner-image data-qx-corner-image-position="rightDown" />
-        <span data-qx-border-image />
+        <span className={`${cornerClass} right-[-5px] top-[-4px]`} />
+        <span
+          className={`${cornerClass} right-[-5px] bottom-[-3px] transform rotate-90`}
+        />
+        <span data-qx-border-image className={borderImageClass} />
         {children}
-        <span data-qx-border-image />
-        <span data-qx-corner-image data-qx-corner-image-position="leftUp" />
-        <span data-qx-corner-image data-qx-corner-image-position="leftDown" />
+        <span data-qx-border-image className={borderImageClass} />
+        <span
+          className={`${cornerClass} left-[-5px] top-[-4px] transform rotate-[270deg]`}
+        />
+        <span
+          data-qx-corner-image
+          data-qx-corner-image-position="leftDown"
+          className={`${cornerClass} left-[-5px] bottom-[-3px] transform rotate-180`}
+        />
       </section>
     )
   }
