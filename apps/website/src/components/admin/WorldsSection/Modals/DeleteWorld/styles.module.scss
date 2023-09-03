@@ -1,0 +1,19 @@
+.qxDeleteWorldModal {
+  [data-qx-footer-modal] {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--qx-spacing-2);
+  }
+
+  [data-qx-modal-paragraph] {
+    font-size: var(--qx-text-size-2);
+    color: var(--qx-color-text-1);
+    text-align: center;
+  }
+
+  [data-qx-modal-delete-world-wrapper] {
+    display: flex;
+    flex-direction: column;
+  }
+}

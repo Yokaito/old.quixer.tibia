@@ -5,6 +5,10 @@
     background-color: #ebcaa3;
   }
 
+  .Toastify__toast-container {
+    z-index: 99999;
+  }
+
   .Toastify__close-button {
     position: absolute;
     top: 10px;

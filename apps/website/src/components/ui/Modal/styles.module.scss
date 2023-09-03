@@ -1,3 +1,5 @@
+@import 'src/styles/scaffold';
+
 .qxModal {
   position: fixed;
   top: 0;
@@ -9,4 +11,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  > * {
+    min-width: 320px;
+    max-width: 320px;
+
+    @include media('>=tablet') {
+      min-width: 480px;
+      max-width: 480px;
+    }
+  }
 }

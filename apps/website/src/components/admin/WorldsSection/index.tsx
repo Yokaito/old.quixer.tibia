@@ -5,6 +5,7 @@ import InnerContainer from '@/components/ui/Container/Inner'
 import { trpc } from '@/sdk/lib/trpc/client'
 import styles from './styles.module.scss'
 import { EditWorldModal } from './Modals/EditWorld'
+import { DeleteWorldModal } from './Modals/DeleteWorld'
 import {
   flexRender,
   getCoreRowModel,
@@ -14,7 +15,6 @@ import {
   ColumnDef,
 } from '@tanstack/react-table'
 import CaretTop from '@/assets/images/buttons/caret_top.gif'
-import DeleteButtonImg from '@/assets/images/buttons/circle-symbol-minus.gif'
 import Image from 'next/image'
 import { DebouncedInput } from '@/components/ui/Input/Debounced'
 import { useI18n } from '@/sdk/locales/client'
@@ -95,9 +95,7 @@ export default function WorldsSection() {
 
           return (
             <div data-qx-actions-world>
-              <Button>
-                <Image src={DeleteButtonImg} alt="Delete" quality={100} />
-              </Button>
+              <DeleteWorldModal worldId={world.id} worldName={world.name} />
               <EditWorldModal worldId={world.id} worldName={world.name} />
             </div>
           )

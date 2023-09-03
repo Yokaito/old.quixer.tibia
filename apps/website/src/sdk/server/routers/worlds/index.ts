@@ -15,6 +15,47 @@ const schemaWorldEdit = z.object({
 })
 
 export const worldsRouter = router({
+  delete: adminInProcedure.input(z.number()).mutation(async ({ input }) => {
+    const t = await getI18n()
+
+    const world = await prisma.worlds.findUnique({
+      where: {
+        id: input,
+      },
+      select: {
+        id: true,
+        players: {
+          select: {
+            id: true,
+          },
+        },
+      },
+    })
+
+    if (!world) {
+      throw new TRPCError({
+        code: 'BAD_REQUEST',
+        cause: 'worldNotFound',
+        message: t('quixer.errors.worldNotFound'),
+      })
+    }
+
+    if (world.players.length > 0) {
+      throw new TRPCError({
+        code: 'FORBIDDEN',
+        cause: 'worldHasPlayers',
+        message: t('quixer.errors.worldHasPlayers'),
+      })
+    }
+
+    await prisma.worlds.delete({
+      where: {
+        id: input,
+      },
+    })
+
+    return true
+  }),
   edit: adminInProcedure.input(schemaWorldEdit).mutation(async ({ input }) => {
     const t = await getI18n()
 

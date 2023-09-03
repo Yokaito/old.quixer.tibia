@@ -25,6 +25,7 @@ export default {
       createAccount: 'Compte créé avec succès! Connexion...',
       createCharacter: 'Personnage créé avec succès ! Redirection...',
       worldEdit: 'Monde modifié avec succès!',
+      worldDeleted: 'Monde supprimé avec succès!',
     },
     errors: {
       email: 'Veuillez saisir une adresse e-mail valide',
@@ -44,8 +45,12 @@ export default {
       invalidIP: 'IP invalide',
       invalidPort: 'Port invalide',
       unauthorized: 'Vous nêtes pas autorisé',
+      worldHasPlayers: 'Le monde a des joueurs',
     },
     geral: {
+      countPlayerWorld: 'Ce monde a {count} joueurs',
+      deleteWorld: `Êtes-vous sûr de vouloir supprimer le monde`,
+      delete: 'Supprimer',
       close: 'Fermer',
       confirm: 'Sauvegarder',
       editing: 'Édition',

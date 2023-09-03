@@ -17,7 +17,7 @@ export const Modal = forwardRef<HTMLDivElement, Props>(function Modal(
       id="modal"
       ref={ref}
       data-qx-modal
-      className={`${styles.qxModal} ${className ? className : ''}`}
+      className={`${styles.qxModal} ${className}`}
       {...otherProps}
     >
       {children}

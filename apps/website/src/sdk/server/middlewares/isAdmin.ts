@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth/next'
 import { TRPCError } from '@trpc/server'
 import { t } from '@/sdk/server/trpc'
 import authOptions from '@/sdk/lib/nextauth'
-import { PlayerType } from '@/constants'
+import { AccountType } from '@/constants'
 import { getI18n } from '@/sdk/locales/server'
 
 export const isAdmin = t.middleware(async ({ next, ctx }) => {
@@ -16,7 +16,7 @@ export const isAdmin = t.middleware(async ({ next, ctx }) => {
     })
   }
 
-  if (session.user.type !== PlayerType.GOD) {
+  if (session.user.type !== AccountType.GOD) {
     throw new TRPCError({
       code: 'UNAUTHORIZED',
       message: t('quixer.errors.unauthorized'),

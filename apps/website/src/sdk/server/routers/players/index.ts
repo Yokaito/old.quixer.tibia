@@ -7,6 +7,17 @@ import { TRPCError } from '@trpc/server'
 import { createCharacterRookSample } from '@/sdk/utils/create-character'
 
 export const playersRouter = router({
+  byWorldCount: publicProcedure.input(z.number()).query(async ({ input }) => {
+    const players = await prisma.players.count({
+      where: {
+        world_id: input,
+      },
+    })
+
+    return {
+      players,
+    }
+  }),
   online: publicProcedure.query(async () => {
     const playersOnline = await prisma.players_online.findMany({
       include: {
