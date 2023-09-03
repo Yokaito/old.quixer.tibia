@@ -32,6 +32,9 @@ module.exports = {
         title:
           '-1px -1px 0 #000, 1px -1px 0 #2c2c2c, -1px 1px 0 #000, 1px 1px 0 #000',
       },
+      boxShadow: {
+        container: '3px 3px 3px #2c2c2c',
+      },
       boxShadowColor: {
         primary: '#2c2c2c',
         secondary: '#875f3e',
@@ -69,7 +72,7 @@ module.exports = {
         fondamento: ['var(--qx-text-face-fondamento)', 'cursive'],
         roboto: ['var(--qx-text-face-roboto)', 'sans-serif'],
         martel: ['var(--qx-text-face-martel)', 'serif'],
-        Poppins: ['var(--qx-text-face-poppins)', 'sans-serif'],
+        poppins: ['var(--qx-text-face-poppins)', 'sans-serif'],
       },
     },
   },
