@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import { Fondamento, Martel, Poppins, Roboto } from 'next/font/google'
+
 import '@/styles/global.css'
-import '@/styles/global/tokens.scss'
 import '@/styles/vendors/modern-normalize.css'
 import '@/styles/vendors/resets.css'
 import 'react-toastify/dist/ReactToastify.css'
 import '@/styles/global/toastify.css'
-import '@/styles/scaffold.scss'
+import '@/styles/global/tokens.scss'
 
 import Layout from '@/components/Layout'
 import { Providers } from './providers'

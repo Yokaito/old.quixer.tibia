@@ -14,7 +14,7 @@ export default async function AccountCharacterCreate() {
           {t('quixer.account.characters.create')}
         </h1>
       </SectionHeader>
-      <InnerSection data-qx-account-section-wrapper>
+      <InnerSection>
         <CreateCharacterSection />
       </InnerSection>
     </Section>

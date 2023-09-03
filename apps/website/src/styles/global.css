@@ -1,13 +1,14 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 @import './global/layout.css';
+@tailwind components;
 
 @layer components {
   .filter-hover {
     filter: brightness(1.1) contrast(1.1) saturate(1.1);
   }
 }
+
+@tailwind utilities;
 
 @layer utilities {
   .fondamento-title {
