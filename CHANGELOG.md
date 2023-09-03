@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.57](https://github.com/Yokaito/quixer/compare/v0.0.56...v0.0.57) (2023-09-03)
+
+### Bug Fixes
+
+- **config:** add keyword apps correct this time :( ([6674f6a](https://github.com/Yokaito/quixer/commit/6674f6aca016cdeb13cf416dde64e0ffc2830c9f))
+
 ## 0.0.56 (2023-09-03)
 
 ### Chores
