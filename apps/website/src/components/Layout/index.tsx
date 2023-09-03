@@ -1,5 +1,4 @@
 import { Header, Navigation, Sidebar } from '@/components/common'
-import styles from './layout.module.scss'
 import { InfoSection } from '../sections'
 
 type Props = {
@@ -10,10 +9,10 @@ export const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />
-      <div className={`${styles.qxLayout} layout__content`}>
+      <div className={`layout-content page-layout`}>
         <Navigation />
         <Sidebar />
-        <main data-qx-main>
+        <main className="layout-main">
           <InfoSection />
           {children}
         </main>

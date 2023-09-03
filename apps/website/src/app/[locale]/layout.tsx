@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import { Fondamento, Martel, Poppins, Roboto } from 'next/font/google'
+import '@/styles/global.css'
 import '@/styles/global/tokens.scss'
-import '@/styles/global/resets.scss'
-import '@/styles/global/layout.scss'
-import '@/styles/global/typography.scss'
+import '@/styles/vendors/modern-normalize.css'
+import '@/styles/vendors/resets.css'
 import 'react-toastify/dist/ReactToastify.css'
-import '@/styles/global/toastify.scss'
+import '@/styles/global/toastify.css'
+import '@/styles/global/typography.scss'
+import '@/styles/scaffold.scss'
 
 import Layout from '@/components/Layout'
 import { Providers } from './providers'
@@ -64,7 +66,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fondamento.variable} ${martel.variable} ${poppins.variable} ${roboto.variable} ${roboto.className}`}
+        className={`${fondamento.variable} ${martel.variable} ${poppins.variable} ${roboto.variable}
+        ${roboto.className} background-main bg-[url('../assets/images/background/background-artwork.webp')]`}
       >
         <Providers params={params} session={session}>
           <Layout>{children}</Layout>

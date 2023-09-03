@@ -1,4 +1,3 @@
-import styles from './navigation.module.scss'
 import BoxLogin from './BoxLogin'
 import Menu from './Menu'
 import { Case, MenuBox, Switch } from '@/components/ui'
@@ -14,7 +13,12 @@ export const Navigation = async () => {
   const session = await getServerSession(authOptions)
 
   return (
-    <nav data-qx-navigation className={`${styles.qxNavigation}`}>
+    <nav
+      className="relative flex-col items-center hidden gap-4 xl:flex"
+      style={{
+        gridArea: 'navigation',
+      }}
+    >
       <BoxLogin />
       <Switch>
         <Case condition={session!?.user.type >= PlayerType.TUTOR}>
@@ -34,5 +38,3 @@ export const Navigation = async () => {
     </nav>
   )
 }
-
-export default Navigation

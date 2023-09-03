@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './global/layout.css';
+
+@layer components {
+}
+
+@layer utilities {
+}

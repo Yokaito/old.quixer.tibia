@@ -1,8 +1,6 @@
-import styles from './header.module.scss'
-
 export const Header = () => {
   return (
-    <header data-qx-header className={`${styles.qxHeader}`}>
+    <header data-qx-header className="h-40 xl:invisible">
       Header
     </header>
   )
