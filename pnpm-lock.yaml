@@ -145,7 +145,7 @@ importers:
         version: 3.22.2
     devDependencies:
       '@quixer/eslint-config':
-        specifier: ^0.0.58
+        specifier: ^0.0.59
         version: link:../../packages/eslint-config
       '@types/node':
         specifier: ^20.5.6
