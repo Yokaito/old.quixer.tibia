@@ -40,21 +40,11 @@ export const MenuBox = ({
     <div data-qx-menu-box className={`flex flex-col w-[180px] items-center`}>
       <BorderBox />
       <div className={`${classContent}`}>
-        {showChain && (
-          <div
-            className={`${classChain} left-[-4px]`}
-            data-qx-chain
-            data-qx-chain-right="false"
-          />
-        )}
+        {showChain && <div className={`${classChain} left-[-4px]`} />}
 
         {children}
         {showChain && (
-          <div
-            className={`${classChain} left-auto right-[-4px]`}
-            data-qx-chain
-            data-qx-chain-right="true"
-          />
+          <div className={`${classChain} left-auto right-[-4px]`} />
         )}
       </div>
       <BorderBox inverted />

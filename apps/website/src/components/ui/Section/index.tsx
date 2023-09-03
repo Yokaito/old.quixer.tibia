@@ -20,15 +20,13 @@ export const Section = forwardRef<HTMLDivElement, Props>(
         <span
           className={`${cornerClass} right-[-5px] bottom-[-3px] transform rotate-90`}
         />
-        <span data-qx-border-image className={borderImageClass} />
+        <span className={borderImageClass} />
         {children}
-        <span data-qx-border-image className={borderImageClass} />
+        <span className={borderImageClass} />
         <span
           className={`${cornerClass} left-[-5px] top-[-4px] transform rotate-[270deg]`}
         />
         <span
-          data-qx-corner-image
-          data-qx-corner-image-position="leftDown"
           className={`${cornerClass} left-[-5px] bottom-[-3px] transform rotate-180`}
         />
       </section>

@@ -15,7 +15,6 @@ export const Modal = forwardRef<HTMLDivElement, Props>(function Modal(
     <div
       id="modal"
       ref={ref}
-      data-qx-modal
       className={`${className} fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex items-center justify-center`}
       {...otherProps}
     >

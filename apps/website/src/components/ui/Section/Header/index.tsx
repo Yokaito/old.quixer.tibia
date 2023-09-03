@@ -14,17 +14,8 @@ export const SectionHeader = ({ children, backgroundColor = 'red' }: Props) => {
   })
 
   return (
-    <header
-      data-qx-section-header
-      data-qx-section-header-color={backgroundColor}
-      className={`${classname} block bg-repeat-x relative`}
-    >
-      <div
-        data-qx-section-header-content
-        className="absolute block w-full h-full px-2"
-      >
-        {children}
-      </div>
+    <header className={`${classname} block bg-repeat-x relative`}>
+      <div className="absolute block w-full h-full px-2">{children}</div>
     </header>
   )
 }

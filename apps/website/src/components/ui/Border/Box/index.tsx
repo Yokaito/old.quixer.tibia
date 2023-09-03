@@ -20,7 +20,6 @@ export const BorderBox = ({ inverted = false }: BorderBoxProps) => {
       className={classname}
       src={BorderBoxImage}
       alt="BorderBox"
-      data-qx-border-box-inverted={inverted}
       quality={100}
     />
   )
