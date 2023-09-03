@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.56 (2023-09-03)
+
+### Chores
+
+- **workflow:** add sonar cloud ([#8](https://github.com/Yokaito/quixer/issues/8)) ([58a9660](https://github.com/Yokaito/quixer/commit/58a96603b20674e6d6f4970fe6df7c62fffd0362))
+
 ## [0.0.55](https://github.com/Yokaito/quixer/compare/v0.0.54...v0.0.55) (2023-09-02)
 
 **Note:** Version bump only for package @quixer/shared
