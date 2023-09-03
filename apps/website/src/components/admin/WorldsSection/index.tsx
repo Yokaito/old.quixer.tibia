@@ -1,11 +1,12 @@
 'use client'
 import React, { useMemo } from 'react'
-import { Button, Container } from '@/components/ui'
+import { Container } from '@/components/ui'
 import InnerContainer from '@/components/ui/Container/Inner'
 import { trpc } from '@/sdk/lib/trpc/client'
 import styles from './styles.module.scss'
 import { EditWorldModal } from './Modals/EditWorld'
 import { DeleteWorldModal } from './Modals/DeleteWorld'
+import { CreateWorldModal } from './Modals/CreateWorld'
 import {
   flexRender,
   getCoreRowModel,
@@ -210,7 +211,7 @@ export default function WorldsSection() {
         </table>
       </InnerContainer>
       <InnerContainer data-qx-world-table-actions>
-        <Button variant="info">{t('quixer.geral.createWorld')}</Button>
+        <CreateWorldModal />
       </InnerContainer>
     </Container>
   )

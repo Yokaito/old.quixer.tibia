@@ -253,6 +253,7 @@ export const CreateCharacterSection = () => {
                     break
                   case 'sex':
                     keyName = t('quixer.geral.sex')
+                    break
                   case 'worldId':
                     keyName = t('quixer.geral.world')
                     break

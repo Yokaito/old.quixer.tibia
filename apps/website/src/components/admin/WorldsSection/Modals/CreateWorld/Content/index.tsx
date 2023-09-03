@@ -5,28 +5,23 @@ import InnerContainer from '@/components/ui/Container/Inner'
 import { trpc } from '@/sdk/lib/trpc/client'
 import { useI18n } from '@/sdk/locales/client'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useCallback, useEffect, useMemo } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import { z } from 'zod'
 
-type EditWorldModalProps = {
-  worldId: number
-  worldName: string
-  handleClose: (_value: boolean) => void
+type CreateWorldContentProps = {
+  handleModal: (_value: boolean) => void
 }
 
-export const FormEditWorld = ({
-  worldId,
-  worldName,
-  handleClose,
-}: EditWorldModalProps) => {
+export const CreateWorldContent = ({
+  handleModal,
+}: CreateWorldContentProps) => {
   const t = useI18n()
   const utils = trpc.useContext()
-  const world = trpc.worlds.world.useQuery(worldId)
   const locations = trpc.worlds.locations.useQuery()
   const pvpTypes = trpc.worlds.pvpTypes.useQuery()
-  const { data, error, mutate, isLoading } = trpc.worlds.edit.useMutation()
+  const { data, isLoading, error, mutate } = trpc.worlds.create.useMutation()
   const schema = z.object({
     name: z.string().nonempty({
       message: t('quixer.errors.required'),
@@ -59,51 +54,32 @@ export const FormEditWorld = ({
     handleSubmit,
     formState: { errors },
   } = useForm<z.infer<typeof schema>>({
-    values: {
-      name: world.data?.name ?? '',
-      location: String(world.data?.location),
-      pvp_type: String(world.data?.pvp_type),
-      ip: world.data?.ip ?? '',
-      port: String(world.data?.port),
+    defaultValues: {
+      pvp_type: '1',
+      location: '1',
     },
-    resetOptions: {
-      keepDefaultValues: true,
-    },
-    defaultValues: useMemo(() => {
-      return {
-        name: world.data?.name,
-        location: String(world.data?.location),
-        pvp_type: String(world.data?.pvp_type),
-        ip: world.data?.ip,
-        port: String(world.data?.port),
-      }
-    }, [world.data]),
     resolver: zodResolver(schema),
-    reValidateMode: 'onChange',
   })
 
   const handleDataSubmit = useCallback(
     async (data: z.infer<typeof schema>) => {
       mutate({
-        id: worldId,
-        ip: data.ip,
+        ...data,
+        port: Number(data.port),
         location: Number(data.location),
         pvpType: Number(data.pvp_type),
-        name: data.name,
-        port: Number(data.port),
       })
     },
-    [mutate, worldId]
+    [mutate]
   )
 
   useEffect(() => {
     if (!data) return
 
-    toast.success(t('quixer.success.worldEdit'))
-    utils.worlds.world.invalidate(worldId)
+    toast.success(t('quixer.success.worldCreated'))
     utils.worlds.all.invalidate()
-    handleClose(false)
-  }, [data, utils, worldId, handleClose, t])
+    handleModal(false)
+  }, [data, utils, handleModal, t])
 
   useEffect(() => {
     if (!error) return
@@ -112,23 +88,21 @@ export const FormEditWorld = ({
   }, [error])
 
   return (
-    <Container
-      title={`${t('quixer.geral.editing')}, ${worldName}`}
-      onClose={() => handleClose(false)}
-    >
+    <Container title={`Create World`} onClose={() => handleModal(false)}>
       <form onSubmit={handleSubmit(handleDataSubmit)}>
         <InnerContainer data-qx-world-edit-inputs>
-          <div data-qx-world-input>
-            <label>{t('quixer.geral.id')}</label>
-            <input type="number" disabled defaultValue={world.data?.id} />
-          </div>
           <div data-qx-world-input>
             <label>{t('quixer.geral.name')}</label>
             <input type="text" {...register('name')} />
           </div>
 
           <div data-qx-world-group-input>
-            <div data-qx-world-input>
+            <div
+              data-qx-world-input
+              style={{
+                flex: 1,
+              }}
+            >
               <label>{t('quixer.geral.ip')}</label>
               <input type="text" {...register('ip')} />
             </div>
@@ -204,20 +178,11 @@ export const FormEditWorld = ({
             <Button
               variant="red"
               type="button"
-              onClick={() => handleClose(false)}
+              onClick={() => handleModal(false)}
             >
               {t('quixer.geral.close')}
             </Button>
-            <Button
-              variant="green"
-              type="submit"
-              disabled={
-                isLoading ||
-                pvpTypes.isLoading ||
-                locations.isLoading ||
-                world.isLoading
-              }
-            >
+            <Button disabled={isLoading} variant="green" type="submit">
               {t('quixer.geral.confirm')}
             </Button>
           </footer>
