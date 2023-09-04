@@ -46,10 +46,16 @@ export const NewstickerSection = () => {
       </SectionHeader>
       <InnerSection>
         <div className="flex flex-col">
-          {mockData.map((item, index) => {
-            const isEven = (index + 1) % 2 === 0
+          {mockData.map((item, idx) => {
+            const isEven = (idx + 1) % 2 === 0
 
-            return <NewstickerItem {...item} inverted={isEven} key={index} />
+            return (
+              <NewstickerItem
+                {...item}
+                inverted={isEven}
+                key={item.date.toString()}
+              />
+            )
           })}
         </div>
       </InnerSection>
