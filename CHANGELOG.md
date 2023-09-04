@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.62 (2023-09-04)
+
+### Bug Fixes
+
+- **website:** chaining undefined in switch component ([1189e7b](https://github.com/Yokaito/quixer/commit/1189e7b0498f470465c8ee2c6c915f8f483974b7))
+
+### Refactoring
+
+- **website:** remove index in newsticker map ([ef7c0b0](https://github.com/Yokaito/quixer/commit/ef7c0b0f378ac97b4ba04f661ecebe99b2abceff))
+
 ## 0.0.61 (2023-09-04)
 
 ### Bug Fixes
