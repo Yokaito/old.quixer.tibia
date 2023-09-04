@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.63](https://github.com/Yokaito/quixer/compare/v0.0.62...v0.0.63) (2023-09-04)
+
+### Chores
+
+- add remote only cache on workflow turbo cache ([7fecf7f](https://github.com/Yokaito/quixer/commit/7fecf7f7b5361c7acaa7a62bb960b4ef0f31b3da))
+
 ## 0.0.62 (2023-09-04)
 
 ### Bug Fixes
