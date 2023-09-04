@@ -26,7 +26,7 @@ export const Switch = ({ children }: Props) => {
     }
 
     if (!matchChild && child?.type === Case) {
-      const { condition } = child?.props
+      const { condition } = child.props
 
       const conditionResult = Boolean(condition)
 
