@@ -180,7 +180,7 @@ export default function WorldsSection() {
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th
-                    className="text-base font-bold border-b border-r text-secondary bg-1000 border-quintenary last:border-r-0"
+                    className="text-base font-bold border text-secondary bg-1000 border-quintenary"
                     key={header.id}
                   >
                     {header.isPlaceholder
@@ -200,7 +200,7 @@ export default function WorldsSection() {
                 {row.getVisibleCells().map((cell) => {
                   return (
                     <td
-                      className="text-center py-1 px-[2px] border-b border-r border-quintenary text-sm text-secondary md:p-1 last:border-b-0 last:border-r-0"
+                      className="text-center py-1 px-[2px] border-b border-r border-l border-quintenary text-sm text-secondary md:p-1"
                       key={cell.id}
                     >
                       {flexRender(
