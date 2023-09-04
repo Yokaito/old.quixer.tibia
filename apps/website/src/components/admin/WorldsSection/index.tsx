@@ -94,10 +94,7 @@ export default function WorldsSection() {
           const world = info.row.original
 
           return (
-            <div
-              data-qx-actions-world
-              className="flex flex-col items-center justify-center gap-2 md:flex-row"
-            >
+            <div className="flex flex-col items-center justify-center gap-2 md:flex-row">
               <DeleteWorldModal worldId={world.id} worldName={world.name} />
               <EditWorldModal worldId={world.id} worldName={world.name} />
             </div>
@@ -127,11 +124,8 @@ export default function WorldsSection() {
 
   return (
     <Container title={t('quixer.geral.worlds')}>
-      <InnerContainer
-        data-qx-world-header-table
-        className="flex flex-col justify-between gap-3 md:flex-row"
-      >
-        <div data-qx-world-filter className="flex items-center gap-2">
+      <InnerContainer className="flex flex-col justify-between gap-3 md:flex-row">
+        <div className="flex items-center gap-2">
           <label className="label" htmlFor="globalFilter">
             {t('quixer.geral.filter')}:{' '}
           </label>
@@ -143,13 +137,12 @@ export default function WorldsSection() {
             placeholder={t('quixer.geral.searchAllColumns')}
           />
         </div>
-        <div data-qx-world-pagination className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <div className="flex gap-2">
             <Button
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
               className="rotate-[-90deg] scale-x-[-1] disabled:opacity-50"
-              data-qx-world-table-pagination-button="previous"
             >
               <Image src={CaretTop} alt="Caret Top" quality={100} />
             </Button>
@@ -157,7 +150,6 @@ export default function WorldsSection() {
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
               className="rotate-90 disabled:opacity-50"
-              data-qx-world-table-pagination-button="next"
             >
               <Image src={CaretTop} alt="Caret Top" quality={100} />
             </Button>
@@ -175,20 +167,14 @@ export default function WorldsSection() {
               </option>
             ))}
           </select>
-          <span
-            data-qx-worlds-page-count
-            className="text-sm font-medium text-secondary"
-          >
+          <span className="text-sm font-medium text-secondary">
             {table.getState().pagination.pageIndex + 1} {t('quixer.geral.of')}{' '}
             {table.getPageCount()}
           </span>
         </div>
       </InnerContainer>
-      <InnerContainer
-        className="flex flex-col gap-3"
-        data-qx-world-section-container
-      >
-        <table className="w-full border-collapse" data-qx-table-worlds>
+      <InnerContainer className="flex flex-col gap-3">
+        <table className="w-full border-collapse">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
@@ -229,7 +215,7 @@ export default function WorldsSection() {
           </tbody>
         </table>
       </InnerContainer>
-      <InnerContainer data-qx-world-table-actions className="flex justify-end">
+      <InnerContainer className="flex justify-end">
         <CreateWorldModal />
       </InnerContainer>
     </Container>

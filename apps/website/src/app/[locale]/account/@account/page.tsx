@@ -14,7 +14,7 @@ export default async function Account() {
       <SectionHeader backgroundColor="green">
         <h1 className="section-title">{t('quixer.account.management')}</h1>
       </SectionHeader>
-      <InnerSection data-qx-account-section-wrapper>
+      <InnerSection>
         <AccountWelcomeSection />
         <AccountStatusSection />
         <AccountCharacterListSection />

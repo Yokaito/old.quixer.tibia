@@ -117,11 +117,8 @@ export const FormEditWorld = ({
       onClose={() => handleClose(false)}
     >
       <form onSubmit={handleSubmit(handleDataSubmit)}>
-        <InnerContainer
-          data-qx-world-edit-inputs
-          className="flex flex-col gap-2"
-        >
-          <div data-qx-world-input className="flex flex-col gap-1 ">
+        <InnerContainer className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1 ">
             <label className="label">{t('quixer.geral.id')}</label>
             <input
               className="input"
@@ -130,25 +127,22 @@ export const FormEditWorld = ({
               defaultValue={world.data?.id}
             />
           </div>
-          <div data-qx-world-input className="flex flex-col gap-1 ">
+          <div className="flex flex-col gap-1 ">
             <label className="label">{t('quixer.geral.name')}</label>
             <input className="input" type="text" {...register('name')} />
           </div>
 
-          <div
-            data-qx-world-group-input
-            className="flex flex-col gap-2 2xl:flex-row 2xl:gap-1"
-          >
-            <div data-qx-world-input className="flex flex-col gap-1 2xl:flex-1">
+          <div className="flex flex-col gap-2 2xl:flex-row 2xl:gap-1">
+            <div className="flex flex-col gap-1 2xl:flex-1">
               <label className="label">{t('quixer.geral.ip')}</label>
               <input className="input" type="text" {...register('ip')} />
             </div>
-            <div data-qx-world-input className="flex flex-col gap-1 ">
+            <div className="flex flex-col gap-1 ">
               <label className="label">{t('quixer.geral.port')}</label>
               <input className="input" type="number" {...register('port')} />
             </div>
           </div>
-          <div data-qx-world-input className="flex flex-col gap-1 ">
+          <div className="flex flex-col gap-1 ">
             <label className="label">{t('quixer.geral.location')}</label>
             <select className="input" {...register('location')}>
               {locations.data?.map((location) => (
@@ -158,7 +152,7 @@ export const FormEditWorld = ({
               ))}
             </select>
           </div>
-          <div data-qx-world-input className="flex flex-col gap-1 ">
+          <div className="flex flex-col gap-1 ">
             <label className="label">{t('quixer.geral.pvpType')}</label>
             <select className="input" {...register('pvp_type')}>
               {pvpTypes.data?.map((pvpType) => (
@@ -171,10 +165,7 @@ export const FormEditWorld = ({
         </InnerContainer>
         {Object.keys(errors).length > 0 && (
           <InnerContainer className="flex flex-col gap-2 p-3">
-            <h2
-              data-qx-form-errors-title
-              className="text-base font-bold text-secondary"
-            >
+            <h2 className="text-base font-bold text-secondary">
               {t('quixer.geral.attention')}
             </h2>
             <ul>
@@ -204,7 +195,7 @@ export const FormEditWorld = ({
                 }
 
                 return (
-                  <li data-qx-form-error-item key={key}>
+                  <li key={key}>
                     <span className="flex items-center gap-1 text-sm text-error">
                       <b className="font-bold capitalize text-secondary">
                         {keyName}:
@@ -218,10 +209,7 @@ export const FormEditWorld = ({
           </InnerContainer>
         )}
         <InnerContainer>
-          <footer
-            data-qx-footer-modal
-            className="flex flex-row justify-between gap-3"
-          >
+          <footer className="flex flex-row justify-between gap-3">
             <Button
               variant="red"
               type="button"

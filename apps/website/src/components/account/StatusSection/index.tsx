@@ -22,11 +22,8 @@ export const AccountStatusSection = async () => {
   return (
     <Container title={t('quixer.account.titles.status')}>
       <InnerContainer>
-        <div
-          data-qx-account-section-status
-          className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between"
-        >
-          <div data-qx-account-section-info className="flex items-center gap-3">
+        <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+          <div className="flex items-center gap-3">
             <Switch>
               <Case
                 condition={
@@ -40,10 +37,7 @@ export const AccountStatusSection = async () => {
               </Default>
             </Switch>
 
-            <div
-              data-qx-account-section-info-text
-              className="flex flex-col gap-1"
-            >
+            <div className="flex flex-col gap-1">
               <h2
                 className={`${
                   (session?.user.isPremium || otConfig.server.premiumIsFree) &&
@@ -107,10 +101,7 @@ export const AccountStatusSection = async () => {
               </p>
             </div>
           </div>
-          <div
-            data-qx-account-section-status-actions
-            className="flex flex-wrap justify-between gap-1 xl:flex-col"
-          >
+          <div className="flex flex-wrap justify-between gap-1 xl:flex-col">
             <ButtonLink
               href="/account/management"
               variant="info"
@@ -126,32 +117,20 @@ export const AccountStatusSection = async () => {
         </div>
       </InnerContainer>
       <InnerContainer>
-        <div
-          data-qx-account-premium-benefits-list
-          className="grid items-center grid-cols-1 gap-2 2xl:gap-4 2xl:grid-cols-3"
-        >
-          <div
-            data-qx-account-premium-benefits-item
-            className="flex items-center gap-1"
-          >
+        <div className="grid items-center grid-cols-1 gap-2 2xl:gap-4 2xl:grid-cols-3">
+          <div className="flex items-center gap-1">
             <Image src={IconPremium2} alt="icon" />
             <span className="text-sm font-normal text-left text-secondary font-poppins">
               {t('quixer.account.premium.benefits.outfits')}
             </span>
           </div>
-          <div
-            data-qx-account-premium-benefits-item
-            className="flex items-center gap-1"
-          >
+          <div className="flex items-center gap-1">
             <Image src={IconPremium1} alt="icon" />
             <span className="text-sm font-normal text-left text-secondary font-poppins">
               {t('quixer.account.premium.benefits.hunting')}
             </span>
           </div>
-          <div
-            data-qx-account-premium-benefits-item
-            className="flex items-center gap-1"
-          >
+          <div className="flex items-center gap-1">
             <Image src={IconPremium3} alt="icon" />
             <span className="text-sm font-normal text-left text-secondary font-poppins">
               {t('quixer.account.premium.benefits.battle')}

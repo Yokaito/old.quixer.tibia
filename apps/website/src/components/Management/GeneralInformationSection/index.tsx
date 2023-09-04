@@ -18,73 +18,40 @@ export const GeneralInformationSection = async () => {
 
   return (
     <Container title={t('quixer.account.titles.general')}>
-      <div
-        data-qx-general-information-wrapper
-        className="flex flex-col gap-2 h-max"
-      >
-        <div
-          data-qx-general-information-container
-          className="shadow-container outline outline-1 outline-secondary bg-600"
-        >
+      <div className="flex flex-col gap-2 h-max">
+        <div className="shadow-container outline outline-1 outline-secondary bg-600">
           <table className="w-full border-collapse">
             <tbody>
               <tr className="odd:bg-900">
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]"
-                  data-qx-general-information-label
-                >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]">
                   {t('quixer.account.general.labels.email')}
                 </td>
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2"
-                  data-qx-general-information-value
-                >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2">
                   {user.email}
                 </td>
               </tr>
               <tr className="odd:bg-900">
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]"
-                  data-qx-general-information-label
-                >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]">
                   {t('quixer.account.general.labels.created')}
                 </td>
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2"
-                  data-qx-general-information-value
-                >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2">
                   {convertUnixTimeToDate(user.creation, locale)}
                 </td>
               </tr>
               <tr className="odd:bg-900">
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]"
-                  data-qx-general-information-label
-                >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]">
                   {t('quixer.account.general.labels.lastLogin')}
                 </td>
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2"
-                  data-qx-general-information-value
-                >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2">
                   not implemented
                 </td>
               </tr>
               <tr className="odd:bg-900">
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]"
-                  data-qx-general-information-label
-                >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]">
                   {t('quixer.account.general.labels.accountStatus')}
                 </td>
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2"
-                  data-qx-general-information-value
-                >
-                  <div
-                    data-qx-general-information-premium
-                    className="flex flex-col"
-                  >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2">
+                  <div className="flex flex-col">
                     <span
                       className={`${
                         (otConfig.server.premiumIsFree ||
@@ -104,10 +71,7 @@ export const GeneralInformationSection = async () => {
                         </Default>
                       </Switch>
                     </span>
-                    <span
-                      className="text-[12px]"
-                      data-qx-general-information-premium-time
-                    >
+                    <span className="text-[12px]">
                       <Switch>
                         <Case condition={otConfig?.server?.premiumIsFree}>
                           <>
@@ -152,20 +116,11 @@ export const GeneralInformationSection = async () => {
                 </td>
               </tr>
               <tr className="odd:bg-900">
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]"
-                  data-qx-general-information-label
-                >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]">
                   {t('quixer.account.general.labels.tibiaCoins')}
                 </td>
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2"
-                  data-qx-general-information-value
-                >
-                  <div
-                    className="flex items-center gap-3"
-                    data-qx-general-information-coins
-                  >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2">
+                  <div className="flex items-center gap-3">
                     <span className="flex items-center gap-1">
                       {user.coins}
                       <Image
@@ -185,44 +140,21 @@ export const GeneralInformationSection = async () => {
                 </td>
               </tr>
               <tr className="odd:bg-900">
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]"
-                  data-qx-general-information-label
-                >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]">
                   {t('quixer.account.general.labels.loyaltyPoints')}
                 </td>
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2"
-                  data-qx-general-information-value
-                >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2">
                   187
                 </td>
               </tr>
               <tr className="odd:bg-900">
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]"
-                  data-qx-general-information-label
-                >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm w-[110px] 2xl:w-[150px]">
                   {t('quixer.account.general.labels.loyaltyTitle')}
                 </td>
-                <td
-                  className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2"
-                  data-qx-general-information-value
-                >
-                  <div
-                    data-qx-general-information-loyalty
-                    className="flex flex-col"
-                  >
-                    <span
-                      className="font-bold"
-                      data-qx-general-information-loyalty-title
-                    >
-                      Sentinel of Tibia
-                    </span>
-                    <span
-                      className="text-[12px]"
-                      data-qx-general-information-loyalty-next
-                    >
+                <td className="py-1 px-[2px] text-start border border-quintenary text-secondary text-sm pl-2">
+                  <div className="flex flex-col">
+                    <span className="font-bold">Sentinel of Tibia</span>
+                    <span className="text-[12px]">
                       (Promotion to: Steward of Tibia at 200 Loyalty Points)
                     </span>
                   </div>
@@ -231,10 +163,7 @@ export const GeneralInformationSection = async () => {
             </tbody>
           </table>
         </div>
-        <div
-          data-qx-general-information-actions
-          className="flex flex-wrap items-end justify-end gap-2 2xl:gap-3 2xl:flex-row"
-        >
+        <div className="flex flex-wrap items-end justify-end gap-2 2xl:gap-3 2xl:flex-row">
           <ButtonLink
             variant="info"
             href="/account/management/change-password"

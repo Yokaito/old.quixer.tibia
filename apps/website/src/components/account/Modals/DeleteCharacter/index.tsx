@@ -29,10 +29,7 @@ export const ModalDeleteCharacter = ({
               {`Tem certeza que deseja deletar o personagem ${characterName}, ${characterId}?`}
             </InnerContainer>
             <InnerContainer>
-              <footer
-                data-qx-footer-modal
-                className="flex justify-between gap-3"
-              >
+              <footer className="flex justify-between gap-3">
                 <Button variant="red" onClick={() => setOpen(false)}>
                   Fechar
                 </Button>

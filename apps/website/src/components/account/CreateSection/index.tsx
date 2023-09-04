@@ -113,12 +113,8 @@ export const CreateAccountSection = () => {
       <div>
         <form onSubmit={handleSubmit(handleDataSubmit)}>
           <InnerContainer>
-            <div className="flex flex-col gap-2" data-qx-inputs-wrapper>
-              <div
-                className="flex items-center justify-end gap-1"
-                data-qx-form-input
-                data-qx-form-input-error={!!errors?.name}
-              >
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center justify-end gap-1">
                 <label
                   className="label text-sm w-[20%] md:w-[17%] md:text-base"
                   htmlFor="name"
@@ -134,11 +130,7 @@ export const CreateAccountSection = () => {
                   {...register('name')}
                 />
               </div>
-              <div
-                className="flex items-center justify-end gap-1"
-                data-qx-form-input
-                data-qx-form-input-error={!!errors?.email}
-              >
+              <div className="flex items-center justify-end gap-1">
                 <label
                   className="label text-sm w-[20%] md:w-[17%] md:text-base"
                   htmlFor="email"
@@ -154,11 +146,7 @@ export const CreateAccountSection = () => {
                   {...register('email')}
                 />
               </div>
-              <div
-                className="flex items-center justify-end gap-1"
-                data-qx-form-input
-                data-qx-form-input-error={!!errors?.password}
-              >
+              <div className="flex items-center justify-end gap-1">
                 <label
                   className="label text-sm w-[20%] md:w-[17%] md:text-base"
                   htmlFor="password"
@@ -174,11 +162,7 @@ export const CreateAccountSection = () => {
                   {...register('password')}
                 />
               </div>
-              <div
-                className="flex items-center justify-end gap-1"
-                data-qx-form-input
-                data-qx-form-input-error={!!errors?.confirmPassword}
-              >
+              <div className="flex items-center justify-end gap-1">
                 <label
                   className="label text-sm w-[20%] md:w-[17%] md:text-base"
                   htmlFor="confirmPassword"
@@ -198,7 +182,7 @@ export const CreateAccountSection = () => {
             </div>
           </InnerContainer>
           <InnerContainer>
-            <label data-qx-input-consent className="text-sm text-secondary">
+            <label className="text-sm text-secondary">
               <input
                 className="mr-1"
                 type="checkbox"
@@ -208,14 +192,11 @@ export const CreateAccountSection = () => {
             </label>
           </InnerContainer>
           <InnerContainer>
-            <div data-qx-input-terms-wrapper className="flex flex-col gap-2">
-              <h2
-                data-qx-input-terms-title
-                className="text-base font-bold text-secondary"
-              >
+            <div className="flex flex-col gap-2">
+              <h2 className="text-base font-bold text-secondary">
                 {t('quixer.geral.selectCheckbox')}
               </h2>
-              <label className="text-sm text-secondary" data-qx-input-terms>
+              <label className="text-sm text-secondary">
                 <input
                   className="mr-1"
                   type="checkbox"
@@ -227,14 +208,11 @@ export const CreateAccountSection = () => {
           </InnerContainer>
           {Object.keys(errors).length > 0 && (
             <InnerContainer>
-              <div className="flex flex-col gap-2" data-qx-form-errors-wrapper>
-                <h2
-                  className="text-base font-bold text-secondary"
-                  data-qx-form-errors-title
-                >
+              <div className="flex flex-col gap-2">
+                <h2 className="text-base font-bold text-secondary">
                   {t('quixer.geral.attention')}
                 </h2>
-                <ul className="flex flex-col gap-2" data-qx-form-errors-list>
+                <ul className="flex flex-col gap-2">
                   {Object.entries(errors).map(([key, value]) => {
                     if (!value.message) return null
 
@@ -264,11 +242,7 @@ export const CreateAccountSection = () => {
                     }
 
                     return (
-                      <li
-                        className="flex items-center gap-1"
-                        data-qx-form-error-item
-                        key={key}
-                      >
+                      <li className="flex items-center gap-1" key={key}>
                         <span className="flex items-center gap-1 text-sm text-error">
                           <b className="font-bold capitalize text-secondary">
                             {keyName}:
@@ -282,7 +256,7 @@ export const CreateAccountSection = () => {
               </div>
             </InnerContainer>
           )}
-          <div data-qx-form-actions className="flex justify-end">
+          <div className="flex justify-end">
             <Button variant="info" type="submit">
               {t('quixer.geral.createAccount')}
             </Button>

@@ -47,14 +47,8 @@ export const ModalDeleteWorldContent = ({
       title={`${t('quixer.geral.delete')}, ${worldName}`}
       onClose={() => handleModal(false)}
     >
-      <InnerContainer
-        className="flex flex-col"
-        data-qx-modal-delete-world-wrapper
-      >
-        <span
-          className="text-base text-center text-secondary"
-          data-qx-modal-paragraph
-        >
+      <InnerContainer className="flex flex-col">
+        <span className="text-base text-center text-secondary">
           {t('quixer.geral.countPlayerWorld', {
             count: worldCountPlayers.data?.players,
           })}

@@ -37,7 +37,7 @@ export const MenuBox = ({
   })
 
   return (
-    <div data-qx-menu-box className={`flex flex-col w-[180px] items-center`}>
+    <div className={`flex flex-col w-[180px] items-center`}>
       <BorderBox />
       <div className={`${classContent}`}>
         {showChain && <div className={`${classChain} left-[-4px]`} />}

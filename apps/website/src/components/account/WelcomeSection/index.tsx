@@ -10,19 +10,9 @@ export const AccountWelcomeSection = async () => {
   const t = await getI18n()
 
   return (
-    <div
-      className="flex items-center justify-center gap-4 mt-4"
-      data-qx-account-section-title-wrapper
-    >
-      <Image
-        src={BorderTitle}
-        alt="border"
-        data-qx-account-section-title-border
-      />
-      <h1
-        data-qx-account-section-title
-        className="text-lg font-bold text-center text-secondary font-poppins"
-      >
+    <div className="flex items-center justify-center gap-4 mt-4">
+      <Image src={BorderTitle} alt="border" />
+      <h1 className="text-lg font-bold text-center text-secondary font-poppins">
         {t('quixer.account.hello', {
           name: session?.user?.name,
         })}

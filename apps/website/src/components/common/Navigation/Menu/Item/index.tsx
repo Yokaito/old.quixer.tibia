@@ -66,15 +66,11 @@ export const MenuItem = ({ icon, label, subItem }: MenuItemProps) => {
   return (
     <div>
       <div
-        data-qx-menu-item
         className="w-[170px] bg-[url('../assets/images/buttons/button-menu.webp')] bg-no-repeat h-8 px-1 relative cursor-pointer transition-all flex items-center gap-1 hover:filter-hover"
         onClick={() => setShowMenu(!showMenu)}
       >
         <Image src={iconToUse} alt={label} />
-        <span
-          data-qx-menu-item-text
-          className="flex-1 text-base capitalize fondamento-title"
-        >
+        <span className="flex-1 text-base capitalize fondamento-title">
           {label}
         </span>
       </div>
@@ -83,7 +79,6 @@ export const MenuItem = ({ icon, label, subItem }: MenuItemProps) => {
         style={{ height: showMenu ? `${heightTotal}px` : '0px' }}
       >
         <div
-          data-qx-chain
           className="transition-all duration-700 absolute bg-repeat-y w-[7px] h-full top-0 bg-[url('../assets/images/borders/chain.webp')] right-0"
           style={{ height: showMenu ? `${heightTotal}px` : '0px' }}
         />
@@ -99,11 +94,8 @@ export const MenuItem = ({ icon, label, subItem }: MenuItemProps) => {
               key={subItemMenu.label}
               href={subItemMenu.href}
               className="text-[12px] text-white bg-200 border-b border-primary cursor-pointer py-[2px] px-2 decoration-0 font-poppins line-clamp-1 hover:bg-300 transition-all"
-              data-qx-menu-sub-item
             >
-              {isActive && (
-                <span className="mr-1" data-qx-menu-sub-item-active>{`>`}</span>
-              )}
+              {isActive && <span className="mr-1">{`>`}</span>}
               {subItemMenu.label}
             </Link>
           )

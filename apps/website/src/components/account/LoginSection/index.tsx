@@ -58,11 +58,7 @@ export const AccountLoginSection = () => {
     <Container title={t('quixer.account.form')}>
       <form onSubmit={handleSubmit(handleDataSubmit)}>
         <InnerContainer className="flex flex-col gap-2">
-          <div
-            data-qx-login-form-input
-            data-qx-login-form-input-error={!!errors?.email}
-            className="flex w-full"
-          >
+          <div className="flex w-full">
             <label className="w-[25%] label md:w-[10%]" htmlFor="email">
               {t('quixer.account.email')}:
             </label>
@@ -74,11 +70,7 @@ export const AccountLoginSection = () => {
               {...register('email')}
             />
           </div>
-          <div
-            className="flex w-full"
-            data-qx-login-form-input
-            data-qx-login-form-input-error={!!errors?.password}
-          >
+          <div className="flex w-full">
             <label className="w-[25%] label md:w-[10%]" htmlFor="password">
               {t('quixer.account.password')}:
             </label>
@@ -94,26 +86,17 @@ export const AccountLoginSection = () => {
             <h1 className="text-base font-bold text-secondary">
               {t('quixer.geral.attention')}
             </h1>
-            <span
-              className="text-[12px] font-normal text-error"
-              data-qx-login-form-error
-            >
+            <span className="text-[12px] font-normal text-error">
               {errors?.email?.message}
             </span>
-            <span
-              className="text-[12px] font-normal text-error"
-              data-qx-login-form-error
-            >
+            <span className="text-[12px] font-normal text-error">
               {errors?.password?.message}
             </span>
           </InnerContainer>
         )}
 
         <InnerContainer>
-          <div
-            data-qx-login-form-actions
-            className="flex justify-between gap-2 md:justify-end"
-          >
+          <div className="flex justify-between gap-2 md:justify-end">
             <Button variant="info" type="button" disabled={isSubmitting}>
               Lost Account
             </Button>
