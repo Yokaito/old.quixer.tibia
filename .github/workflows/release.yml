@@ -14,6 +14,7 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+      TURBO_REMOTE_ONLY: true
       DATABASE_URL: 'mysql://root:root@localhost:3306/quixer'
       NEXT_PUBLIC_URL: 'http://localhost:3000'
       NEXTAUTH_SECRET: 'quixer'
