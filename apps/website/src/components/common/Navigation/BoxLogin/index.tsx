@@ -1,5 +1,5 @@
 import { MenuBox } from '@/components/ui'
-import styles from './box-login.module.scss'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import LogoTibiaArtWork from '@/assets/images/logo/tibia-logo-artwork-top.webp'
@@ -8,8 +8,11 @@ import { ButtonSignOut } from '@/components/ui/Button/ButtonSignOut'
 
 export const BoxLogin = async () => {
   return (
-    <div className={`${styles.qxBoxLogin}`} data-qx-box-login>
-      <Link data-qx-logo-artwork href="/">
+    <div>
+      <Link
+        href="/"
+        className="absolute top-[-155px] right-[-2px] w-full flex items-center"
+      >
         <Image src={LogoTibiaArtWork} alt="logo tibia artwork" priority />
       </Link>
       <MenuBox showChain>

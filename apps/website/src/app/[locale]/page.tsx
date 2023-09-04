@@ -8,7 +8,9 @@ export default async function Home() {
     <>
       <NewstickerSection />
       <div>
-        <span>Current Locale: {locale}</span>
+        <span className="text-3xl text-white sm:text-sm shadow-primary font-fondamento">
+          Current Locale: {locale}
+        </span>
       </div>
     </>
   )

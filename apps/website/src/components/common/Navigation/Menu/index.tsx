@@ -1,4 +1,3 @@
-import styles from './menu.module.scss'
 import { MenuBox } from '@/components/ui'
 import { MenuItem } from './Item'
 import { getI18n } from '@/sdk/locales/server'
@@ -31,10 +30,10 @@ export const Menu = async () => {
   const menuData = await getMenuTranslated()
 
   return (
-    <div data-qx-menu-wrapper className={`${styles.qxMenu}`}>
+    <div className="flex">
       <MenuBox showBackground={false}>
-        {menuData.map((item, index) => (
-          <MenuItem {...item} key={index} />
+        {menuData.map((item) => (
+          <MenuItem {...item} key={item.label} />
         ))}
       </MenuBox>
     </div>

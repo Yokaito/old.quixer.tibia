@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import styles from './status-section.module.scss'
 import InnerContainer from '@/components/ui/Container/Inner'
 import { ButtonLink } from '@/components/ui/Button/ButtonAsLink'
 import StatusImagePremium from '@/assets/images/status/account-status_green.gif'
@@ -21,13 +20,10 @@ export const AccountStatusSection = async () => {
   const session = await getServerSession(authOptions)
 
   return (
-    <Container
-      className={styles.qxAccountStatusSection}
-      title={t('quixer.account.titles.status')}
-    >
+    <Container title={t('quixer.account.titles.status')}>
       <InnerContainer>
-        <div data-qx-account-section-status>
-          <div data-qx-account-section-info>
+        <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+          <div className="flex items-center gap-3">
             <Switch>
               <Case
                 condition={
@@ -41,11 +37,12 @@ export const AccountStatusSection = async () => {
               </Default>
             </Switch>
 
-            <div data-qx-account-section-info-text>
+            <div className="flex flex-col gap-1">
               <h2
-                data-qx-account-section-premium={
-                  session?.user.isPremium || otConfig.server.premiumIsFree
-                }
+                className={`${
+                  (session?.user.isPremium || otConfig.server.premiumIsFree) &&
+                  'text-success'
+                } text-lg font-bold text-error`}
               >
                 <Switch>
                   <Case condition={otConfig.server.premiumIsFree}>
@@ -59,7 +56,7 @@ export const AccountStatusSection = async () => {
                   </Default>
                 </Switch>
               </h2>
-              <p>
+              <p className="font-normal text-[12px] text-secondary">
                 <Switch>
                   <Case condition={otConfig.server.premiumIsFree}>
                     <>{t('quixer.account.status.freePermanent')}</>
@@ -84,7 +81,7 @@ export const AccountStatusSection = async () => {
                   </Default>
                 </Switch>
               </p>
-              <p>
+              <p className="font-normal text-[12px] text-secondary">
                 <Switch>
                   <Case condition={otConfig.server.premiumIsFree}>
                     <>
@@ -104,7 +101,7 @@ export const AccountStatusSection = async () => {
               </p>
             </div>
           </div>
-          <div data-qx-account-section-status-actions>
+          <div className="flex flex-wrap justify-between gap-1 xl:flex-col">
             <ButtonLink
               href="/account/management"
               variant="info"
@@ -120,18 +117,24 @@ export const AccountStatusSection = async () => {
         </div>
       </InnerContainer>
       <InnerContainer>
-        <div data-qx-account-premium-benefits-list>
-          <div data-qx-account-premium-benefits-item>
+        <div className="grid items-center grid-cols-1 gap-2 2xl:gap-4 2xl:grid-cols-3">
+          <div className="flex items-center gap-1">
             <Image src={IconPremium2} alt="icon" />
-            <span>{t('quixer.account.premium.benefits.outfits')}</span>
+            <span className="text-sm font-normal text-left text-secondary font-poppins">
+              {t('quixer.account.premium.benefits.outfits')}
+            </span>
           </div>
-          <div data-qx-account-premium-benefits-item>
+          <div className="flex items-center gap-1">
             <Image src={IconPremium1} alt="icon" />
-            <span>{t('quixer.account.premium.benefits.hunting')}</span>
+            <span className="text-sm font-normal text-left text-secondary font-poppins">
+              {t('quixer.account.premium.benefits.hunting')}
+            </span>
           </div>
-          <div data-qx-account-premium-benefits-item>
+          <div className="flex items-center gap-1">
             <Image src={IconPremium3} alt="icon" />
-            <span>{t('quixer.account.premium.benefits.battle')}</span>
+            <span className="text-sm font-normal text-left text-secondary font-poppins">
+              {t('quixer.account.premium.benefits.battle')}
+            </span>
           </div>
         </div>
       </InnerContainer>

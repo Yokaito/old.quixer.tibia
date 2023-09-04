@@ -57,7 +57,6 @@ const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
   return (
     <svg
       ref={ref}
-      data-fs-icon
       data-testid={testId}
       width={width ?? 24}
       height={height ?? 24}

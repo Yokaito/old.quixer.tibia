@@ -1,4 +1,4 @@
-import styles from './header.module.scss'
+import classNames from 'classnames'
 
 type Props = {
   children: React.ReactNode
@@ -6,13 +6,18 @@ type Props = {
 }
 
 export const SectionHeader = ({ children, backgroundColor = 'red' }: Props) => {
+  const classname = classNames({
+    'h-7 bg-[url("../assets/images/background/section-header-red.webp")]':
+      backgroundColor === 'red',
+    'h-6 bg-[url("../assets/images/background/section-header-green.webp")]':
+      backgroundColor === 'green',
+  })
+
   return (
-    <header
-      data-qx-section-header
-      data-qx-section-header-color={backgroundColor}
-      className={`${styles.qxSectionHeader}`}
-    >
-      <div data-qx-section-header-content>{children}</div>
+    <header className={`${classname} block bg-repeat-x relative`}>
+      <div className="absolute flex items-center w-full h-full px-2">
+        {children}
+      </div>
     </header>
   )
 }

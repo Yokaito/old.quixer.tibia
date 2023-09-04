@@ -4,7 +4,6 @@ import { Button, Modal } from '@/components/ui'
 import Image from 'next/image'
 import { useState } from 'react'
 import DeleteButtonImg from '@/assets/images/buttons/circle-symbol-minus.gif'
-import styles from './styles.module.scss'
 import { ModalDeleteWorldContent } from './Content'
 
 type DeleteWorldModalProps = {
@@ -23,7 +22,7 @@ export const DeleteWorldModal = (props: DeleteWorldModalProps) => {
         </Button>
 
         {open && (
-          <Modal open={open} className={styles.qxDeleteWorldModal}>
+          <Modal open={open}>
             <ModalDeleteWorldContent {...props} handleModal={setOpen} />
           </Modal>
         )}

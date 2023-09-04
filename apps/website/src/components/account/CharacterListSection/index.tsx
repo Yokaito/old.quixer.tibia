@@ -1,5 +1,4 @@
 import { serverClient } from '@/sdk/lib/trpc/server'
-import styles from './list.module.scss'
 import { getVocationName } from '@/sdk/utils/get-vocation'
 import DailyRewardNotCollectedIcon from '@/assets/images/icons/global/dailyreward-notcollected.png'
 import DailyRewardCollectedIcon from '@/assets/images/icons/global/dailyreward-collected.png'
@@ -19,65 +18,73 @@ export const AccountCharacterListSection = async () => {
 
   return (
     <Container title={t('quixer.account.titles.characters')}>
-      <div className={`${styles.qxCharacterList}`}>
-        <div data-qx-character-list-container>
-          <table>
+      <div className={`flex flex-col gap-4`}>
+        <div className="flex bg-600 shadow-container outline outline-1 outline-secondary">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th></th>
-                <th>{t('quixer.account.characters.table.name')}</th>
-                <th>{t('quixer.account.characters.table.status')}</th>
-                <th
-                  style={{
-                    textAlign: 'center',
-                  }}
-                >
+                <th className="p-1 border text-start border-quintenary"></th>
+                <th className="p-1 border text-start border-quintenary">
+                  {t('quixer.account.characters.table.name')}
+                </th>
+                <th className="p-1 border text-start border-quintenary">
+                  {t('quixer.account.characters.table.status')}
+                </th>
+                <th className="p-1 text-center border border-quintenary">
                   {t('quixer.account.characters.table.actions')}
                 </th>
               </tr>
             </thead>
             <tbody>
               {characters.map((character, idx) => (
-                <tr
-                  key={character.id}
-                  data-qx-item
-                  data-qx-item-main-character={character.main}
-                >
-                  <td width="15px" data-qx-item-index>
+                <tr key={character.id} className="odd:bg-900">
+                  <td
+                    className="p-1 border text-start border-quintenary"
+                    width="15px"
+                  >
                     {idx + 1}.
                   </td>
-                  <td width="50%" data-qx-item-info>
-                    <p data-qx-item-info-name>
+                  <td
+                    className="p-1 border text-start border-quintenary"
+                    width="50%"
+                  >
+                    <p className="flex items-center gap-2 text-sm font-medium text-secondary">
                       {character.name}
                       {character.main && (
                         <Image src={MainCharacterIcon} alt="main character" />
                       )}
                     </p>
-                    <p data-qx-item-info-specifications>
+                    <p className="mt-[2px] text-[12px] text-secondary">
                       {getVocationName(character.vocation)} - Level{' '}
                       {character.level} - {character.worlds.name}
                     </p>
                   </td>
-                  <td data-qx-item-status>
-                    {character.isreward ? (
-                      <Image
-                        src={DailyRewardNotCollectedIcon}
-                        alt="reward not collected"
-                      />
-                    ) : (
-                      <Image
-                        src={DailyRewardCollectedIcon}
-                        alt="reward collected"
-                      />
-                    )}
-                    {character.ishidden && (
-                      <Image src={StatusHiddenIcon} alt="status hidden" />
-                    )}
+                  <td className="p-1 border text-start border-quintenary">
+                    <div className="flex">
+                      {character.isreward ? (
+                        <Image
+                          className="mr-2"
+                          src={DailyRewardNotCollectedIcon}
+                          alt="reward not collected"
+                        />
+                      ) : (
+                        <Image
+                          src={DailyRewardCollectedIcon}
+                          alt="reward collected"
+                        />
+                      )}
+                      {character.ishidden && (
+                        <Image src={StatusHiddenIcon} alt="status hidden" />
+                      )}
+                    </div>
                   </td>
-                  <td data-qx-item-actions width="15%">
-                    <div data-qx-item-actions-container>
+                  <td
+                    className="p-1 border text-start border-quintenary"
+                    width="15%"
+                  >
+                    <div className="flex items-center justify-center gap-3">
                       <Link
-                        data-qx-item-link
+                        className="p-1 text-secondary visited:text-secondary"
                         href={`/account/character/edit/${character.name}`}
                       >
                         <Icon name="NotePencil" width={18} height={18} />
@@ -93,7 +100,7 @@ export const AccountCharacterListSection = async () => {
             </tbody>
           </table>
         </div>
-        <div data-qx-character-list-footer>
+        <div className="flex justify-end">
           <ButtonLink
             variant="info"
             href="/account/character/create"

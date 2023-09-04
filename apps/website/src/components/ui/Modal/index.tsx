@@ -1,6 +1,5 @@
 import { HTMLAttributes, forwardRef } from 'react'
 import { createPortal } from 'react-dom'
-import styles from './styles.module.scss'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   open: boolean
@@ -16,11 +15,12 @@ export const Modal = forwardRef<HTMLDivElement, Props>(function Modal(
     <div
       id="modal"
       ref={ref}
-      data-qx-modal
-      className={`${styles.qxModal} ${className}`}
+      className={`${className} fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex items-center justify-center`}
       {...otherProps}
     >
-      {children}
+      <div className="min-w-[320px] max-w-[320px] md:min-w-[480px] md:max-w-[480px]">
+        {children}
+      </div>
     </div>,
     document.body,
     'modal'

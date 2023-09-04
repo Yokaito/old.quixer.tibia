@@ -1,6 +1,5 @@
 import { Section } from '@/components/ui'
 import { SectionHeader } from '@/components/ui/Section/Header'
-import styles from './newsticker.module.scss'
 import InnerSection from '@/components/ui/Section/Inner'
 import CommunityIcon from '@/assets/images/icons/16/newsicon_community_small.png'
 import FixIcon from '@/assets/images/icons/16/newsicon_technical_small.png'
@@ -41,12 +40,12 @@ const mockData = [
 
 export const NewstickerSection = () => {
   return (
-    <Section className={`${styles.qxNewsticker}`}>
+    <Section>
       <SectionHeader backgroundColor="green">
-        <h1 className="sectionTitle">news ticker</h1>
+        <h1 className="section-title">news ticker</h1>
       </SectionHeader>
       <InnerSection>
-        <div data-qx-newsticker-wrapper>
+        <div className="flex flex-col">
           {mockData.map((item, index) => {
             const isEven = (index + 1) % 2 === 0
 

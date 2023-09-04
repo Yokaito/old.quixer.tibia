@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import styles from './menu-item.module.scss'
 import { usePathname } from 'next/navigation'
 import { useCurrentLocale } from '@/sdk/locales/client'
 import { useState } from 'react'
@@ -60,25 +59,43 @@ export const MenuItem = ({ icon, label, subItem }: MenuItemProps) => {
   const currentLocale = useCurrentLocale()
   const normalizedPathname = pathname.replace(`${currentLocale}`, '')
 
-  const iconToUse = IconsToUse.find((item) => item.id === icon)?.icon || Icon1
+  const iconToUse = IconsToUse.find((item) => item.id === icon)?.icon ?? Icon1
+
+  const heightTotal = subItem.length * 18.8
 
   return (
-    <div className={`${styles.qxMenuItem}`}>
-      <div data-qx-menu-item onClick={() => setShowMenu(!showMenu)}>
+    <div>
+      <div
+        className="w-[170px] bg-[url('../assets/images/buttons/button-menu.webp')] bg-no-repeat h-8 px-1 relative cursor-pointer transition-all flex items-center gap-1 hover:filter-hover"
+        onClick={() => setShowMenu(!showMenu)}
+      >
         <Image src={iconToUse} alt={label} />
-        <span data-qx-menu-item-text className="fondamentoTitle">
+        <span className="flex-1 text-base capitalize fondamento-title">
           {label}
         </span>
       </div>
-      <div data-qx-menu-sub-list data-qx-menu-sub-list-active={showMenu}>
-        <div data-qx-chain data-qx-chain-right="false" />
-        <div data-qx-chain data-qx-chain-right="true" />
-        {subItem.map((subItemMenu, index) => {
+      <div
+        className="h-0 overflow-hidden transition-all duration-300 flex flex-col w-[170px] relative px-[2px]"
+        style={{ height: showMenu ? `${heightTotal}px` : '0px' }}
+      >
+        <div
+          className="transition-all duration-700 absolute bg-repeat-y w-[7px] h-full top-0 bg-[url('../assets/images/borders/chain.webp')] right-0"
+          style={{ height: showMenu ? `${heightTotal}px` : '0px' }}
+        />
+        <div
+          style={{ height: showMenu ? `${heightTotal}px` : '0px' }}
+          className="transition-all duration-700 absolute bg-repeat-y w-[7px] h-full top-0 bg-[url('../assets/images/borders/chain.webp')] left-0"
+        />
+        {subItem.map((subItemMenu) => {
           const isActive = normalizedPathname === subItemMenu.href
 
           return (
-            <Link key={index} href={subItemMenu.href} data-qx-menu-sub-item>
-              {isActive && <span data-qx-menu-sub-item-active>{`>`}</span>}
+            <Link
+              key={subItemMenu.label}
+              href={subItemMenu.href}
+              className="text-[12px] text-white bg-200 border-b border-primary cursor-pointer py-[2px] px-2 decoration-0 font-poppins line-clamp-1 hover:bg-300 transition-all"
+            >
+              {isActive && <span className="mr-1">{`>`}</span>}
               {subItemMenu.label}
             </Link>
           )

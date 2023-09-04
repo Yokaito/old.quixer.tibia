@@ -47,8 +47,8 @@ export const ModalDeleteWorldContent = ({
       title={`${t('quixer.geral.delete')}, ${worldName}`}
       onClose={() => handleModal(false)}
     >
-      <InnerContainer data-qx-modal-delete-world-wrapper>
-        <span data-qx-modal-paragraph>
+      <InnerContainer className="flex flex-col">
+        <span className="text-base text-center text-secondary">
           {t('quixer.geral.countPlayerWorld', {
             count: worldCountPlayers.data?.players,
           })}
@@ -58,7 +58,7 @@ export const ModalDeleteWorldContent = ({
         </span>
       </InnerContainer>
       <InnerContainer>
-        <footer data-qx-footer-modal>
+        <footer className="flex justify-between gap-3">
           <Button
             variant="red"
             type="button"

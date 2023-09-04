@@ -1,17 +1,15 @@
 import { HTMLAttributes, forwardRef } from 'react'
-import styles from './inner.module.scss'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export const InnerContainer = forwardRef<HTMLDivElement, Props>(function (
-  { children, ...otherProps },
+  { children, className, ...otherProps },
   ref
 ) {
   return (
     <div
-      data-qx-inner-container
       ref={ref}
-      className={`${styles.qxInnerContainer}`}
+      className={`block w-full h-max relative bg-600 p-1 mb-4 outline-1 outline outline-secondary border border-quintenary last:mb-0 shadow-container  ${className}`}
       {...otherProps}
     >
       {children}
