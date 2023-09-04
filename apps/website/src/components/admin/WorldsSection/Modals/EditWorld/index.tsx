@@ -4,7 +4,6 @@ import { Button, Modal } from '@/components/ui'
 import Image from 'next/image'
 import { useState } from 'react'
 import EditButtonImg from '@/assets/images/buttons/button-watch-idle.png'
-import styles from './styles.module.scss'
 import { FormEditWorld } from './Form'
 
 type EditWorldModalProps = {
@@ -23,7 +22,7 @@ export const EditWorldModal = (props: EditWorldModalProps) => {
         </Button>
 
         {open && (
-          <Modal open={open} className={styles.qxModalEditWorld}>
+          <Modal open={open}>
             <FormEditWorld {...props} handleClose={setOpen} />
           </Modal>
         )}

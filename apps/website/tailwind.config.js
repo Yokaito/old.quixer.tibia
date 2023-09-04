@@ -33,7 +33,7 @@ module.exports = {
           '-1px -1px 0 #000, 1px -1px 0 #2c2c2c, -1px 1px 0 #000, 1px 1px 0 #000',
       },
       boxShadow: {
-        container: '3px 3px 3px #2c2c2c',
+        container: '3px 3px 2px #875f3e',
       },
       boxShadowColor: {
         primary: '#2c2c2c',

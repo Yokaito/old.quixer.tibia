@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form'
 import z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Container } from '@/components/ui'
-import styles from './login-form.module.scss'
 import { useCallback } from 'react'
 import { useI18n } from '@/sdk/locales/client'
 import { useRouter } from 'next/navigation'
@@ -57,37 +56,73 @@ export const AccountLoginSection = () => {
 
   return (
     <Container title={t('quixer.account.form')}>
-      <InnerContainer>
-        <form
-          className={`${styles.qxLoginForm}`}
-          onSubmit={handleSubmit(handleDataSubmit)}
-        >
+      <form onSubmit={handleSubmit(handleDataSubmit)}>
+        <InnerContainer className="flex flex-col gap-2">
           <div
             data-qx-login-form-input
             data-qx-login-form-input-error={!!errors?.email}
+            className="flex w-full"
           >
-            <label htmlFor="email">{t('quixer.account.email')}:</label>
-            <input type="email" {...register('email')} />
-            <span data-qx-login-form-error>{errors?.email?.message}</span>
+            <label className="w-[25%] label md:w-[10%]" htmlFor="email">
+              {t('quixer.account.email')}:
+            </label>
+            <input
+              className={`flex-1 input ${
+                !!errors?.email && 'border border-error focus:outline-0'
+              }`}
+              type="email"
+              {...register('email')}
+            />
           </div>
           <div
+            className="flex w-full"
             data-qx-login-form-input
             data-qx-login-form-input-error={!!errors?.password}
           >
-            <label htmlFor="password">{t('quixer.account.password')}:</label>
-            <input type="password" {...register('password')} />
-            <span data-qx-login-form-error>{errors?.password?.message}</span>
+            <label className="w-[25%] label md:w-[10%]" htmlFor="password">
+              {t('quixer.account.password')}:
+            </label>
+            <input
+              className="flex-1 input"
+              type="password"
+              {...register('password')}
+            />
           </div>
-          <div data-qx-login-form-actions>
-            <Button variant="regular" type="button" disabled={isSubmitting}>
+        </InnerContainer>
+        {(!!errors?.email || !!errors?.password) && (
+          <InnerContainer className="flex flex-col gap-1">
+            <h1 className="text-base font-bold text-secondary">
+              {t('quixer.geral.attention')}
+            </h1>
+            <span
+              className="text-[12px] font-normal text-error"
+              data-qx-login-form-error
+            >
+              {errors?.email?.message}
+            </span>
+            <span
+              className="text-[12px] font-normal text-error"
+              data-qx-login-form-error
+            >
+              {errors?.password?.message}
+            </span>
+          </InnerContainer>
+        )}
+
+        <InnerContainer>
+          <div
+            data-qx-login-form-actions
+            className="flex justify-between gap-2 md:justify-end"
+          >
+            <Button variant="info" type="button" disabled={isSubmitting}>
               Lost Account
             </Button>
-            <Button variant="regular" type="submit" disabled={isSubmitting}>
+            <Button variant="info" type="submit" disabled={isSubmitting}>
               {t('quixer.account.login')}
             </Button>
           </div>
-        </form>
-      </InnerContainer>
+        </InnerContainer>
+      </form>
     </Container>
   )
 }

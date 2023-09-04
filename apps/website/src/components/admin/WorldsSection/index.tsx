@@ -1,9 +1,8 @@
 'use client'
 import React, { useMemo } from 'react'
-import { Container } from '@/components/ui'
+import { Button, Container } from '@/components/ui'
 import InnerContainer from '@/components/ui/Container/Inner'
 import { trpc } from '@/sdk/lib/trpc/client'
-import styles from './styles.module.scss'
 import { EditWorldModal } from './Modals/EditWorld'
 import { DeleteWorldModal } from './Modals/DeleteWorld'
 import { CreateWorldModal } from './Modals/CreateWorld'
@@ -95,7 +94,10 @@ export default function WorldsSection() {
           const world = info.row.original
 
           return (
-            <div data-qx-actions-world>
+            <div
+              data-qx-actions-world
+              className="flex flex-col items-center justify-center gap-2 md:flex-row"
+            >
               <DeleteWorldModal worldId={world.id} worldName={world.name} />
               <EditWorldModal worldId={world.id} worldName={world.name} />
             </div>
@@ -124,39 +126,44 @@ export default function WorldsSection() {
   })
 
   return (
-    <Container
-      title={t('quixer.geral.worlds')}
-      className={styles.qxWorldsSection}
-    >
-      <InnerContainer data-qx-world-header-table>
-        <div data-qx-world-filter>
-          <label htmlFor="globalFilter">{t('quixer.geral.filter')}: </label>
+    <Container title={t('quixer.geral.worlds')}>
+      <InnerContainer
+        data-qx-world-header-table
+        className="flex flex-col justify-between gap-3 md:flex-row"
+      >
+        <div data-qx-world-filter className="flex items-center gap-2">
+          <label className="label" htmlFor="globalFilter">
+            {t('quixer.geral.filter')}:{' '}
+          </label>
           <DebouncedInput
             name="globalFilter"
             value={globalFilter ?? ''}
             onChange={(value) => setGlobalFilter(String(value))}
-            className="p-2 font-lg shadow border border-block"
+            className="input"
             placeholder={t('quixer.geral.searchAllColumns')}
           />
         </div>
-        <div data-qx-world-pagination>
-          <div>
-            <button
+        <div data-qx-world-pagination className="flex items-center gap-2">
+          <div className="flex gap-2">
+            <Button
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
+              className="rotate-[-90deg] scale-x-[-1] disabled:opacity-50"
               data-qx-world-table-pagination-button="previous"
             >
               <Image src={CaretTop} alt="Caret Top" quality={100} />
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
+              className="rotate-90 disabled:opacity-50"
               data-qx-world-table-pagination-button="next"
             >
               <Image src={CaretTop} alt="Caret Top" quality={100} />
-            </button>
+            </Button>
           </div>
           <select
+            className="input"
             value={table.getState().pagination.pageSize}
             onChange={(e) => {
               table.setPageSize(Number(e.target.value))
@@ -168,19 +175,28 @@ export default function WorldsSection() {
               </option>
             ))}
           </select>
-          <span data-qx-worlds-page-count>
+          <span
+            data-qx-worlds-page-count
+            className="text-sm font-medium text-secondary"
+          >
             {table.getState().pagination.pageIndex + 1} {t('quixer.geral.of')}{' '}
             {table.getPageCount()}
           </span>
         </div>
       </InnerContainer>
-      <InnerContainer data-qx-world-section-container>
-        <table data-qx-table-worlds>
+      <InnerContainer
+        className="flex flex-col gap-3"
+        data-qx-world-section-container
+      >
+        <table className="w-full border-collapse" data-qx-table-worlds>
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <th key={header.id}>
+                  <th
+                    className="text-base font-bold border-b border-r text-secondary bg-1000 border-quintenary last:border-r-0"
+                    key={header.id}
+                  >
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -194,10 +210,13 @@ export default function WorldsSection() {
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
+              <tr className="odd:bg-800" key={row.id}>
                 {row.getVisibleCells().map((cell) => {
                   return (
-                    <td key={cell.id}>
+                    <td
+                      className="text-center py-1 px-[2px] border-b border-r border-quintenary text-sm text-secondary md:p-1 last:border-b-0 last:border-r-0"
+                      key={cell.id}
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -210,7 +229,7 @@ export default function WorldsSection() {
           </tbody>
         </table>
       </InnerContainer>
-      <InnerContainer data-qx-world-table-actions>
+      <InnerContainer data-qx-world-table-actions className="flex justify-end">
         <CreateWorldModal />
       </InnerContainer>
     </Container>

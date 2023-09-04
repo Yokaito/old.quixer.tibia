@@ -2,7 +2,6 @@
 
 import { Button, Modal } from '@/components/ui'
 import { useState } from 'react'
-import styles from './styles.module.scss'
 import { useI18n } from '@/sdk/locales/client'
 import { CreateWorldContent } from './Content'
 
@@ -18,7 +17,7 @@ export const CreateWorldModal = () => {
         </Button>
 
         {open && (
-          <Modal open={open} className={styles.qxCreateWorldModal}>
+          <Modal open={open}>
             <CreateWorldContent handleModal={setOpen} />
           </Modal>
         )}

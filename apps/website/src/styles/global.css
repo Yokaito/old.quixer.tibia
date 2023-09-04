@@ -1,31 +1,10 @@
 @tailwind base;
-@import './global/layout.css';
 @tailwind components;
+@tailwind utilities;
 
 @layer components {
   .filter-hover {
     filter: brightness(1.1) contrast(1.1) saturate(1.1);
-  }
-}
-
-@tailwind utilities;
-
-@layer utilities {
-  .fondamento-title {
-    @apply font-fondamento;
-    @apply font-medium;
-    @apply text-primary;
-    @apply text-shadow-title;
-  }
-
-  .section-title {
-    @apply font-fondamento;
-    @apply font-bold;
-    @apply text-primary;
-    @apply text-shadow-title;
-    @apply select-none;
-    @apply capitalize;
-    @apply tracking-wider;
   }
 
   .label {
@@ -57,5 +36,88 @@
   .input:-webkit-autofill:focus,
   .input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+}
+
+@layer utilities {
+  .fondamento-title {
+    @apply font-fondamento;
+    @apply font-medium;
+    @apply text-primary;
+    @apply text-shadow-title;
+  }
+
+  .section-title {
+    @apply font-fondamento;
+    @apply font-bold;
+    @apply text-primary;
+    @apply text-shadow-title;
+    @apply select-none;
+    @apply capitalize;
+    @apply tracking-wider;
+  }
+
+  .layout-main {
+    @apply flex;
+    @apply flex-col;
+    @apply flex-wrap;
+    @apply gap-4;
+    @apply mt-[3px];
+    grid-area: content;
+  }
+
+  .layout-section {
+    @apply pb-4;
+    @apply mt-4;
+    @apply md:pb-6;
+    @apply md:mt-6;
+    @apply xl:pb-8;
+    @apply xl:mt-8;
+  }
+
+  .layout-content-full {
+    @apply w-full;
+    @apply py-6;
+    @apply md:py-7;
+    @apply xl:py-8;
+  }
+
+  .layout-content {
+    @apply block;
+    @apply box-border;
+    @apply w-full;
+    @apply max-w-screen-2xl;
+    @apply px-4;
+    @apply md:px-6;
+    @apply xl:px-8;
+    @apply mx-auto;
+  }
+
+  .background-main {
+    @apply bg-100;
+    @apply bg-no-repeat;
+    @apply bg-left-top;
+  }
+
+  @media screen(xl) {
+    .background-main {
+      background-position: center top;
+    }
+  }
+
+  .page-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'header' 'content';
+  }
+
+  @media screen(xl) {
+    .page-layout {
+      column-gap: 0.5rem;
+      grid-template-columns: 205px auto 205px;
+      grid-template-areas:
+        'header header header'
+        'navigation content sidebar';
+    }
   }
 }

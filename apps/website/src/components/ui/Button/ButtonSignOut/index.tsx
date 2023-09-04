@@ -26,7 +26,7 @@ export const ButtonSignOut = ({ variant = 'link' }: Props) => {
 
   if (variant === 'button') {
     return (
-      <Button variant="red" onClick={handleClick}>
+      <Button className="fondamento-title" variant="red" onClick={handleClick}>
         {session?.data
           ? t('quixer.box.login.logout')
           : t('quixer.box.login.register')}
@@ -35,7 +35,7 @@ export const ButtonSignOut = ({ variant = 'link' }: Props) => {
   }
 
   return (
-    <Button onClick={handleClick} className="text-sm ">
+    <Button onClick={handleClick} className="text-sm fondamento-title">
       {session?.data
         ? t('quixer.box.login.logout')
         : t('quixer.box.login.register')}

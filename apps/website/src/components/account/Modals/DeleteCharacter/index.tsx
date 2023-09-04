@@ -4,7 +4,6 @@ import { Button, Container, Modal } from '@/components/ui'
 import InnerContainer from '@/components/ui/Container/Inner'
 import Icon from '@/components/ui/Icon'
 import { useState } from 'react'
-import styles from './styles.module.scss'
 
 type ModalDeleteCharacterProps = {
   characterName: string
@@ -19,18 +18,21 @@ export const ModalDeleteCharacter = ({
 
   return (
     <>
-      <div className={styles.qxModalDeleteCharacterWrapper}>
-        <Button onClick={() => setOpen(!open)}>
+      <div>
+        <Button className="text-secondary" onClick={() => setOpen(!open)}>
           <Icon name="Trash" width={18} height={18} />
         </Button>
 
-        <Modal open={open} className={styles.qxModalDeleteCharacter}>
+        <Modal open={open}>
           <Container title={`Deletar, ${characterName}`}>
             <InnerContainer>
               {`Tem certeza que deseja deletar o personagem ${characterName}, ${characterId}?`}
             </InnerContainer>
             <InnerContainer>
-              <footer data-qx-footer-modal>
+              <footer
+                data-qx-footer-modal
+                className="flex justify-between gap-3"
+              >
                 <Button variant="red" onClick={() => setOpen(false)}>
                   Fechar
                 </Button>
