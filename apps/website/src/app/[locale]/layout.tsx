@@ -6,7 +6,6 @@ import '@/styles/vendors/modern-normalize.css'
 import '@/styles/vendors/resets.css'
 import 'react-toastify/dist/ReactToastify.css'
 import '@/styles/global/toastify.css'
-import '@/styles/global/tokens.scss'
 
 import Layout from '@/components/Layout'
 import { Providers } from './providers'

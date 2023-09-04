@@ -24,7 +24,7 @@ export const AccountStatusSection = async () => {
       <InnerContainer>
         <div
           data-qx-account-section-status
-          className="flex flex-col gap-4 2xl:flex-row 2xl:items-center 2xl:justify-between"
+          className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between"
         >
           <div data-qx-account-section-info className="flex items-center gap-3">
             <Switch>
@@ -109,7 +109,7 @@ export const AccountStatusSection = async () => {
           </div>
           <div
             data-qx-account-section-status-actions
-            className="flex flex-wrap justify-between gap-1 2xl:flex-col"
+            className="flex flex-wrap justify-between gap-1 xl:flex-col"
           >
             <ButtonLink
               href="/account/management"
