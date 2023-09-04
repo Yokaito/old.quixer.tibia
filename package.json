@@ -11,12 +11,12 @@
     }
   },
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel --no-cache",
-    "migrate": "turbo run migrate",
-    "test": "turbo run test",
-    "lint": "turbo run lint",
-    "size": "turbo run size",
+    "build": "turbo run build --no-daemon",
+    "dev": "turbo run dev --parallel --no-cache --no-daemon",
+    "migrate": "turbo run migrate --no-daemon",
+    "test": "turbo run test --no-daemon",
+    "lint": "turbo run lint --no-daemon",
+    "size": "turbo run size --no-daemon",
     "release": "lerna version patch --yes && lerna publish from-git --yes",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{js,jsx,ts,tsx,md}\"",
     "postinstall": "npx husky install"
