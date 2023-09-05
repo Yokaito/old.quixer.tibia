@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.64 (2023-09-05)
+
+### Bug Fixes
+
+- labeler ([fe12fcf](https://github.com/Yokaito/quixer/commit/fe12fcffa128e86917ad6cd44151e6f6e3829017))
+
 ## [0.0.63](https://github.com/Yokaito/quixer/compare/v0.0.62...v0.0.63) (2023-09-04)
 
 ### Chores
