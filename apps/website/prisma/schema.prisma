@@ -583,6 +583,7 @@ model players {
   id                                                       Int                    @id @default(autoincrement())
   name                                                     String                 @unique(map: "players_unique") @db.VarChar(255)
   ishidden                                                 Boolean                @default(false)
+  comment                                                  String?                @db.VarChar(255)
   main                                                     Boolean                @default(false)
   world_id                                                 Int                    @default(1)
   group_id                                                 Int                    @default(1)
