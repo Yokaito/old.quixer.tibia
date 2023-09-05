@@ -8,8 +8,8 @@ const config: StorybookConfig = {
     {
       name: '@storybook/addon-styling',
       options: {
-        sass: {
-          implementation: require('sass'),
+        postCss: {
+          implementation: require.resolve('postcss'),
         },
       },
     },

@@ -1,6 +1,5 @@
 import React, { ButtonHTMLAttributes, forwardRef } from 'react'
 import classNames from 'classnames'
-import './Wishlist.scss'
 
 interface WishlistProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   subscribed?: boolean
