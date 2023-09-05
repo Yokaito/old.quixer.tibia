@@ -6,4 +6,4 @@
   - any: ['apps/docs/**/*']
 
 'Area: Packages UI':
-  - any: ['apps/packages/ui/**/*']
+  - any: ['packages/ui/**/*']
