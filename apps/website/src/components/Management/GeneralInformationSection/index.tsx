@@ -128,7 +128,7 @@ export const GeneralInformationSection = async () => {
                         alt="coins tranferable"
                       />
                     </span>
-                    <span>
+                    <span className="flex items-center gap-1">
                       {user.coins_transferable}
 
                       <Image
