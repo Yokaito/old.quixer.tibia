@@ -16,6 +16,7 @@ export const playersRouter = router({
       })
     )
     .mutation(async ({ input, ctx }) => {
+      const t = await getI18n()
       const { session } = ctx
 
       const player = await prisma.players.findUnique({
@@ -27,9 +28,9 @@ export const playersRouter = router({
 
       if (!player) {
         throw new TRPCError({
-          code: 'BAD_REQUEST',
+          code: 'NOT_FOUND',
           cause: 'player',
-          message: 'Player not found',
+          message: t('quixer.errors.playerNotFound'),
         })
       }
 

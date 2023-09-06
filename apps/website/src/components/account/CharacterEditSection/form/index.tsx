@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui'
 import InnerContainer from '@/components/ui/Container/Inner'
 import { trpc } from '@/sdk/lib/trpc/client'
+import { useI18n } from '@/sdk/locales/client'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useCallback, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -16,11 +17,14 @@ type Props = {
 }
 
 export const CharacterEditForm = ({ id, ishidden, comment = '' }: Props) => {
+  const t = useI18n()
   const utils = trpc.useContext()
   const schema = z.object({
     ishidden: z.boolean(),
-    // optional comment
-    comment: z.string().max(255).optional(),
+    comment: z
+      .string()
+      .max(255, t('quixer.errors.maxLength', { max: 255 }))
+      .optional(),
   })
   const { mutate, error, data } = trpc.players.editMyCharacter.useMutation()
   const {
@@ -48,9 +52,9 @@ export const CharacterEditForm = ({ id, ishidden, comment = '' }: Props) => {
   useEffect(() => {
     if (!data) return
 
-    toast.success('Editado com sucesso')
+    toast.success(t('quixer.success.characterEdited'))
     utils.players.getMyByName.invalidate()
-  }, [data, utils])
+  }, [data, utils, t])
 
   useEffect(() => {
     if (!error) return
@@ -64,7 +68,7 @@ export const CharacterEditForm = ({ id, ishidden, comment = '' }: Props) => {
         <div className="flex flex-col gap-2 xl:gap-4">
           <div className="flex flex-col w-full gap-1 xl:gap-0 xl:flex-row">
             <label className="text-sm font-bold xl:w-48 label xl:text-base">
-              Hide Account:
+              {t('quixer.geral.hideAccount')}:
             </label>
             <span className="flex flex-row items-center flex-1 gap-2 text-sm label">
               <input
@@ -72,17 +76,17 @@ export const CharacterEditForm = ({ id, ishidden, comment = '' }: Props) => {
                 type="checkbox"
                 {...register('ishidden')}
               />
-              check to hide your account information
+              {t('quixer.geral.labelHideAccount')}
             </span>
           </div>
           <div className="flex flex-col w-full gap-1 xl:gap-0 xl:flex-row">
             <label className="text-sm font-bold xl:w-48 label xl:text-base">
-              Comment:
+              {t('quixer.geral.comment')}:
             </label>
             <textarea
               maxLength={255}
               {...register('comment')}
-              className="flex-1 input min-h-[48px] max-h-28"
+              className="flex-1 input min-h-[100px] max-h-28"
             />
           </div>
         </div>
@@ -91,10 +95,10 @@ export const CharacterEditForm = ({ id, ishidden, comment = '' }: Props) => {
         <InnerContainer>
           <div>
             <h1 className="text-base font-bold xl:text-lg text-secondary">
-              Attention
+              {t('quixer.geral.attention')}
             </h1>
-            <span className="flex items-center gap-2 text-sm text-red-500">
-              <b className="text-secondary">Comment:</b>
+            <span className="flex items-center gap-2 text-sm text-error">
+              <b className="text-secondary">{t('quixer.geral.comment')}:</b>
               {errors.comment.message}
             </span>
           </div>
@@ -103,7 +107,7 @@ export const CharacterEditForm = ({ id, ishidden, comment = '' }: Props) => {
 
       <InnerContainer className="flex justify-end">
         <Button type="submit" variant="info">
-          Save
+          {t('quixer.geral.confirm')}
         </Button>
       </InnerContainer>
     </form>
