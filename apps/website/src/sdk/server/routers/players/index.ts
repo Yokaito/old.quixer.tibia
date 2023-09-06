@@ -7,6 +7,66 @@ import { TRPCError } from '@trpc/server'
 import { createCharacterRookSample } from '@/sdk/utils/create-character'
 
 export const playersRouter = router({
+  editMyCharacter: loggedInProcedure
+    .input(
+      z.object({
+        id: z.number(),
+        comment: z.string().max(255).optional(),
+        ishidden: z.boolean(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      const t = await getI18n()
+      const { session } = ctx
+
+      const player = await prisma.players.findUnique({
+        where: {
+          id: input.id,
+          account_id: Number(session.user.id),
+        },
+      })
+
+      if (!player) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          cause: 'player',
+          message: t('quixer.errors.playerNotFound'),
+        })
+      }
+
+      await prisma.players.update({
+        data: {
+          ishidden: input.ishidden,
+          comment: input.comment,
+        },
+        where: {
+          id: input.id,
+        },
+      })
+
+      return true
+    }),
+  getMyByName: loggedInProcedure
+    .input(z.string())
+    .query(async ({ input, ctx }) => {
+      const { session } = ctx
+
+      const player = await prisma.players.findUnique({
+        where: {
+          name: input,
+          account_id: Number(session.user.id),
+        },
+        include: {
+          worlds: {
+            select: {
+              name: true,
+            },
+          },
+        },
+      })
+
+      return player
+    }),
   byWorldCount: publicProcedure.input(z.number()).query(async ({ input }) => {
     const players = await prisma.players.count({
       where: {

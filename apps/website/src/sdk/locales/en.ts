@@ -26,6 +26,7 @@ export default {
       worldEdit: 'World edited successfully!',
       worldDeleted: 'World deleted successfully!',
       worldCreated: 'World created successfully!',
+      characterEdited: 'Character edited successfully!',
     },
     errors: {
       email: 'Please enter a valid email address',
@@ -45,8 +46,15 @@ export default {
       invalidPort: 'Invalid port',
       unauthorized: 'You are not authorized',
       worldHasPlayers: 'World has players',
+      playerNotFound: 'Player not found',
     },
     geral: {
+      titleSectionEditCharacter: 'Edit Character',
+      titleCharacterData: 'Character Data',
+      titleEditCharacter: 'Edit Character Information',
+      labelHideAccount: 'check to hide your account information',
+      comment: 'Comment',
+      hideAccount: 'Hide Account',
       countPlayerWorld: 'This world has {count} players',
       deleteWorld: `Are you sure you want to delete the world`,
       delete: 'Delete',

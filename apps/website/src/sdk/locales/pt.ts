@@ -27,6 +27,7 @@ export default {
       worldEdit: 'Mundo editado com sucesso!',
       worldDeleted: 'Mundo excluído com sucesso!',
       worldCreated: 'Mundo criado com sucesso!',
+      characterEdited: 'Personagem editado com sucesso!',
     },
     errors: {
       email: 'Por favor, insira um endereço de e-mail válido',
@@ -46,8 +47,15 @@ export default {
       invalidPort: 'Porta inválida',
       unauthorized: 'Você não está autorizado',
       worldHasPlayers: 'Mundo tem jogadores',
+      playerNotFound: 'Jogador não encontrado',
     },
     geral: {
+      titleSectionEditCharacter: 'Editar personagem',
+      titleCharacterData: 'Dados do personagem',
+      titleEditCharacter: 'Editar informações do personagem',
+      labelHideAccount: 'marque para ocultar as informações da sua conta',
+      comment: 'Comentário',
+      hideAccount: 'Ocultar conta',
       countPlayerWorld: 'Este mundo tem {count} jogadores',
       deleteWorld: `Tem certeza de que deseja excluir o mundo`,
       delete: 'Excluir',
