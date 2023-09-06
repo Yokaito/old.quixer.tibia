@@ -1,6 +1,6 @@
 {
   "name": "@quixer/eslint-config",
-  "version": "0.0.64",
+  "version": "0.0.65",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
