@@ -166,7 +166,9 @@ export const CreateCharacterSection = () => {
             </div>
             <div className="flex flex-col gap-4 px-3 py-5 border-b border-quintenary">
               <div>
-                <h1>{t('quixer.character.create.filterPvp')}</h1>
+                <h1 className="text-base font-bold text-secondary">
+                  {t('quixer.character.create.filterPvp')}
+                </h1>
                 <p className="text-sm font-light text-secondary">
                   {t('quixer.character.create.filterPvpDescription')}
                 </p>
