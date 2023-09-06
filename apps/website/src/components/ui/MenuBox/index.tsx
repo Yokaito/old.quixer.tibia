@@ -25,7 +25,7 @@ export const MenuBox = ({
   showBackground = true,
 }: MenuBoxProps) => {
   const classContent = classNames({
-    'w-[160px] h-full relative px-2 py-0 flex flex-col items-center justify-center gap-1':
+    'w-[160px] h-full relative px-2 py-0 flex flex-col items-center justify-center':
       true,
     "bg-repeat-y bg-[url('../assets/images/background/loginbox-textfield.webp')]":
       showBackground,
