@@ -24,7 +24,9 @@ export default async function AdminPage({ worlds }: AdminPageProps) {
       <SectionHeader backgroundColor="green">
         <h1 className="section-title">{t('quixer.account.management')}</h1>
       </SectionHeader>
-      <InnerSection>{worlds}</InnerSection>
+      <InnerSection>
+        <>{worlds}</>
+      </InnerSection>
     </Section>
   )
 }
