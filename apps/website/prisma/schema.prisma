@@ -74,6 +74,7 @@ model accounts {
   recruiter           Int?                  @default(0)
   coins_transferable  Int                   @default(0) @db.UnsignedInt
   premdays_purchased  Int                   @default(0)
+  news                news[]
   account_ban_history account_ban_history[]
   account_bans        account_bans?
   account_viplist     account_viplist[]
@@ -205,6 +206,31 @@ model guild_wars {
 
   @@index([guild1], map: "guild1")
   @@index([guild2], map: "guild2")
+}
+
+model type_news {
+  id        Int     @id @default(autoincrement())
+  name      String  @unique(map: "type_news_unique") @db.VarChar(255)
+  news      news[]
+}
+
+model news {
+  id            Int       @id @default(autoincrement())
+  title         String    @db.VarChar(255)
+  visible       Boolean   @default(false)
+  content       String    @db.Text
+  account_id    Int?      @db.UnsignedInt
+  type_news_id  Int       @default(0) @db.Int
+  updatedAt     DateTime? @default(now()) @db.DateTime(0)
+  createdAt     DateTime? @default(now()) @db.DateTime(0)
+
+
+  accounts      accounts?  @relation(fields: [account_id], references: [id], onDelete: SetNull, onUpdate: NoAction, map: "news_account_id_fk")
+  type_news     type_news  @relation(fields: [type_news_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "news_type_news_fk")
+
+
+  @@index([account_id], map: "account_id")
+  @@index([type_news_id], map: "type_news_id")
 }
 
 model guilds {

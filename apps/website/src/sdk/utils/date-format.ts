@@ -1,3 +1,28 @@
+export const defaultFormat = (date: Date, locale: 'en' | 'pt' | 'fr') => {
+  let localeFormatted = null
+
+  switch (locale) {
+    case 'en':
+      localeFormatted = 'en-US'
+      break
+    case 'pt':
+      localeFormatted = 'pt-BR'
+      break
+    case 'fr':
+      localeFormatted = 'fr-FR'
+      break
+    default:
+      localeFormatted = 'en-US'
+      break
+  }
+
+  return new Intl.DateTimeFormat(localeFormatted, {
+    month: 'short',
+    day: '2-digit',
+    year: 'numeric',
+  }).format(date)
+}
+
 export const convertToUnixTime = (date: string) => {
   return Math.round(new Date(date).getTime() / 1000)
 }
