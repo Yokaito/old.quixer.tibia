@@ -17,16 +17,24 @@ export default async function AdminPage() {
       </SectionHeader>
       <InnerSection>
         <Switch>
-          <Case condition={session!?.user.type <= AccountType.TUTOR}>
+          <Case condition={!session || session?.user.type <= AccountType.TUTOR}>
             <></>
           </Case>
-          <Case condition={session!?.user.type <= AccountType.SENIOR_TUTOR}>
+          <Case
+            condition={
+              !session || session?.user.type <= AccountType.SENIOR_TUTOR
+            }
+          >
             <NewsListSection />
           </Case>
-          <Case condition={session!?.user.type <= AccountType.GAME_MASTER}>
+          <Case
+            condition={
+              !session || session?.user.type <= AccountType.GAME_MASTER
+            }
+          >
             <NewsListSection />
           </Case>
-          <Case condition={session!?.user.type <= AccountType.GOD}>
+          <Case condition={!session || session?.user.type <= AccountType.GOD}>
             <WorldsSection />
             <NewsListSection />
           </Case>
