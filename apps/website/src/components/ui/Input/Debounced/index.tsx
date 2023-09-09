@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Input from '..'
 
 export function DebouncedInput({
   value: initialValue,
@@ -28,7 +29,7 @@ export function DebouncedInput({
   }, [value])
 
   return (
-    <input
+    <Input
       {...props}
       value={value}
       onChange={(e) => setValue(e.target.value)}

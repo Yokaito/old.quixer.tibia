@@ -3,6 +3,7 @@
 import { Button, Container } from '@/components/ui'
 import InnerContainer from '@/components/ui/Container/Inner'
 import { FormErrors } from '@/components/ui/Errors/FormErrors'
+import Input from '@/components/ui/Input'
 import { trpc } from '@/sdk/lib/trpc/client'
 import { useI18n } from '@/sdk/locales/client'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -94,17 +95,32 @@ export const CreateWorldContent = ({
         <InnerContainer className="flex flex-col gap-2">
           <div className="flex flex-col gap-1">
             <label className="label">{t('quixer.geral.name')}</label>
-            <input className="input" type="text" {...register('name')} />
+            <Input
+              className="input"
+              type="text"
+              {...register('name')}
+              hasError={!!errors?.name}
+            />
           </div>
 
           <div className="flex flex-col items-center gap-2 2xl:gap-1 2xl:flex-row">
             <div className="flex flex-col flex-1 gap-1">
               <label className="label">{t('quixer.geral.ip')}</label>
-              <input className="input" type="text" {...register('ip')} />
+              <Input
+                className="input"
+                type="text"
+                {...register('ip')}
+                hasError={!!errors?.ip}
+              />
             </div>
             <div className="flex flex-col gap-1">
               <label className="label">{t('quixer.geral.port')}</label>
-              <input className="input" type="number" {...register('port')} />
+              <Input
+                className="input"
+                type="number"
+                {...register('port')}
+                hasError={!!errors?.port}
+              />
             </div>
           </div>
           <div className="flex flex-col gap-1">

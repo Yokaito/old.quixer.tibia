@@ -2,6 +2,8 @@
 
 import { Button } from '@/components/ui'
 import InnerContainer from '@/components/ui/Container/Inner'
+import { FormErrors } from '@/components/ui/Errors/FormErrors'
+import Input from '@/components/ui/Input'
 import { trpc } from '@/sdk/lib/trpc/client'
 import { useI18n } from '@/sdk/locales/client'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -71,11 +73,12 @@ export const CharacterEditForm = ({ id, ishidden, comment = '' }: Props) => {
               {t('quixer.geral.hideAccount')}:
             </label>
             <span className="flex flex-row items-center flex-1 gap-2 text-sm label">
-              <input
-                className="input"
+              <Input
                 type="checkbox"
                 {...register('ishidden')}
+                hasError={!!errors.ishidden}
               />
+
               {t('quixer.geral.labelHideAccount')}
             </span>
           </div>
@@ -91,19 +94,7 @@ export const CharacterEditForm = ({ id, ishidden, comment = '' }: Props) => {
           </div>
         </div>
       </InnerContainer>
-      {errors?.comment && (
-        <InnerContainer>
-          <div>
-            <h1 className="text-base font-bold xl:text-lg text-secondary">
-              {t('quixer.geral.attention')}
-            </h1>
-            <span className="flex items-center gap-2 text-sm text-error">
-              <b className="text-secondary">{t('quixer.geral.comment')}:</b>
-              {errors.comment.message}
-            </span>
-          </div>
-        </InnerContainer>
-      )}
+      <FormErrors fields={errors} />
 
       <InnerContainer className="flex justify-end">
         <Button type="submit" variant="info">

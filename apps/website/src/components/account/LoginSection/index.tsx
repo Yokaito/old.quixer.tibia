@@ -9,6 +9,8 @@ import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import { toast } from 'react-toastify'
 import InnerContainer from '@/components/ui/Container/Inner'
+import Input from '@/components/ui/Input'
+import { FormErrors } from '@/components/ui/Errors/FormErrors'
 
 export const AccountLoginSection = () => {
   const router = useRouter()
@@ -62,38 +64,26 @@ export const AccountLoginSection = () => {
             <label className="w-[25%] label md:w-[10%]" htmlFor="email">
               {t('quixer.account.email')}:
             </label>
-            <input
-              className={`flex-1 input ${
-                !!errors?.email && 'border border-error focus:outline-0'
-              }`}
-              type="email"
+            <Input
+              className="flex-1"
               {...register('email')}
+              type="email"
+              hasError={!!errors?.email}
             />
           </div>
           <div className="flex w-full">
             <label className="w-[25%] label md:w-[10%]" htmlFor="password">
               {t('quixer.account.password')}:
             </label>
-            <input
-              className="flex-1 input"
-              type="password"
+            <Input
+              className="flex-1"
               {...register('password')}
+              type="password"
+              hasError={!!errors?.password}
             />
           </div>
         </InnerContainer>
-        {(!!errors?.email || !!errors?.password) && (
-          <InnerContainer className="flex flex-col gap-1">
-            <h1 className="text-base font-bold text-secondary">
-              {t('quixer.geral.attention')}
-            </h1>
-            <span className="text-[12px] font-normal text-error">
-              {errors?.email?.message}
-            </span>
-            <span className="text-[12px] font-normal text-error">
-              {errors?.password?.message}
-            </span>
-          </InnerContainer>
-        )}
+        <FormErrors fields={errors} />
 
         <InnerContainer>
           <div className="flex justify-between gap-2 md:justify-end">

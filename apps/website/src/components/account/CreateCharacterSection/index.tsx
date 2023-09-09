@@ -16,6 +16,7 @@ import { useI18n } from '@/sdk/locales/client'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import { FormErrors } from '@/components/ui/Errors/FormErrors'
+import Input from '@/components/ui/Input'
 
 export const CreateCharacterSection = () => {
   const router = useRouter()
@@ -98,12 +99,11 @@ export const CreateCharacterSection = () => {
               <label className="text-base font-bold text-secondary">
                 {t('quixer.geral.name')}:
               </label>
-              <input
-                type="text"
+              <Input
+                className="flex-1"
                 {...register('name')}
-                className={`w-full input ${
-                  !!errors?.name && 'outline outline-1 outline-error'
-                }`}
+                type="text"
+                hasError={!!errors?.name}
               />
             </div>
             <div className="flex items-center gap-2">
@@ -111,11 +111,11 @@ export const CreateCharacterSection = () => {
                 {t('quixer.geral.sex')}:
               </label>
               <label className="flex gap-2 text-base text-secondary">
-                <input {...register('sex')} type="radio" name="sex" value={1} />
+                <Input {...register('sex')} type="radio" name="sex" value={1} />
                 <span>{t('quixer.geral.male')}</span>
               </label>
               <label className="flex gap-2 text-base text-secondary">
-                <input {...register('sex')} type="radio" name="sex" value={0} />
+                <Input {...register('sex')} type="radio" name="sex" value={0} />
                 <span>{t('quixer.geral.female')}</span>
               </label>
             </div>
@@ -152,7 +152,7 @@ export const CreateCharacterSection = () => {
                       <Image src={LocationAllImage} alt="location" />
                     </button>
                     <div className="flex items-center gap-2">
-                      <input
+                      <Input
                         type="radio"
                         name={itemLocation.clientValue}
                         value={itemLocation.id}
@@ -206,13 +206,14 @@ export const CreateCharacterSection = () => {
                       </Switch>
                     </button>
                     <div className="flex items-center gap-2">
-                      <input
+                      <Input
                         type="radio"
                         name={itemPvpType.serverType}
                         value={itemPvpType.id}
                         checked={itemPvpType.id === pvpType}
                         onChange={() => setPvpType(itemPvpType.id)}
                       />
+
                       <span>{itemPvpType.name}</span>
                     </div>
                     <span className="max-w-[200px] text-center text-sm font-light text-secondary">
@@ -242,7 +243,7 @@ export const CreateCharacterSection = () => {
                     className="flex items-center gap-2 cursor-pointer"
                     key={world.id}
                   >
-                    <input
+                    <Input
                       type="radio"
                       {...register('worldId')}
                       value={world.id}

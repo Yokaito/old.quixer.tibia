@@ -12,6 +12,7 @@ import { toast } from 'react-toastify'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { FormErrors } from '@/components/ui/Errors/FormErrors'
+import Input from '@/components/ui/Input'
 
 export const CreateAccountSection = () => {
   const router = useRouter()
@@ -122,10 +123,9 @@ export const CreateAccountSection = () => {
                 >
                   {t('quixer.geral.name')}:
                 </label>
-                <input
-                  className={`input flex-1 ${
-                    !!errors?.name && 'border border-error focus:outline-0'
-                  }}`}
+                <Input
+                  className="flex-1"
+                  hasError={!!errors?.name}
                   autoComplete="given-name"
                   type="text"
                   {...register('name')}
@@ -138,12 +138,11 @@ export const CreateAccountSection = () => {
                 >
                   {t('quixer.geral.email')}:
                 </label>
-                <input
-                  type="email"
-                  className={`input flex-1 ${
-                    !!errors?.email && 'border border-error focus:outline-0'
-                  }}`}
+                <Input
+                  className="flex-1"
+                  hasError={!!errors?.email}
                   autoComplete="email"
+                  type="email"
                   {...register('email')}
                 />
               </div>
@@ -154,12 +153,11 @@ export const CreateAccountSection = () => {
                 >
                   {t('quixer.geral.password')}:
                 </label>
-                <input
-                  className={`input flex-1 ${
-                    !!errors?.password && 'border border-error focus:outline-0'
-                  }}`}
-                  type="password"
+                <Input
+                  className="flex-1"
+                  hasError={!!errors?.password}
                   autoComplete="new-password"
+                  type="password"
                   {...register('password')}
                 />
               </div>
@@ -170,13 +168,11 @@ export const CreateAccountSection = () => {
                 >
                   {t('quixer.geral.confirmPassword')}:
                 </label>
-                <input
-                  className={`input flex-1 ${
-                    !!errors?.confirmPassword &&
-                    'border border-error focus:outline-0'
-                  }}`}
-                  type="password"
+                <Input
+                  className="flex-1"
+                  hasError={!!errors?.confirmPassword}
                   autoComplete="new-password"
+                  type="password"
                   {...register('confirmPassword')}
                 />
               </div>
@@ -184,11 +180,13 @@ export const CreateAccountSection = () => {
           </InnerContainer>
           <InnerContainer>
             <label className="text-sm text-secondary">
-              <input
+              <Input
                 className="mr-1"
                 type="checkbox"
                 {...register('consent')}
+                hasError={!!errors?.consent}
               />
+
               {t('quixer.geral.consent')}
             </label>
           </InnerContainer>
@@ -198,11 +196,13 @@ export const CreateAccountSection = () => {
                 {t('quixer.geral.selectCheckbox')}
               </h2>
               <label className="text-sm text-secondary">
-                <input
+                <Input
                   className="mr-1"
                   type="checkbox"
                   {...register('terms')}
+                  hasError={!!errors?.terms}
                 />
+
                 {t('quixer.geral.terms')}
               </label>
             </div>
