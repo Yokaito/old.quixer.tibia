@@ -13,6 +13,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'react-toastify'
 import classNames from 'classnames'
+import { FormErrors } from '@/components/ui/Errors/FormErrors'
 
 type Props = news & {
   type_news: {
@@ -187,43 +188,7 @@ export const NewsEditSection = (props: Props) => {
             />
             <input hidden {...register('content')}></input>
           </InnerContainer>
-          {Object.keys(errors).length > 0 && (
-            <InnerContainer className="flex flex-col gap-2 p-3">
-              <h2 className="text-base font-bold text-secondary">
-                {t('quixer.geral.attention')}
-              </h2>
-              <ul className="flex flex-col gap-1">
-                {Object.entries(errors).map(([key, value]) => {
-                  if (!value.message) return null
-
-                  let keyName = key
-
-                  switch (key) {
-                    case 'title':
-                      keyName = t('quixer.geral.title')
-                      break
-                    case 'type_news':
-                      keyName = t('quixer.geral.type')
-                      break
-                    case 'content':
-                      keyName = t('quixer.geral.content')
-                      break
-                    default:
-                      break
-                  }
-
-                  return (
-                    <li className="flex items-center gap-1" key={key}>
-                      <span className="flex items-center gap-1 text-sm text-error">
-                        <b className="capitalize text-secondary">{keyName}:</b>
-                        {value.message}
-                      </span>
-                    </li>
-                  )
-                })}
-              </ul>
-            </InnerContainer>
-          )}
+          <FormErrors fields={errors} />
           <InnerContainer className="flex justify-end">
             <Button variant="info" className="button">
               {t('quixer.geral.confirm')}
