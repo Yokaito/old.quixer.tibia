@@ -10,6 +10,8 @@ const envSchema = z.object({
 
 const env = envSchema.safeParse(process.env)
 
+console.log('🔐 Environment variables:', JSON.stringify(env, null, 4))
+
 if (!env.success) {
   console.error(
     '❌ Invalid environment variables:',
