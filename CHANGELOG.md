@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.71](https://github.com/Yokaito/quixer/compare/v0.0.70...v0.0.71) (2023-09-09)
+
+### Features
+
+- **website:** add section in admin to control list of news ([#20](https://github.com/Yokaito/quixer/issues/20)) ([665e212](https://github.com/Yokaito/quixer/commit/665e2123b19b9ce90c0960b95b444bb15a73cb3a))
+
 ## [0.0.70](https://github.com/Yokaito/quixer/compare/v0.0.69...v0.0.70) (2023-09-09)
 
 ### Refactoring
