@@ -4,6 +4,8 @@ import { TRPCError } from '@trpc/server'
 import { z } from 'zod'
 import { adminInProcedure } from '../../middlewares'
 import { getI18n } from '@/sdk/locales/server'
+import { check as checkPort } from 'tcp-port-used'
+import { PlayerType } from '@/sdk/constants'
 
 const schemaWorldEdit = z.object({
   id: z.number(),
@@ -178,5 +180,42 @@ export const worldsRouter = router({
     const locations = await prisma.world_location.findMany()
 
     return locations
+  }),
+  online: publicProcedure.query(async () => {
+    const worlds = await prisma.worlds.findMany()
+    const playersOnline = await prisma.players_online.findMany({
+      include: {
+        players: {
+          select: {
+            world_id: true,
+          },
+        },
+      },
+      where: {
+        players: {
+          group_id: {
+            lt: PlayerType.GAME_MASTER,
+          },
+        },
+      },
+    })
+
+    const online = await Promise.all(
+      worlds.map(async (world) => {
+        const isOnline = await checkPort(world.port, world.ip)
+        const players = playersOnline.filter(
+          (player) => player.players.world_id === world.id
+        )
+
+        return {
+          id: world.id,
+          name: world.name,
+          isOnline,
+          players: players.length,
+        }
+      })
+    )
+
+    return online
   }),
 })

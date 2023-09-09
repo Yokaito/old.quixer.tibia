@@ -7,7 +7,20 @@ import { serverClient } from '@/sdk/lib/trpc/server'
 
 export const InfoSection = async () => {
   const t = await getI18n()
-  const playersOnline = await serverClient.players.online()
+  const onlines = await serverClient.worlds.online()
+
+  const online = onlines.reduce((acc, curr) => {
+    acc += curr.players
+    return acc
+  }, 0)
+
+  const onlineWorlds = onlines.reduce((acc, curr) => {
+    if (curr.isOnline) {
+      acc++
+    }
+
+    return acc
+  }, 0)
 
   return (
     <Section>
@@ -49,7 +62,13 @@ export const InfoSection = async () => {
             >
               <Icon name="UsersThree" width={20} height={20} />
               <span>
-                {playersOnline.online} {t('quixer.info.bar.online')}
+                {onlineWorlds > 0 ? (
+                  <>
+                    {online} {t('quixer.info.bar.online')}
+                  </>
+                ) : (
+                  'Server Offline'
+                )}
               </span>
             </Link>
           </div>
