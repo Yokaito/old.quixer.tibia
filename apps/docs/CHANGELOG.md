@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.73 (2023-09-09)
+
+### Features
+
+- **website:** make players online info show actual info and check if worlds in online using port ([f675865](https://github.com/Yokaito/quixer/commit/f6758654ed2baa81d7f2964403f77e2d29c61819))
+
 ## [0.0.72](https://github.com/Yokaito/quixer/compare/v0.0.71...v0.0.72) (2023-09-09)
 
 **Note:** Version bump only for package docs
