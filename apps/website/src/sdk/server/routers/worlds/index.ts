@@ -216,6 +216,10 @@ export const worldsRouter = router({
       })
     )
 
-    return online
+    return {
+      worlds: online,
+      totalPlayersOnline: playersOnline.length,
+      totalWorldsOnline: online.filter((world) => world.isOnline).length,
+    }
   }),
 })
