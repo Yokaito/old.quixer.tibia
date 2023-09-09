@@ -1,48 +1,55 @@
 'use client'
-import React, { useMemo } from 'react'
+
+import { useMemo, useState } from 'react'
 import { Container } from '@/components/ui'
 import InnerContainer from '@/components/ui/Container/Inner'
 import { trpc } from '@/sdk/lib/trpc/client'
-import { EditWorldModal } from './Modals/EditWorld'
-import { DeleteWorldModal } from './Modals/DeleteWorld'
-import { CreateWorldModal } from './Modals/CreateWorld'
+import { useI18n } from '@/sdk/locales/client'
+import EditButtonImg from '@/assets/images/buttons/button-watch-idle.png'
 import {
+  ColumnDef,
   flexRender,
   getCoreRowModel,
-  useReactTable,
-  getPaginationRowModel,
   getFilteredRowModel,
-  ColumnDef,
+  getPaginationRowModel,
+  useReactTable,
 } from '@tanstack/react-table'
-import { useI18n } from '@/sdk/locales/client'
+import Image from 'next/image'
+import { DeleteNewsModal } from './Modals/DeleteNews'
+
+import type { news } from '@prisma/client'
+import Link from 'next/link'
+import ButtonLink from '@/components/ui/Button/ButtonAsLink'
+import classNames from 'classnames'
 import Pagination from '@/components/ui/Table/Pagination'
 
-type World = {
-  name: string
-  id: number
-  creation: string | null
-  location: number
-  pvp_type: number
-  premium_type: number
-  transfer_type: number
-  battle_eye: boolean
-  world_type: number
-  ip: string
-  port: number
-  world_location: {
+interface News extends Pick<news, 'id' | 'title' | 'visible'> {
+  createdAt: string | null
+  accounts: {
+    email: string
+  } | null
+  type_news: {
     name: string
-  }
-  world_pvptype: {
-    name: string
-  }
+  } | null
 }
 
-export default function WorldsSection() {
-  const { data: worlds } = trpc.worlds.all.useQuery()
-  const [globalFilter, setGlobalFilter] = React.useState('')
+const ActionsTable = ({ id, title }: { id: number; title: string }) => {
+  return (
+    <div className="flex flex-col items-center justify-center gap-2 md:flex-row">
+      <DeleteNewsModal newsId={id} newsTitle={title} />
+      <Link href={`/admin/news/edit/${id}`}>
+        <Image src={EditButtonImg} alt="Edit" quality={100} />
+      </Link>
+    </div>
+  )
+}
+
+export const NewsListSection = () => {
+  const { data: news } = trpc.news.getAllWithCreators.useQuery()
+  const [globalFilter, setGlobalFilter] = useState('')
   const t = useI18n()
 
-  const columns = useMemo<ColumnDef<World>[]>(() => {
+  const columns = useMemo<ColumnDef<News>[]>(() => {
     return [
       {
         header: t('quixer.geral.id'),
@@ -50,33 +57,34 @@ export default function WorldsSection() {
         cell: (info) => info.getValue(),
       },
       {
-        accessorKey: 'name',
-        header: t('quixer.geral.name'),
+        header: t('quixer.geral.title'),
+        accessorKey: 'title',
         cell: (info) => info.getValue(),
       },
       {
-        accessorKey: 'world_location.name',
-        header: t('quixer.geral.location'),
+        header: t('quixer.geral.state'),
+        accessorKey: 'visible',
+        cell: (info) => {
+          const visible = info.getValue() as boolean
+
+          return visible
+            ? t('quixer.geral.visible')
+            : t('quixer.geral.notVisible')
+        },
+      },
+      {
+        header: t('quixer.geral.type'),
+        accessorKey: 'type_news.name',
         cell: (info) => info.getValue(),
       },
       {
-        accessorKey: 'world_pvptype.name',
-        header: t('quixer.geral.pvpType'),
+        header: t('quixer.geral.creator'),
+        accessorKey: 'accounts.email',
         cell: (info) => info.getValue(),
       },
       {
-        accessorKey: 'ip',
-        header: t('quixer.geral.ip'),
-        cell: (info) => info.getValue(),
-      },
-      {
-        accessorKey: 'port',
-        header: t('quixer.geral.port'),
-        cell: (info) => info.getValue(),
-      },
-      {
-        accessorKey: 'creation',
         header: t('quixer.geral.creation'),
+        accessorKey: 'createdAt',
         cell: (info) => {
           try {
             return new Date((info.getValue() as Date) ?? '').toLocaleString()
@@ -89,26 +97,28 @@ export default function WorldsSection() {
         header: t('quixer.geral.actions'),
         isPlaceholder: true,
         cell: (info) => {
-          const world = info.row.original
+          const news = info.row.original
 
-          return (
-            <div className="flex flex-col items-center justify-center gap-2 md:flex-row">
-              <DeleteWorldModal worldId={world.id} worldName={world.name} />
-              <EditWorldModal worldId={world.id} worldName={world.name} />
-            </div>
-          )
+          return <ActionsTable id={news.id} title={news.title} />
         },
       },
     ]
   }, [t])
 
   const table = useReactTable({
-    data: worlds ?? [],
+    data: news ?? [],
     columns: columns,
     initialState: {
+      columnSizing: {
+        title: 450,
+        visible: 50,
+        type_news: 100,
+        accounts: 100,
+        createdAt: 200,
+        actions: 10,
+      },
       columnVisibility: {
         id: false,
-        creation: false,
       },
     },
     state: {
@@ -121,7 +131,7 @@ export default function WorldsSection() {
   })
 
   return (
-    <Container title={t('quixer.geral.worlds')}>
+    <Container title={t('quixer.geral.news')}>
       <InnerContainer className="flex flex-col justify-between gap-3 md:flex-row">
         <Pagination
           activePage={table.getState().pagination.pageIndex + 1}
@@ -163,7 +173,10 @@ export default function WorldsSection() {
                 {row.getVisibleCells().map((cell) => {
                   return (
                     <td
-                      className="text-center py-1 px-[2px] border-b border-r border-l border-quintenary text-sm text-secondary md:p-1"
+                      width={cell.column.getSize()}
+                      className={classNames(
+                        'text-center py-1 px-[2px] border-b border-r border-l border-quintenary text-sm text-secondary md:p-1'
+                      )}
                       key={cell.id}
                     >
                       {flexRender(
@@ -179,7 +192,11 @@ export default function WorldsSection() {
         </table>
       </InnerContainer>
       <InnerContainer className="flex justify-end">
-        <CreateWorldModal />
+        <ButtonLink
+          href="/admin/news/create"
+          variant="info"
+          text={t('quixer.geral.createNews')}
+        />
       </InnerContainer>
     </Container>
   )

@@ -2,11 +2,11 @@ import { prisma } from '@/sdk/lib/prisma'
 import { router, publicProcedure } from '@/sdk/server/trpc'
 import { TRPCError } from '@trpc/server'
 import { z } from 'zod'
-import { aboveGameMasterProcedure } from '../../middlewares'
+import { aboveSeniorTutorProcedure } from '../../middlewares'
 import { getI18n } from '@/sdk/locales/server'
 
 export const newsRouter = router({
-  editById: aboveGameMasterProcedure
+  editById: aboveSeniorTutorProcedure
     .input(
       z.object({
         id: z.number(),
@@ -75,6 +75,53 @@ export const newsRouter = router({
         message: t('quixer.errors.newsNotFound'),
       })
     }
+
+    return news
+  }),
+  deleteById: aboveSeniorTutorProcedure
+    .input(z.number())
+    .mutation(async ({ input }) => {
+      const t = await getI18n()
+      const newsExists = await prisma.news.findUnique({
+        where: {
+          id: input,
+        },
+      })
+
+      if (!newsExists) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          cause: 'news',
+          message: t('quixer.errors.newsNotFound'),
+        })
+      }
+
+      await prisma.news.delete({
+        where: {
+          id: input,
+        },
+      })
+
+      return true
+    }),
+  getAllWithCreators: publicProcedure.query(async () => {
+    const news = await prisma.news.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+      include: {
+        type_news: {
+          select: {
+            name: true,
+          },
+        },
+        accounts: {
+          select: {
+            email: true,
+          },
+        },
+      },
+    })
 
     return news
   }),
