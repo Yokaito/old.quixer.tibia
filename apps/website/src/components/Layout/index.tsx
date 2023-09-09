@@ -17,6 +17,12 @@ export const Layout = ({ children }: Props) => {
           {children}
         </main>
       </div>
+      <footer
+        className="min-h-[60px]"
+        style={{
+          gridArea: 'footer',
+        }}
+      />
     </>
   )
 }

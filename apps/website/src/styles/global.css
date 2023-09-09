@@ -117,7 +117,8 @@
       grid-template-columns: 205px auto 205px;
       grid-template-areas:
         'header header header'
-        'navigation content sidebar';
+        'navigation content sidebar'
+        'footer footer footer';
     }
   }
 }
