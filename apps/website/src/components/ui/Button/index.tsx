@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, forwardRef } from 'react'
-import classNames from 'classnames'
+import { cn } from '@/sdk/utils/tailwind'
 
 type Variant = 'regular' | 'larger' | 'info' | 'green' | 'red'
 
@@ -12,7 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button({ variant, children, className, ...props }, ref) {
-    const classname = classNames({
+    const classname = cn({
       ["bg-[url('../assets/images/buttons/button_red.gif')] fondamento-title"]:
         variant === 'red',
       ["bg-[url('../assets/images/buttons/button_green.gif')] fondamento-title"]:

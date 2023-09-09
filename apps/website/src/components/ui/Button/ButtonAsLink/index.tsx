@@ -1,5 +1,5 @@
 import { LinkHTMLAttributes, forwardRef } from 'react'
-import classNames from 'classnames'
+import { cn } from '@/sdk/utils/tailwind'
 
 type Variant = 'regular' | 'larger' | 'info' | 'green' | 'red'
 
@@ -16,7 +16,7 @@ interface ButtonLinkProps extends LinkHTMLAttributes<HTMLAnchorElement> {
 
 export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
   function Button({ variant = 'regular', text, className, ...props }, ref) {
-    const classname = classNames({
+    const classname = cn({
       ["bg-[url('../assets/images/buttons/button_red.gif')]"]:
         variant === 'red',
       ["bg-[url('../assets/images/buttons/button_green.gif')]"]:

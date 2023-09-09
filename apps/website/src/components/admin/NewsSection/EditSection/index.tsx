@@ -12,9 +12,9 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'react-toastify'
-import classNames from 'classnames'
 import { FormErrors } from '@/components/ui/Errors/FormErrors'
 import Input from '@/components/ui/Input'
+import { cn } from '@/sdk/utils/tailwind'
 
 type Props = news & {
   type_news: {
@@ -122,9 +122,9 @@ export const NewsEditSection = (props: Props) => {
       <Container title={t('quixer.geral.editor')}>
         <form onSubmit={handleSubmit(handleDataSubmit)}>
           <InnerContainer className="flex flex-col gap-3">
-            <div className={classNames('flex flex-col gap-1')}>
+            <div className="flex flex-col gap-1">
               <label
-                className={classNames('label', {
+                className={cn('label', {
                   'text-error': errors.title,
                 })}
                 htmlFor="title"
@@ -139,7 +139,7 @@ export const NewsEditSection = (props: Props) => {
             </div>
             <div className="flex flex-col gap-1">
               <label
-                className={classNames('label', {
+                className={cn('label', {
                   'text-error': errors.type_news,
                 })}
                 htmlFor="type"
@@ -148,7 +148,7 @@ export const NewsEditSection = (props: Props) => {
               </label>
               <select
                 {...register('type_news')}
-                className={classNames('input', {
+                className={cn('input', {
                   'border-error': errors.type_news,
                 })}
               >
