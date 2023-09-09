@@ -82,6 +82,7 @@ export const NewsEditSection = (props: Props) => {
         title: data.title,
         visible: data.visible,
         content: data.content,
+        type_news_id: Number(data.type_news),
       })
     },
     [mutate, props.id]
