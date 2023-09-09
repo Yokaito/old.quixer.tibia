@@ -3,6 +3,7 @@
 import { FieldErrors } from 'react-hook-form'
 import InnerContainer from '../../Container/Inner'
 import { useI18n } from '@/sdk/locales/client'
+import { useMemo } from 'react'
 
 type FormErrorsProps = {
   fields: FieldErrors<any>
@@ -10,6 +11,26 @@ type FormErrorsProps = {
 
 export const FormErrors = ({ fields }: FormErrorsProps) => {
   const t = useI18n()
+
+  const translations = useMemo(() => {
+    return {
+      title: t('quixer.geral.title'),
+      type_news: t('quixer.geral.type'),
+      content: t('quixer.geral.content'),
+      worldId: t('quixer.geral.world'),
+      sex: t('quixer.geral.sex'),
+      name: t('quixer.geral.name'),
+      email: t('quixer.geral.email'),
+      password: t('quixer.geral.password'),
+      confirmPassword: t('quixer.geral.confirmPassword'),
+      consent: t('quixer.geral.fieldConsent'),
+      terms: t('quixer.geral.fieldTerms'),
+      location: t('quixer.geral.location'),
+      pvp_type: t('quixer.geral.pvpType'),
+      ip: t('quixer.geral.ip'),
+      port: t('quixer.geral.port'),
+    }
+  }, [t])
 
   if (!fields) return null
   if (Object.keys(fields).length === 0) return null
@@ -27,58 +48,7 @@ export const FormErrors = ({ fields }: FormErrorsProps) => {
               ? t('quixer.errors.somethingWentWrong')
               : (value.message as string)
 
-          let keyName = ''
-
-          switch (key) {
-            case 'title':
-              keyName = t('quixer.geral.title')
-              break
-            case 'type_news':
-              keyName = t('quixer.geral.type')
-              break
-            case 'content':
-              keyName = t('quixer.geral.content')
-              break
-            case 'worldId':
-              keyName = t('quixer.geral.world')
-              break
-            case 'sex':
-              keyName = t('quixer.geral.sex')
-              break
-            case 'name':
-              keyName = t('quixer.geral.name')
-              break
-            case 'email':
-              keyName = t('quixer.geral.email')
-              break
-            case 'password':
-              keyName = t('quixer.geral.password')
-              break
-            case 'confirmPassword':
-              keyName = t('quixer.geral.confirmPassword')
-              break
-            case 'consent':
-              keyName = t('quixer.geral.fieldConsent')
-              break
-            case 'terms':
-              keyName = t('quixer.geral.fieldTerms')
-              break
-            case 'location':
-              keyName = t('quixer.geral.location')
-              break
-            case 'pvp_type':
-              keyName = t('quixer.geral.pvpType')
-              break
-            case 'ip':
-              keyName = t('quixer.geral.ip')
-              break
-            case 'port':
-              keyName = t('quixer.geral.port')
-              break
-            default:
-              keyName = key
-              break
-          }
+          let keyName = translations[key as keyof typeof translations] || key
 
           return (
             <li className="flex items-center gap-1" key={key}>
