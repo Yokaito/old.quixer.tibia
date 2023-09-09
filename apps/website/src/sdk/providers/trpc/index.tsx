@@ -1,3 +1,4 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 'use client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink, loggerLink } from '@trpc/client'
@@ -19,8 +20,10 @@ export function TRPCProvider({ children }: { children: React.ReactNode }) {
           enabled: () => true,
         }),
         httpBatchLink({
-          // eslint-disable-next-line turbo/no-undeclared-env-vars
-          url: `${process.env.NEXT_PUBLIC_URL}/api/trpc`,
+          url:
+            process.env.NODE_ENV === 'production'
+              ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/trpc`
+              : `http://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/trpc`,
         }),
       ],
     })

@@ -3,7 +3,7 @@ import * as z from 'zod'
 const envSchema = z.object({
   DATABASE_URL: z.string().url(),
   NODE_ENV: z.enum(['development', 'test', 'production']),
-  NEXT_PUBLIC_URL: z.string().url(),
+  NEXT_PUBLIC_VERCEL_URL: z.string(),
   NEXTAUTH_SECRET: z.string(),
   NEXTAUTH_URL: z.string().url(),
 })
