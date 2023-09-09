@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.70](https://github.com/Yokaito/quixer/compare/v0.0.69...v0.0.70) (2023-09-09)
+
+**Note:** Version bump only for package docs
+
 ## [0.0.69](https://github.com/Yokaito/quixer/compare/v0.0.68...v0.0.69) (2023-09-09)
 
 **Note:** Version bump only for package docs

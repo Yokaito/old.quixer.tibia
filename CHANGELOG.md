@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.70](https://github.com/Yokaito/quixer/compare/v0.0.69...v0.0.70) (2023-09-09)
+
+### Refactoring
+
+- create a default input and handle css error inside ([#19](https://github.com/Yokaito/quixer/issues/19)) ([38b9cbe](https://github.com/Yokaito/quixer/commit/38b9cbe8c433466dae3e35aa8b8b7014b3b97218))
+
 ## [0.0.69](https://github.com/Yokaito/quixer/compare/v0.0.68...v0.0.69) (2023-09-09)
 
 **Note:** Version bump only for package quixer
