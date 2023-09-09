@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.0](https://github.com/Yokaito/quixer/compare/v0.0.73...v0.1.0) (2023-09-09)
+
+### Features
+
+- add animated outfits and items in git ignore ([a787b56](https://github.com/Yokaito/quixer/commit/a787b568ee15cf8013e75ee421210e4f6ba16d18))
+
 ## 0.0.73 (2023-09-09)
 
 ### Features
