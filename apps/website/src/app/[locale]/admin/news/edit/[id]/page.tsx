@@ -1,4 +1,4 @@
-import { NewsEditSection } from '@/components/admin/News/EditSection'
+import { NewsEditSection } from '@/components/admin/NewsSection/EditSection'
 import { Section } from '@/components/ui'
 import { SectionHeader } from '@/components/ui/Section/Header'
 import InnerSection from '@/components/ui/Section/Inner'

@@ -29,6 +29,7 @@ export default {
       worldCreated: 'Monde créé avec succès!',
       characterEdited: 'Personnage modifié avec succès !',
       newsEdited: 'Actualité éditée avec succès !',
+      newsDeleted: 'Actualité supprimée avec succès !',
     },
     errors: {
       email: 'Veuillez saisir une adresse e-mail valide',
@@ -54,10 +55,14 @@ export default {
       somethingWentWrong: "Quelque chose s'est mal passé",
     },
     geral: {
+      createNews: 'Créer des nouvelles',
+      creator: 'Créé par',
       news: 'Nouvelles',
       editingNews: 'Modification des actualités',
       editor: 'Éditeur',
       content: 'Contenu',
+      notVisible: 'Non visible',
+      state: 'État',
       visible: 'Visible',
       showNews: "Afficher dans l'actualité",
       type: 'Taper',

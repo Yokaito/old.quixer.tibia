@@ -10,7 +10,7 @@ export default async function LayoutAdminPages({
 }) {
   const session = await getServerSession(authOptions)
 
-  if (!session || (session?.user && session?.user.type <= AccountType.TUTOR)) {
+  if (!session || (session?.user && session?.user.type < AccountType.TUTOR)) {
     redirect(`/account`)
   }
 

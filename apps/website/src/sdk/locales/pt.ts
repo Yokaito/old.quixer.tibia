@@ -29,6 +29,7 @@ export default {
       worldCreated: 'Mundo criado com sucesso!',
       characterEdited: 'Personagem editado com sucesso!',
       newsEdited: 'Notícias editadas com sucesso!',
+      newsDeleted: 'Notícia excluída com sucesso!',
     },
     errors: {
       email: 'Por favor, insira um endereço de e-mail válido',
@@ -53,10 +54,14 @@ export default {
       somethingWentWrong: 'Algo deu errado',
     },
     geral: {
+      createNews: 'Criar Notícia',
+      creator: 'Criado por',
       news: 'Notícias',
       editingNews: 'Editando Notícia',
       editor: 'Editor',
-      content: 'Contente',
+      content: 'Conteúdo',
+      notVisible: 'Não Visível',
+      state: 'Estado',
       visible: 'Visível',
       showNews: 'Mostrar nas notícias',
       type: 'Tipo',
