@@ -1,6 +1,5 @@
-import classNames from 'classnames'
+import { cn } from '@/sdk/utils/tailwind'
 import { forwardRef } from 'react'
-import { twMerge } from 'tailwind-merge'
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   hasError?: boolean
@@ -8,19 +7,17 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = forwardRef<HTMLInputElement, Props>(
   ({ hasError, className, type, ...otherProps }, ref) => {
-    const classMerged = twMerge('input', className)
-    const classWithConditions = classNames(classMerged, {
-      'border border-error focus:outline-0': hasError,
-      'focus:outline-0': type === 'checkbox',
-    })
+    const classnames = cn(
+      'input',
+      {
+        'border border-error focus:outline-0': hasError,
+        'focus:outline-0': type === 'checkbox',
+      },
+      className
+    )
 
     return (
-      <input
-        className={classWithConditions}
-        type={type}
-        ref={ref}
-        {...otherProps}
-      />
+      <input className={classnames} type={type} ref={ref} {...otherProps} />
     )
   }
 )
