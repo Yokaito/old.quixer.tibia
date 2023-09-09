@@ -14,6 +14,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'react-toastify'
 import classNames from 'classnames'
 import { FormErrors } from '@/components/ui/Errors/FormErrors'
+import Input from '@/components/ui/Input'
 
 type Props = news & {
   type_news: {
@@ -129,12 +130,10 @@ export const NewsEditSection = (props: Props) => {
               >
                 {t('quixer.geral.title')}:
               </label>
-              <input
+              <Input
                 {...register('title')}
                 type="text"
-                className={classNames('input', {
-                  'border-error': errors.title,
-                })}
+                hasError={!!errors.title}
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -162,11 +161,12 @@ export const NewsEditSection = (props: Props) => {
             <div className="flex gap-1">
               <span className="label">{t('quixer.geral.visible')}: </span>
               <label className="flex items-center gap-1 text-sm label">
-                <input
+                <Input
                   {...register('visible')}
                   defaultChecked={news.data.visible}
                   type="checkbox"
                   className="input"
+                  hasError={!!errors?.visible}
                 />
                 {t('quixer.geral.showNews')}
               </label>
@@ -186,7 +186,7 @@ export const NewsEditSection = (props: Props) => {
                 setContent(newContent)
               }}
             />
-            <input hidden {...register('content')}></input>
+            <Input hidden {...register('content')} />
           </InnerContainer>
           <FormErrors fields={errors} />
           <InnerContainer className="flex justify-end">

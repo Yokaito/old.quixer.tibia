@@ -3,6 +3,7 @@
 import { Button, Container } from '@/components/ui'
 import InnerContainer from '@/components/ui/Container/Inner'
 import { FormErrors } from '@/components/ui/Errors/FormErrors'
+import Input from '@/components/ui/Input'
 import { trpc } from '@/sdk/lib/trpc/client'
 import { useI18n } from '@/sdk/locales/client'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -121,7 +122,7 @@ export const FormEditWorld = ({
         <InnerContainer className="flex flex-col gap-2">
           <div className="flex flex-col gap-1 ">
             <label className="label">{t('quixer.geral.id')}</label>
-            <input
+            <Input
               className="input"
               type="number"
               disabled
@@ -130,17 +131,32 @@ export const FormEditWorld = ({
           </div>
           <div className="flex flex-col gap-1 ">
             <label className="label">{t('quixer.geral.name')}</label>
-            <input className="input" type="text" {...register('name')} />
+            <Input
+              hasError={!!errors?.name}
+              className="input"
+              type="text"
+              {...register('name')}
+            />
           </div>
 
           <div className="flex flex-col gap-2 2xl:flex-row 2xl:gap-1">
             <div className="flex flex-col gap-1 2xl:flex-1">
               <label className="label">{t('quixer.geral.ip')}</label>
-              <input className="input" type="text" {...register('ip')} />
+              <Input
+                hasError={!!errors?.ip}
+                className="input"
+                type="text"
+                {...register('ip')}
+              />
             </div>
             <div className="flex flex-col gap-1 ">
               <label className="label">{t('quixer.geral.port')}</label>
-              <input className="input" type="number" {...register('port')} />
+              <Input
+                hasError={!!errors?.port}
+                className="input"
+                type="number"
+                {...register('port')}
+              />
             </div>
           </div>
           <div className="flex flex-col gap-1 ">

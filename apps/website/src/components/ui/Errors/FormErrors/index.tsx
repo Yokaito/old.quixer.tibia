@@ -36,7 +36,7 @@ export const FormErrors = ({ fields }: FormErrorsProps) => {
   if (Object.keys(fields).length === 0) return null
 
   return (
-    <InnerContainer className="flex flex-col gap-2 p-3">
+    <InnerContainer className="flex flex-col gap-2 p-1">
       <h2 className="text-base font-bold text-secondary">
         {t('quixer.geral.attention')}
       </h2>
