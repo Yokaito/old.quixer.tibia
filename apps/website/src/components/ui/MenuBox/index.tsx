@@ -1,5 +1,5 @@
-import classNames from 'classnames'
 import { BorderBox } from '@/components/ui/'
+import { cn } from '@/sdk/utils/tailwind'
 
 type MenuBoxProps = {
   /**
@@ -24,14 +24,14 @@ export const MenuBox = ({
   showChain = false,
   showBackground = true,
 }: MenuBoxProps) => {
-  const classContent = classNames({
+  const classContent = cn({
     'w-[160px] h-full relative px-2 py-0 flex flex-col items-center justify-center':
       true,
     "bg-repeat-y bg-[url('../assets/images/background/loginbox-textfield.webp')]":
       showBackground,
   })
 
-  const classChain = classNames({
+  const classChain = cn({
     "absolute bg-repeat-y w-[7px] h-full top-0 bg-[url('../assets/images/borders/chain.webp')]":
       true,
   })

@@ -20,7 +20,6 @@ import { DeleteNewsModal } from './Modals/DeleteNews'
 import type { news } from '@prisma/client'
 import Link from 'next/link'
 import ButtonLink from '@/components/ui/Button/ButtonAsLink'
-import classNames from 'classnames'
 import Pagination from '@/components/ui/Table/Pagination'
 
 interface News extends Pick<news, 'id' | 'title' | 'visible'> {
@@ -174,9 +173,7 @@ export const NewsListSection = () => {
                   return (
                     <td
                       width={cell.column.getSize()}
-                      className={classNames(
-                        'text-center py-1 px-[2px] border-b border-r border-l border-quintenary text-sm text-secondary md:p-1'
-                      )}
+                      className="text-center py-1 px-[2px] border-b border-r border-l border-quintenary text-sm text-secondary md:p-1"
                       key={cell.id}
                     >
                       {flexRender(

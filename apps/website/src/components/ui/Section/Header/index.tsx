@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import { cn } from '@/sdk/utils/tailwind'
 
 type Props = {
   children: React.ReactNode
@@ -6,7 +6,7 @@ type Props = {
 }
 
 export const SectionHeader = ({ children, backgroundColor = 'red' }: Props) => {
-  const classname = classNames({
+  const classname = cn({
     'h-7 bg-[url("../assets/images/background/section-header-red.webp")]':
       backgroundColor === 'red',
     'h-6 bg-[url("../assets/images/background/section-header-green.webp")]':

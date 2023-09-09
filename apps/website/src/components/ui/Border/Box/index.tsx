@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import BorderBoxImage from '@/assets/images/borders/box.webp'
-import classNames from 'classnames'
+import { cn } from '@/sdk/utils/tailwind'
 
 type BorderBoxProps = {
   /**
@@ -11,7 +11,7 @@ type BorderBoxProps = {
 }
 
 export const BorderBox = ({ inverted = false }: BorderBoxProps) => {
-  const classname = classNames({
+  const classname = cn({
     'transform rotate-180': inverted,
   })
 

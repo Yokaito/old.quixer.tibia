@@ -1,11 +1,11 @@
-import { twMerge } from 'tailwind-merge'
 import { HTMLAttributes, forwardRef } from 'react'
+import { cn } from '@/sdk/utils/tailwind'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export const InnerSection = forwardRef<HTMLDivElement, Props>(
   ({ children, className }, ref) => {
-    const classnames = twMerge(
+    const classnames = cn(
       'flex flex-col gap-4 p-1 border border-tertiary bg-500',
       className
     )
