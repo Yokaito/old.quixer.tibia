@@ -13,6 +13,7 @@ export const newsRouter = router({
         title: z.string(),
         content: z.string(),
         visible: z.boolean(),
+        type_news_id: z.number(),
       })
     )
     .mutation(async ({ input }) => {
@@ -39,6 +40,7 @@ export const newsRouter = router({
           title: input.title,
           content: input.content,
           visible: input.visible,
+          type_news_id: input.type_news_id,
         },
       })
 
