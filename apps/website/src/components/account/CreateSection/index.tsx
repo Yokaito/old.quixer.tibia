@@ -11,6 +11,7 @@ import { trpc } from '@/sdk/lib/trpc/client'
 import { toast } from 'react-toastify'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { FormErrors } from '@/components/ui/Errors/FormErrors'
 
 export const CreateAccountSection = () => {
   const router = useRouter()
@@ -206,56 +207,7 @@ export const CreateAccountSection = () => {
               </label>
             </div>
           </InnerContainer>
-          {Object.keys(errors).length > 0 && (
-            <InnerContainer>
-              <div className="flex flex-col gap-2">
-                <h2 className="text-base font-bold text-secondary">
-                  {t('quixer.geral.attention')}
-                </h2>
-                <ul className="flex flex-col gap-2">
-                  {Object.entries(errors).map(([key, value]) => {
-                    if (!value.message) return null
-
-                    let keyName = key
-
-                    switch (key) {
-                      case 'name':
-                        keyName = t('quixer.geral.name')
-                        break
-                      case 'email':
-                        keyName = t('quixer.geral.email')
-                        break
-                      case 'password':
-                        keyName = t('quixer.geral.password')
-                        break
-                      case 'confirmPassword':
-                        keyName = t('quixer.geral.confirmPassword')
-                        break
-                      case 'consent':
-                        keyName = t('quixer.geral.fieldConsent')
-                        break
-                      case 'terms':
-                        keyName = t('quixer.geral.fieldTerms')
-                        break
-                      default:
-                        break
-                    }
-
-                    return (
-                      <li className="flex items-center gap-1" key={key}>
-                        <span className="flex items-center gap-1 text-sm text-error">
-                          <b className="font-bold capitalize text-secondary">
-                            {keyName}:
-                          </b>
-                          {value.message}
-                        </span>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            </InnerContainer>
-          )}
+          <FormErrors fields={errors} />
           <div className="flex justify-end">
             <Button variant="info" type="submit">
               {t('quixer.geral.createAccount')}

@@ -15,6 +15,7 @@ import { z } from 'zod'
 import { useI18n } from '@/sdk/locales/client'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
+import { FormErrors } from '@/components/ui/Errors/FormErrors'
 
 export const CreateCharacterSection = () => {
   const router = useRouter()
@@ -254,44 +255,7 @@ export const CreateCharacterSection = () => {
               </div>
             )}
           </InnerContainer>
-          {Object.keys(errors).length > 0 && (
-            <InnerContainer className="flex flex-col gap-2 p-3">
-              <h2 className="text-base font-bold text-secondary">
-                {t('quixer.geral.attention')}
-              </h2>
-              <ul className="flex flex-col gap-1">
-                {Object.entries(errors).map(([key, value]) => {
-                  if (!value.message) return null
-
-                  let keyName = key
-
-                  switch (key) {
-                    case 'name':
-                      keyName = t('quixer.geral.name')
-                      break
-                    case 'sex':
-                      keyName = t('quixer.geral.sex')
-                      break
-                    case 'worldId':
-                      keyName = t('quixer.geral.world')
-                      break
-                    default:
-                      break
-                  }
-
-                  return (
-                    <li className="flex items-center gap-1" key={key}>
-                      <span className="flex items-center gap-1 text-sm text-error">
-                        <b className="text-secondary">{keyName}:</b>
-                        {value.message}
-                      </span>
-                    </li>
-                  )
-                })}
-              </ul>
-            </InnerContainer>
-          )}
-
+          <FormErrors fields={errors} />
           <div className="flex items-center justify-between">
             <Button variant="info" type="submit" onClick={() => router.back()}>
               {t('quixer.geral.back')}

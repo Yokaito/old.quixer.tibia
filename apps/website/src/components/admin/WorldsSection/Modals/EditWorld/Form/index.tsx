@@ -2,6 +2,7 @@
 
 import { Button, Container } from '@/components/ui'
 import InnerContainer from '@/components/ui/Container/Inner'
+import { FormErrors } from '@/components/ui/Errors/FormErrors'
 import { trpc } from '@/sdk/lib/trpc/client'
 import { useI18n } from '@/sdk/locales/client'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -163,51 +164,7 @@ export const FormEditWorld = ({
             </select>
           </div>
         </InnerContainer>
-        {Object.keys(errors).length > 0 && (
-          <InnerContainer className="flex flex-col gap-2 p-3">
-            <h2 className="text-base font-bold text-secondary">
-              {t('quixer.geral.attention')}
-            </h2>
-            <ul>
-              {Object.entries(errors).map(([key, value]) => {
-                if (!value.message) return null
-
-                let keyName = key
-
-                switch (key) {
-                  case 'name':
-                    keyName = t('quixer.geral.name')
-                    break
-                  case 'location':
-                    keyName = t('quixer.geral.location')
-                    break
-                  case 'pvp_type':
-                    keyName = t('quixer.geral.pvpType')
-                    break
-                  case 'ip':
-                    keyName = t('quixer.geral.ip')
-                    break
-                  case 'port':
-                    keyName = t('quixer.geral.port')
-                    break
-                  default:
-                    break
-                }
-
-                return (
-                  <li key={key}>
-                    <span className="flex items-center gap-1 text-sm text-error">
-                      <b className="font-bold capitalize text-secondary">
-                        {keyName}:
-                      </b>
-                      {value.message}
-                    </span>
-                  </li>
-                )
-              })}
-            </ul>
-          </InnerContainer>
-        )}
+        <FormErrors fields={errors} />
         <InnerContainer>
           <footer className="flex flex-row justify-between gap-3">
             <Button
