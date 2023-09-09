@@ -33,6 +33,17 @@ interface News extends Pick<news, 'id' | 'title' | 'visible'> {
   } | null
 }
 
+const ActionsTable = ({ id, title }: { id: number; title: string }) => {
+  return (
+    <div className="flex flex-col items-center justify-center gap-2 md:flex-row">
+      <DeleteNewsModal newsId={id} newsTitle={title} />
+      <Link href={`/admin/news/edit/${id}`}>
+        <Image src={EditButtonImg} alt="Edit" quality={100} />
+      </Link>
+    </div>
+  )
+}
+
 export const NewsListSection = () => {
   const { data: news } = trpc.news.getAllWithCreators.useQuery()
   const [globalFilter, setGlobalFilter] = useState('')
@@ -88,14 +99,7 @@ export const NewsListSection = () => {
         cell: (info) => {
           const news = info.row.original
 
-          return (
-            <div className="flex flex-col items-center justify-center gap-2 md:flex-row">
-              <DeleteNewsModal newsId={news.id} newsTitle={news.title} />
-              <Link href={`/admin/news/edit/${news.id}`}>
-                <Image src={EditButtonImg} alt="Edit" quality={100} />
-              </Link>
-            </div>
-          )
+          return <ActionsTable id={news.id} title={news.title} />
         },
       },
     ]
