@@ -13,7 +13,8 @@
         "NEXTAUTH_SECRET",
         "NEXTAUTH_URL",
         "NEXT_PUBLIC_PREMIUM_IS_FREE",
-        "NODE_ENV"
+        "NODE_ENV",
+        "NEXT_PUBLIC_DELETE_CHARACTER_TIME"
       ],
       "outputs": [".next/**", "!.next/cache/**"]
     },

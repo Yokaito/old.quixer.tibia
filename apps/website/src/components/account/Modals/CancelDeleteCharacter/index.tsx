@@ -3,26 +3,26 @@
 import { Button, Modal } from '@/components/ui'
 import Icon from '@/components/ui/Icon'
 import { useState } from 'react'
-import { ContentModalDelete } from './Content'
+import { ContentModalCancel } from './Content'
 
-type ModalDeleteCharacterProps = {
+export type Props = {
   characterName: string
   characterId: number
 }
 
-export const ModalDeleteCharacter = (props: ModalDeleteCharacterProps) => {
+export const ModalCancelDeleteCharacter = (props: Props) => {
   const [open, setOpen] = useState(false)
 
   return (
     <>
       <div>
         <Button className="text-secondary" onClick={() => setOpen(!open)}>
-          <Icon name="Trash" width={18} height={18} />
+          <Icon name="Prohibit" width={18} height={18} />
         </Button>
 
         {open && (
           <Modal open={open}>
-            <ContentModalDelete {...props} handleModal={setOpen} />
+            <ContentModalCancel {...props} handleModal={setOpen} />
           </Modal>
         )}
       </div>
@@ -30,4 +30,4 @@ export const ModalDeleteCharacter = (props: ModalDeleteCharacterProps) => {
   )
 }
 
-export default ModalDeleteCharacter
+export default ModalCancelDeleteCharacter

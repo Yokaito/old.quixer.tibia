@@ -29,6 +29,7 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
     | 'UsersThree'
     | 'Trash'
     | 'NotePencil'
+    | 'Prohibit'
   /**
    * SVG weight.
    *

@@ -30,6 +30,11 @@ export default {
       characterEdited: 'Personagem editado com sucesso!',
       newsEdited: 'Notícias editadas com sucesso!',
       newsDeleted: 'Notícia excluída com sucesso!',
+      characterDeletion: 'Personagem colocado no processo de exclusão.',
+      characterDeletionCancel: 'Exclusão de personagem cancelada.',
+    },
+    warning: {
+      deletion: 'A exclusão está agendada para o server save do dia',
     },
     errors: {
       email: 'Por favor, insira um endereço de e-mail válido',
@@ -54,6 +59,12 @@ export default {
       somethingWentWrong: 'Algo deu errado',
     },
     geral: {
+      cancelDeletion: 'Cancelar Exclusão',
+      confirmCancelDeletion:
+        'Tem certeza de que deseja cancelar a exclusão do personagem {name}',
+      confirmDeletion: 'Tem certeza de que deseja excluir o personagem',
+      infoDeletion:
+        'O personagem entrará no processo de exclusão, com duração de {number} dias. Após esse período, o personagem será excluído.',
       newsTicker: 'Notícias',
       createNews: 'Criar Notícia',
       creator: 'Criado por',
