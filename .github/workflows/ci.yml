@@ -16,6 +16,7 @@ jobs:
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_REMOTE_ONLY: true
       NEXTAUTH_SECRET: 'quixer'
+      NEXT_PUBLIC_PREMIUM_IS_FREE: true
       NEXTAUTH_URL: 'http://localhost:3000'
       DATABASE_URL: 'mysql://root:root@localhost:3306/quixer'
 
