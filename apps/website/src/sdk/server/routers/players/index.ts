@@ -5,8 +5,79 @@ import { z } from 'zod'
 import { getI18n } from '@/sdk/locales/server'
 import { TRPCError } from '@trpc/server'
 import { createCharacterRookSample } from '@/sdk/utils/create-character'
+import env from '@/sdk/env'
 
 export const playersRouter = router({
+  cancelDeletion: loggedInProcedure
+    .input(z.number())
+    .mutation(async ({ input, ctx }) => {
+      const t = await getI18n()
+      const { session } = ctx
+
+      const player = await prisma.players.findUnique({
+        where: {
+          id: input,
+          account_id: Number(session.user.id),
+        },
+      })
+
+      if (!player) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          cause: 'player',
+          message: t('quixer.errors.playerNotFound'),
+        })
+      }
+
+      await prisma.players.update({
+        where: {
+          id: player.id,
+        },
+        data: {
+          deletion: 0,
+        },
+      })
+
+      return true
+    }),
+  delete: loggedInProcedure
+    .input(z.number())
+    .mutation(async ({ input, ctx }) => {
+      const t = await getI18n()
+      const { session } = ctx
+
+      const player = await prisma.players.findUnique({
+        where: {
+          id: input,
+          account_id: Number(session.user.id),
+        },
+      })
+
+      if (!player) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          cause: 'player',
+          message: t('quixer.errors.playerNotFound'),
+        })
+      }
+
+      const deletionDate = new Date()
+      deletionDate.setDate(
+        deletionDate.getDate() + parseInt(env.NEXT_PUBLIC_DELETE_CHARACTER_TIME)
+      )
+      const deletionTimeStamp = Math.floor(deletionDate.getTime() / 1000)
+
+      await prisma.players.update({
+        where: {
+          id: player.id,
+        },
+        data: {
+          deletion: deletionTimeStamp,
+        },
+      })
+
+      return true
+    }),
   editMyCharacter: loggedInProcedure
     .input(
       z.object({

@@ -17,6 +17,7 @@ jobs:
       TURBO_REMOTE_ONLY: true
       NEXTAUTH_SECRET: 'quixer'
       NEXT_PUBLIC_PREMIUM_IS_FREE: true
+      NEXT_PUBLIC_DELETE_CHARACTER_TIME: 7
       NEXTAUTH_URL: 'http://localhost:3000'
       DATABASE_URL: 'mysql://root:root@localhost:3306/quixer'
 

@@ -9,8 +9,10 @@ import Icon from '@/components/ui/Icon'
 import Link from 'next/link'
 import { getI18n } from '@/sdk/locales/server'
 import ButtonLink from '@/components/ui/Button/ButtonAsLink'
-import ModalDeleteCharacter from '../Modals/DeleteCharacter'
+import { ModalCancelDeleteCharacter } from '../Modals/CancelDeleteCharacter'
+import { ModalDeleteCharacter } from '../Modals/DeleteCharacter'
 import { Container } from '@/components/ui'
+import { DeletionStatus } from '@/components/ui/DeletionStatus'
 
 export const AccountCharacterListSection = async () => {
   const { characters } = await serverClient.players.myCharacters()
@@ -60,10 +62,9 @@ export const AccountCharacterListSection = async () => {
                     </p>
                   </td>
                   <td className="p-1 border text-start border-quintenary">
-                    <div className="flex">
+                    <div className="flex gap-2">
                       {character.isreward ? (
                         <Image
-                          className="mr-2"
                           src={DailyRewardNotCollectedIcon}
                           alt="reward not collected"
                         />
@@ -76,6 +77,9 @@ export const AccountCharacterListSection = async () => {
                       {character.ishidden && (
                         <Image src={StatusHiddenIcon} alt="status hidden" />
                       )}
+                      <DeletionStatus
+                        timeToDeletion={Number(character.deletion)}
+                      />
                     </div>
                   </td>
                   <td
@@ -89,10 +93,17 @@ export const AccountCharacterListSection = async () => {
                       >
                         <Icon name="NotePencil" width={18} height={18} />
                       </Link>
-                      <ModalDeleteCharacter
-                        characterId={character.id}
-                        characterName={character.name}
-                      />
+                      {Number(character.deletion) == 0 ? (
+                        <ModalDeleteCharacter
+                          characterId={character.id}
+                          characterName={character.name}
+                        />
+                      ) : (
+                        <ModalCancelDeleteCharacter
+                          characterId={character.id}
+                          characterName={character.name}
+                        />
+                      )}
                     </div>
                   </td>
                 </tr>

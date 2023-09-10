@@ -29,6 +29,11 @@ export default {
       characterEdited: 'Character edited successfully!',
       newsEdited: 'News edited successfully!',
       newsDeleted: 'News deleted successfully!',
+      characterDeletion: 'Character placed in deletion process.',
+      characterDeletionCancel: 'Character deletion canceled.',
+    },
+    warning: {
+      deletion: 'The deletion is scheduled for the server save of the day',
     },
     errors: {
       email: 'Please enter a valid email address',
@@ -53,6 +58,12 @@ export default {
       somethingWentWrong: 'Something went wrong',
     },
     geral: {
+      cancelDeletion: 'Cancel Deletion',
+      confirmCancelDeletion:
+        'Are you sure you want to cancel the deletion? For the character {name}',
+      confirmDeletion: 'Are you sure you want to delete the character',
+      infoDeletion:
+        'The character will enter the exclusion process, lasting {number} days. After this period the character will be deleted.',
       newsTicker: 'News Ticker',
       createNews: 'Create News',
       creator: 'Created by',

@@ -30,6 +30,12 @@ export default {
       characterEdited: 'Personnage modifié avec succès !',
       newsEdited: 'Actualité éditée avec succès !',
       newsDeleted: 'Actualité supprimée avec succès !',
+      characterDeletion: 'Personnage placé en processus de suppression!',
+      characterDeletionCancel: 'Suppression du personnage annulée!',
+    },
+    warning: {
+      deletion:
+        'La suppression est prévue pour la sauvegarde du serveur du jour',
     },
     errors: {
       email: 'Veuillez saisir une adresse e-mail valide',
@@ -55,6 +61,12 @@ export default {
       somethingWentWrong: "Quelque chose s'est mal passé",
     },
     geral: {
+      cancelDeletion: 'Annuler la suppression',
+      confirmCancelDeletion:
+        'Êtes-vous sûr de vouloir annuler la suppression du personnage {name}',
+      confirmDeletion: 'Êtes-vous sûr de vouloir supprimer le personnage',
+      infoDeletion:
+        'Le personnage entrera dans le processus d’exclusion, d’une durée de {number} jours. À l’issue de cette période, le personnage sera supprimé.',
       newsTicker: "Téléscripteur d'actualités",
       createNews: 'Créer des nouvelles',
       creator: 'Créé par',

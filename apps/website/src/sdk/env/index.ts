@@ -12,6 +12,7 @@ export const env = createEnv({
     NEXT_PUBLIC_PREMIUM_IS_FREE: z
       .string()
       .refine((v) => v === 'true' || v === 'false') as unknown as z.ZodBoolean,
+    NEXT_PUBLIC_DELETE_CHARACTER_TIME: z.string().regex(/^\d+$/),
   },
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
@@ -19,6 +20,8 @@ export const env = createEnv({
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_PREMIUM_IS_FREE: process.env.NEXT_PUBLIC_PREMIUM_IS_FREE,
+    NEXT_PUBLIC_DELETE_CHARACTER_TIME:
+      process.env.NEXT_PUBLIC_DELETE_CHARACTER_TIME,
   },
 })
 
