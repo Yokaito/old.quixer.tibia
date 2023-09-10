@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "turbo run build --no-daemon",
+    "vercel-build": "turbo run vercel-build --no-daemon",
     "dev": "turbo run dev --parallel --no-cache --no-daemon",
     "migrate": "turbo run migrate --no-daemon",
     "test": "turbo run test --no-daemon",
