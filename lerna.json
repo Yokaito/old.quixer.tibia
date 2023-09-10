@@ -3,7 +3,7 @@
   "npmClient": "pnpm",
   "command": {
     "publish": {
-      "message": "Release: %v"
+      "message": "[skip ci] Release: %v"
     },
     "version": {
       "allowBranch": "main",
