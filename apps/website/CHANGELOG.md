@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.1 (2023-09-10)
+
+### Bug Fixes
+
+- **workflow:** add new env in workflow ([6222f22](https://github.com/Yokaito/quixer/commit/6222f2282c414395df354adb684cde974f074f40))
+
+### Refactoring
+
+- **website:** some refactors to allocate better files and new env system ([410ac77](https://github.com/Yokaito/quixer/commit/410ac77a703d796ef86db4cb2b2b5b823c556651))
+
 ## [0.1.0](https://github.com/Yokaito/quixer/compare/v0.0.73...v0.1.0) (2023-09-09)
 
 ### Features
