@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.2 (2023-09-10)
+
+### Chores
+
+- **repo:** add tag to skip builds when lerna is publishing ([81a4f8a](https://github.com/Yokaito/quixer/commit/81a4f8ae6df577d5142fe1110d44acc70f250f91))
+
 ## 0.1.1 (2023-09-10)
 
 ### Refactoring
