@@ -55,6 +55,7 @@ export default {
       somethingWentWrong: "Quelque chose s'est mal passé",
     },
     geral: {
+      newsTicker: "Téléscripteur d'actualités",
       createNews: 'Créer des nouvelles',
       creator: 'Créé par',
       news: 'Nouvelles',

@@ -4,6 +4,7 @@ import InnerSection from '@/components/ui/Section/Inner'
 import CommunityIcon from '@/assets/images/icons/16/newsicon_community_small.png'
 import FixIcon from '@/assets/images/icons/16/newsicon_technical_small.png'
 import NewstickerItem from './Item'
+import { getI18n } from '@/sdk/locales/server'
 
 const mockData = [
   {
@@ -38,11 +39,13 @@ const mockData = [
   },
 ]
 
-export const NewstickerSection = () => {
+export const NewstickerSection = async () => {
+  const t = await getI18n()
+
   return (
     <Section>
       <SectionHeader backgroundColor="green">
-        <h1 className="section-title">news ticker</h1>
+        <h1 className="section-title">{t('quixer.geral.newsTicker')}</h1>
       </SectionHeader>
       <InnerSection>
         <div className="flex flex-col">

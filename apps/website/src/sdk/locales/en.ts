@@ -53,6 +53,7 @@ export default {
       somethingWentWrong: 'Something went wrong',
     },
     geral: {
+      newsTicker: 'News Ticker',
       createNews: 'Create News',
       creator: 'Created by',
       news: 'News',

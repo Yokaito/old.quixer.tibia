@@ -90,7 +90,10 @@ export const CreateWorldContent = ({
   }, [error])
 
   return (
-    <Container title={`Create World`} onClose={() => handleModal(false)}>
+    <Container
+      title={t('quixer.geral.createWorld')}
+      onClose={() => handleModal(false)}
+    >
       <form onSubmit={handleSubmit(handleDataSubmit)}>
         <InnerContainer className="flex flex-col gap-2">
           <div className="flex flex-col gap-1">

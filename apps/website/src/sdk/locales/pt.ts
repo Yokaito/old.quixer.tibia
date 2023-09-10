@@ -54,6 +54,7 @@ export default {
       somethingWentWrong: 'Algo deu errado',
     },
     geral: {
+      newsTicker: 'Notícias',
       createNews: 'Criar Notícia',
       creator: 'Criado por',
       news: 'Notícias',
