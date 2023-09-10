@@ -12,7 +12,7 @@ export const env = createEnv({
     NEXT_PUBLIC_PREMIUM_IS_FREE: z
       .string()
       .refine((v) => v === 'true' || v === 'false') as unknown as z.ZodBoolean,
-    NEXT_PUBLIC_DELETE_CHARACTER_TIME: z.string().regex(/^[0-9]+$/),
+    NEXT_PUBLIC_DELETE_CHARACTER_TIME: z.string().regex(/^\d+$/),
   },
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
