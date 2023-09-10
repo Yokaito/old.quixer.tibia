@@ -6,6 +6,17 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
+    "website#build": {
+      "dependsOn": ["^build"],
+      "env": [
+        "DATABASE_URL",
+        "NEXTAUTH_SECRET",
+        "NEXTAUTH_URL",
+        "NEXT_PUBLIC_PREMIUM_IS_FREE",
+        "NODE_ENV"
+      ],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
     "test": {
       "dependsOn": ["^build"],
       "outputs": []

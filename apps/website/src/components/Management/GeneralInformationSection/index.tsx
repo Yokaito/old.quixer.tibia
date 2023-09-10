@@ -8,7 +8,7 @@ import { serverClient } from '@/sdk/lib/trpc/server'
 import { getCurrentLocale, getI18n } from '@/sdk/locales/server'
 import { getServerSession } from 'next-auth'
 import authOptions from '@/sdk/lib/nextauth'
-import { otConfig } from '@/quixer'
+import env from '@/sdk/env'
 
 export const GeneralInformationSection = async () => {
   const user = await serverClient.account.myInfo()
@@ -54,13 +54,13 @@ export const GeneralInformationSection = async () => {
                   <div className="flex flex-col">
                     <span
                       className={`${
-                        (otConfig.server.premiumIsFree ||
+                        (env.NEXT_PUBLIC_PREMIUM_IS_FREE ||
                           session?.user?.isPremium) &&
                         'text-success'
                       } text-error font-bold`}
                     >
                       <Switch>
-                        <Case condition={otConfig.server.premiumIsFree}>
+                        <Case condition={env.NEXT_PUBLIC_PREMIUM_IS_FREE}>
                           <>{t('quixer.account.status.freePremium')}</>
                         </Case>
                         <Case condition={session?.user?.isPremium as boolean}>
@@ -73,7 +73,7 @@ export const GeneralInformationSection = async () => {
                     </span>
                     <span className="text-[12px]">
                       <Switch>
-                        <Case condition={otConfig?.server?.premiumIsFree}>
+                        <Case condition={env.NEXT_PUBLIC_PREMIUM_IS_FREE}>
                           <>
                             ({t('quixer.account.status.freePermanent')},{' '}
                             {t('quixer.account.status.balance', {

@@ -4,7 +4,7 @@ import sha1 from 'sha1'
 import { prisma } from '@/sdk/lib/prisma'
 import { verifyPremiumTime } from '@/sdk/utils/premium-time'
 import { createCharacterForClient } from '@/sdk/utils/create-character'
-import { otConfig } from '@/quixer'
+import env from '@/sdk/env'
 
 /**
  * Error codes:
@@ -127,7 +127,7 @@ export const LoginController = async (
       session: {
         emailcoderequest: false,
         fpstracking: true,
-        ispremium: otConfig.server.premiumIsFree ? true : isPremium,
+        ispremium: env.NEXT_PUBLIC_PREMIUM_IS_FREE ? true : isPremium,
         isreturner: false,
         lastlogintime: account.lastday,
         optiontracking: true,

@@ -17,7 +17,7 @@ export function TRPCProvider({ children }: { children: React.ReactNode }) {
     trpc.createClient({
       links: [
         loggerLink({
-          enabled: () => true,
+          enabled: () => process.env.NODE_ENV === 'development',
         }),
         httpBatchLink({
           url: `/api/trpc`,

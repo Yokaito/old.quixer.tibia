@@ -8,11 +8,11 @@ import { getServerSession } from 'next-auth'
 import authOptions from '@/sdk/lib/nextauth'
 import { convertUnixTimeToDate } from '@/sdk/utils/date-format'
 import { ButtonSignOut } from '@/components/ui/Button/ButtonSignOut'
-import { otConfig } from '@/quixer'
 import { Case, Container, Default, Switch } from '@/components/ui'
 import IconPremium1 from '@/assets/images/icons/32/premium_icon-prey_hunting_task.png'
 import IconPremium2 from '@/assets/images/icons/32/premium_icon_outfit.png'
 import IconPremium3 from '@/assets/images/icons/32/premium_icon_secondary_battlelists.png'
+import env from '@/sdk/env'
 
 export const AccountStatusSection = async () => {
   const locale = getCurrentLocale()
@@ -27,7 +27,7 @@ export const AccountStatusSection = async () => {
             <Switch>
               <Case
                 condition={
-                  session?.user.isPremium || otConfig.server.premiumIsFree
+                  session?.user.isPremium || env.NEXT_PUBLIC_PREMIUM_IS_FREE
                 }
               >
                 <Image src={StatusImagePremium} alt="status account" />
@@ -40,12 +40,13 @@ export const AccountStatusSection = async () => {
             <div className="flex flex-col gap-1">
               <h2
                 className={`${
-                  (session?.user.isPremium || otConfig.server.premiumIsFree) &&
+                  (session?.user.isPremium ||
+                    env.NEXT_PUBLIC_PREMIUM_IS_FREE) &&
                   'text-success'
                 } text-lg font-bold text-error`}
               >
                 <Switch>
-                  <Case condition={otConfig.server.premiumIsFree}>
+                  <Case condition={env.NEXT_PUBLIC_PREMIUM_IS_FREE}>
                     <>{t('quixer.account.status.freePremium')}</>
                   </Case>
                   <Case condition={session?.user.isPremium as boolean}>
@@ -58,14 +59,14 @@ export const AccountStatusSection = async () => {
               </h2>
               <p className="font-normal text-[12px] text-secondary">
                 <Switch>
-                  <Case condition={otConfig.server.premiumIsFree}>
+                  <Case condition={env.NEXT_PUBLIC_PREMIUM_IS_FREE}>
                     <>{t('quixer.account.status.freePermanent')}</>
                   </Case>
                   <Case condition={session?.user.isPremium as boolean}>
                     <>
                       {t('quixer.account.status.timeLeft')}{' '}
                       {convertUnixTimeToDate(
-                        session?.user.premiumDateExpireUnixTime || 0,
+                        session?.user.premiumDateExpireUnixTime ?? 0,
                         locale
                       )}
                     </>
@@ -74,7 +75,7 @@ export const AccountStatusSection = async () => {
                     <>
                       {t('quixer.account.status.timeExpired')}{' '}
                       {convertUnixTimeToDate(
-                        session?.user.premiumDateExpireUnixTime || 0,
+                        session?.user.premiumDateExpireUnixTime ?? 0,
                         locale
                       )}
                     </>
@@ -83,7 +84,7 @@ export const AccountStatusSection = async () => {
               </p>
               <p className="font-normal text-[12px] text-secondary">
                 <Switch>
-                  <Case condition={otConfig.server.premiumIsFree}>
+                  <Case condition={env.NEXT_PUBLIC_PREMIUM_IS_FREE}>
                     <>
                       {t('quixer.account.status.balance', {
                         days: 0,

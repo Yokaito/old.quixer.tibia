@@ -1,9 +1,9 @@
-import { otConfig } from '@/quixer'
+import { VocationsTypes } from '@/sdk/constants'
 
 export const getVocationName = (vocation: number) => {
-  const vocationName = otConfig.vocations.find(
-    (vocationItem) => vocationItem.id === vocation
+  const vocationName = Object.entries(VocationsTypes).find(
+    ([key]) => Number(key) === vocation
   )
 
-  return vocationName?.name
+  return vocationName?.[1]
 }

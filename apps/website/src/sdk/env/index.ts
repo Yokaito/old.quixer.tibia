@@ -1,20 +1,25 @@
 import * as z from 'zod'
+import { createEnv } from '@t3-oss/env-nextjs'
 
-const envSchema = z.object({
-  DATABASE_URL: z.string().url(),
-  NODE_ENV: z.enum(['development', 'test', 'production']),
-  NEXTAUTH_SECRET: z.string(),
-  NEXTAUTH_URL: z.string().url().optional(),
+export const env = createEnv({
+  server: {
+    NODE_ENV: z.enum(['development', 'test', 'production']),
+    DATABASE_URL: z.string().url(),
+    NEXTAUTH_SECRET: z.string(),
+    NEXTAUTH_URL: z.string().url().optional(),
+  },
+  client: {
+    NEXT_PUBLIC_PREMIUM_IS_FREE: z
+      .string()
+      .refine((v) => v === 'true' || v === 'false') as unknown as z.ZodBoolean,
+  },
+  runtimeEnv: {
+    DATABASE_URL: process.env.DATABASE_URL,
+    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+    NODE_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_PREMIUM_IS_FREE: process.env.NEXT_PUBLIC_PREMIUM_IS_FREE,
+  },
 })
 
-const env = envSchema.safeParse(process.env)
-
-if (!env.success) {
-  console.error(
-    '❌ Invalid environment variables:',
-    JSON.stringify(env.error.format(), null, 4)
-  )
-  process.exit(1)
-}
-
-export default env.data
+export default env
