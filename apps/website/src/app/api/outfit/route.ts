@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import { outfitImagesPath, walkSpeeds } from '@/sdk/outfiter/config'
 import { loadData, outfit } from '@/sdk/outfiter/outfits'
-import { generateCacheIfNeeded } from '@/sdk/outfiter/cache'
 
 const schema = z.object({
   looktype: z.string().regex(/^[0-9]+$/),
@@ -19,9 +18,12 @@ const schema = z.object({
   resize: z.string().regex(/^[0-9]+$/),
 })
 
+export const revalidate = false
+export const fetchCache = 'force-cache'
+
 export async function GET(request: Request) {
   try {
-    generateCacheIfNeeded()
+    //generateCacheIfNeeded()
     const { searchParams } = new URL(request.url)
 
     const allParams = Object.fromEntries(searchParams)
