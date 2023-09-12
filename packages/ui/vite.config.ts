@@ -4,7 +4,6 @@ import { defineConfig } from 'vitest/config'
 import dts from 'vite-plugin-dts'
 import tailwindcss from 'tailwindcss'
 import { UserConfigExport } from 'vite'
-import { name } from './package.json'
 
 const app = async (): Promise<UserConfigExport> => {
   /**
@@ -12,7 +11,6 @@ const app = async (): Promise<UserConfigExport> => {
    * @octocat/library-repo -> library-repo
    * vite-component-library-template -> vite-component-library-template
    */
-  const formattedName = name.match(/[^/]+$/)?.[0] ?? name
 
   return defineConfig({
     plugins: [
