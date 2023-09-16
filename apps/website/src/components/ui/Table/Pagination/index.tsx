@@ -43,11 +43,11 @@ export const Pagination = ({
           name="globalFilter"
           value={globalFilter ?? ''}
           onChange={(value) => setGlobalFilter(String(value))}
-          className="input"
+          className="flex-1 input"
           placeholder={t('quixer.geral.searchAllColumns')}
         />
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center justify-end gap-2">
         <div className="flex gap-2">
           <Button
             onClick={previousPage}

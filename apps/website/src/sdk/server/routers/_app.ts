@@ -3,6 +3,7 @@ import { accountRouter } from './account'
 import { playersRouter } from './players'
 import { worldsRouter } from './worlds'
 import { newsRouter } from './news'
+import { guildsRouter } from './guilds'
 
 export const appRouter = router({
   healthcheck: publicProcedure.query(() => 'yay!'),
@@ -10,6 +11,7 @@ export const appRouter = router({
   account: accountRouter,
   worlds: worldsRouter,
   news: newsRouter,
+  guilds: guildsRouter,
 })
 
 export type AppRouter = typeof appRouter

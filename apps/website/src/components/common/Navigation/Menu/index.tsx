@@ -23,6 +23,16 @@ const getMenuTranslated = async () => {
         },
       ],
     },
+    {
+      icon: 'Citizen',
+      label: t('quixer.menu.item.community'),
+      subItem: [
+        {
+          label: t('quixer.menu.item.guilds'),
+          href: '/guilds',
+        },
+      ],
+    },
   ]
 }
 
