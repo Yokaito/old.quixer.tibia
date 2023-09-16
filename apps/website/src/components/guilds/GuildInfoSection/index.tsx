@@ -168,9 +168,6 @@ export const GuildInfoSection = async ({
                             />
                           </td>
                         </Case>
-                        <Default>
-                          <td className="w-[42px] md:w-[84px]"></td>
-                        </Default>
                       </Switch>
                     </tr>
                   ))}
