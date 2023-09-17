@@ -178,9 +178,11 @@ export const GuildInfoSection = async ({
           </Switch>
         </InnerContainer>
       </Container>
-      <div className="flex justify-end w-full">
-        <ModalGuildApplyTo guildId={id} />
-      </div>
+      {session && (
+        <div className="flex justify-end w-full">
+          <ModalGuildApplyTo guildId={id} />
+        </div>
+      )}
     </>
   )
 }
