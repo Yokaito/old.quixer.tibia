@@ -11,6 +11,7 @@ import Link from 'next/link'
 import { getServerSession } from 'next-auth'
 import authOptions from '@/sdk/lib/nextauth'
 import { ModalGuildAcceptInvitation } from '../Modals/HandleInvitation'
+import { ModalGuildApplyTo } from '../Modals/ApplyTo'
 
 interface MyCharacters extends players {
   worlds: {
@@ -177,6 +178,9 @@ export const GuildInfoSection = async ({
           </Switch>
         </InnerContainer>
       </Container>
+      <div className="flex justify-end w-full">
+        <ModalGuildApplyTo guildId={id} />
+      </div>
     </>
   )
 }

@@ -33,6 +33,7 @@ export default {
       characterDeletionCancel: 'Character deletion canceled.',
       guildInviteAccepted: 'You have accepted the invitation to the guild.',
       guildInviteRejected: 'You have rejected the invitation to the guild.',
+      applySuccess: 'Application sent successfully!',
     },
     warning: {
       deletion: 'The deletion is scheduled for the server save of the day',
@@ -60,8 +61,16 @@ export default {
       newsNotFound: 'News not found',
       somethingWentWrong: 'Something went wrong',
       playerAlreadyInGuild: 'Player already in guild',
+      playerAlreadyInSomeGuild: 'Player already in some guild',
+      invalidCharacterApplication:
+        "This character doesn't exist or you don't have access to it",
+      playerNotValid: 'Player is not valid',
     },
     geral: {
+      apply: 'Apply',
+      selectCharacter: 'Select a Character',
+      character: 'Character',
+      applyToGuild: 'Apply to Guild',
       guild: 'Guild',
       guilds: 'Guilds',
       reject: 'Reject',

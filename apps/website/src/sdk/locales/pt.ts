@@ -34,6 +34,7 @@ export default {
       characterDeletionCancel: 'Exclusão de personagem cancelada.',
       guildInviteAccepted: 'Você aceitou o convite para a guilda.',
       guildInviteRejected: 'Você rejeitou o convite para a guilda.',
+      applySuccess: 'Aplicação enviada com sucesso!',
     },
     warning: {
       deletion: 'A exclusão está agendada para o server save do dia',
@@ -61,8 +62,16 @@ export default {
       newsNotFound: 'Notícia não encontrada',
       somethingWentWrong: 'Algo deu errado',
       playerAlreadyInGuild: 'Jogador já está na guilda',
+      playerAlreadyInSomeGuild: 'Jogador já está em alguma guilda',
+      invalidCharacterApplication:
+        'Este personagem não existe ou você não tem acesso a ele',
+      playerNotValid: 'Jogador não é válido',
     },
     geral: {
+      apply: 'Aplicar',
+      selectCharacter: 'Selecione um Personagem',
+      character: 'Personagem',
+      applyToGuild: 'Aplicar para Guilda',
       guild: 'Guilda',
       guilds: 'Guildas',
       reject: 'Rejeitar',
