@@ -25,7 +25,7 @@
 </div>
 
 <div align="center">
-  <sub>Criado por <a href="https://github.com/Yokaito">Guilherme Fontes</a> com a ajuda <a href="https://github.com/MITHGaming/mitg.misior/graphs/contributors">desses contribuidores</a>.</sub>
+  <sub>Criado por <a href="https://github.com/Yokaito">Guilherme Fontes</a> com a ajuda <a href="https://github.com/Yokaito/quixer/graphs/contributors">desses contribuidores</a>.</sub>
 </div>
 
 <br />
