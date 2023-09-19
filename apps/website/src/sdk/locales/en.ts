@@ -39,6 +39,9 @@ export default {
       deletion: 'The deletion is scheduled for the server save of the day',
     },
     errors: {
+      onlyLetters: 'Only letters are allowed',
+      onlyNumbers: 'Only numbers are allowed',
+      onlyLettersAndNumbers: 'Only letters and numbers are allowed',
       email: 'Please enter a valid email address',
       minLength: 'Please enter at least {min} characters',
       maxLength: 'Please enter no more than {max} characters',
@@ -67,6 +70,7 @@ export default {
       playerNotValid: 'Player is not valid',
     },
     geral: {
+      leader: 'Leader',
       apply: 'Apply',
       selectCharacter: 'Select a Character',
       character: 'Character',

@@ -95,7 +95,7 @@ export const ModalGuildApplyToContent = ({ handleModal, guildId }: Props) => {
               variant="red"
               type="button"
               disabled={false}
-              onClick={() => null}
+              onClick={() => handleModal(false)}
             >
               {t('quixer.geral.close')}
             </Button>

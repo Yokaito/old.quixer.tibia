@@ -6,6 +6,101 @@ import { loggedInProcedure } from '../../middlewares'
 import { getI18n } from '@/sdk/locales/server'
 
 export const guildsRouter = router({
+  create: loggedInProcedure
+    .input(
+      z.object({
+        name: z
+          .string()
+          .min(4)
+          .max(20)
+          /**
+           * @ALERT - This is a regex to only allow letters and numbers
+           */
+          .regex(/^[a-zA-Z0-9 ]*$/),
+        worldId: z.number(),
+        ownerId: z.number(),
+        logo: z.string().optional(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const guildWithSameName = await prisma.guilds.findFirst({
+        where: {
+          name: input.name,
+        },
+      })
+
+      if (guildWithSameName) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          cause: 'guild',
+          message: 'Guild with same name already exists',
+        })
+      }
+
+      /**
+       * @ALERT - This cancel all invitations for the player
+       */
+      await prisma.guild_invites.deleteMany({
+        where: {
+          player_id: input.ownerId,
+        },
+      })
+
+      const playerIsAllowedToCreateGuild = await prisma.players.findFirst({
+        where: {
+          id: input.ownerId,
+          guild_membership: {
+            is: null,
+          },
+        },
+      })
+
+      if (!playerIsAllowedToCreateGuild) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          cause: 'guild',
+          message: 'Player is already in a guild',
+        })
+      }
+
+      /**
+       * @ALERT - Theres a trigger in database when a guild is created that automatically creates a ranks
+       * 3 - Leader
+       * 2 - Vice Leader
+       * 1 - Member
+       */
+      const guild = await prisma.guilds.create({
+        data: {
+          name: input.name,
+          world_id: input.worldId,
+          ownerid: input.ownerId,
+          balance: 0,
+          level: 1,
+          logo: input.logo,
+          creationdata: Math.floor(new Date().getTime() / 1000),
+        },
+      })
+
+      const ranksForThisGuild = await prisma.guild_ranks.findMany({
+        where: {
+          guild_id: guild.id,
+        },
+      })
+
+      const getHighestRank = ranksForThisGuild.reduce((prev, curr) => {
+        return prev.level > curr.level ? prev : curr
+      }, ranksForThisGuild[0])
+
+      await prisma.guild_membership.create({
+        data: {
+          guild_id: guild.id,
+          player_id: input.ownerId,
+          rank_id: getHighestRank.id,
+        },
+      })
+
+      return true
+    }),
   applyToGuild: loggedInProcedure
     .input(
       z.object({
@@ -89,10 +184,11 @@ export const guildsRouter = router({
       const myCharacters = await prisma.players.findMany({
         where: {
           account_id: Number(session.user.id),
+          guilds: {
+            is: null,
+          },
           guild_membership: {
-            isNot: {
-              guild_id: input,
-            },
+            is: null,
           },
           guild_invites: {
             none: {
@@ -243,14 +339,11 @@ export const guildsRouter = router({
 
       /**
        * @ALERT
-       * This is a function to remove a player from the invites list
+       * This is a function to remove a player from the all invites list
        */
-      await prisma.guild_invites.delete({
+      await prisma.guild_invites.deleteMany({
         where: {
-          player_id_guild_id: {
-            guild_id: input.guildId,
-            player_id: input.playerId,
-          },
+          player_id: input.playerId,
         },
       })
 

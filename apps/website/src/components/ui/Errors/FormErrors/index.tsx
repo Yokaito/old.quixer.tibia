@@ -18,6 +18,7 @@ export const FormErrors = ({ fields }: FormErrorsProps) => {
       type_news: t('quixer.geral.type'),
       content: t('quixer.geral.content'),
       worldId: t('quixer.geral.world'),
+      world: t('quixer.geral.world'),
       sex: t('quixer.geral.sex'),
       name: t('quixer.geral.name'),
       email: t('quixer.geral.email'),
@@ -29,6 +30,7 @@ export const FormErrors = ({ fields }: FormErrorsProps) => {
       pvp_type: t('quixer.geral.pvpType'),
       ip: t('quixer.geral.ip'),
       port: t('quixer.geral.port'),
+      leader: t('quixer.geral.leader'),
     }
   }, [t])
 

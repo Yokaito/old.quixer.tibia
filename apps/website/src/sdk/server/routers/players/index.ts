@@ -8,6 +8,30 @@ import { createCharacterRookSample } from '@/sdk/utils/create-character'
 import env from '@/sdk/env'
 
 export const playersRouter = router({
+  getMyCharactersAllowToCreateGuild: loggedInProcedure.query(
+    async ({ ctx }) => {
+      const { session } = ctx
+
+      const characters = await prisma.players.findMany({
+        where: {
+          account_id: Number(session.user.id),
+          guild_membership: {
+            is: null,
+          },
+          guilds: {
+            is: null,
+          },
+        },
+      })
+
+      return characters.map((character) => {
+        return {
+          id: character.id,
+          name: character.name,
+        }
+      })
+    }
+  ),
   cancelDeletion: loggedInProcedure
     .input(z.number())
     .mutation(async ({ input, ctx }) => {

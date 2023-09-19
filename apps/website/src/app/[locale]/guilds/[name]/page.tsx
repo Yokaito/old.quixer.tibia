@@ -14,7 +14,8 @@ type Props = {
 
 export default async function AdminNewsEditIdPage({ params }: Props) {
   const t = await getI18n()
-  const guild = await serverClient.guilds.findByName(params.name)
+  const normalizedName = decodeURIComponent(params.name)
+  const guild = await serverClient.guilds.findByName(normalizedName)
 
   return (
     <Section>

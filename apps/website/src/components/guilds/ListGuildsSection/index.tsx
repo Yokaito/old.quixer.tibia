@@ -41,8 +41,8 @@ export const ListGuildsSection = ({ worlds }: Props) => {
 
   return (
     <>
-      <div className="flex items-baseline gap-3">
-        <Container title={t('quixer.geral.worlds')} className="flex-1">
+      <div className="flex flex-col items-baseline gap-3 md:flex-row">
+        <Container title={t('quixer.geral.worlds')} className="flex-1 w-full">
           <InnerContainer>
             <div className="flex items-center gap-2 md:gap-8">
               <label className="label">{t('quixer.geral.worldName')}:</label>
@@ -62,8 +62,11 @@ export const ListGuildsSection = ({ worlds }: Props) => {
             </div>
           </InnerContainer>
         </Container>
-        <Container title={t('quixer.geral.actions')}>
-          <InnerContainer>
+        <Container
+          title={t('quixer.geral.actions')}
+          className="w-full md:w-max"
+        >
+          <InnerContainer className="flex justify-center">
             <ButtonLink
               href="/guilds/create"
               text={t('quixer.geral.createGuild')}
