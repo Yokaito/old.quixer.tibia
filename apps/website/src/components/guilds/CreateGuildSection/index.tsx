@@ -88,7 +88,7 @@ export const CreateGuildSection = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <Container title="Found Guild">
+      <Container title={t('quixer.geral.foundGuild')}>
         <form onSubmit={handleSubmit(handleCreateGuild)}>
           <InnerContainer className="flex flex-col gap-2">
             <div className="flex gap-2">
@@ -140,20 +140,13 @@ export const CreateGuildSection = () => {
           </InnerContainer>
         </form>
       </Container>
-      <Container title="Information">
+      <Container title={t('quixer.geral.information')}>
         <InnerContainer>
           <p className="text-sm text-justify text-secondary">
-            Do you want to found a new guild? In order to do that, you need a
-            premium account and none of your characters may hold one of the two
-            highest ranks in any other guild. Note that you need four other
-            players with premium accounts that also meet these requirements,
-            before the guild is active in the game.
+            {t('quixer.geral.guildInfo1')}
           </p>
           <p className="text-sm text-justify text-secondary">
-            Now enter the name of the new guild, select the world it should
-            exist on, specify the name of your character that should become the
-            first leader and confirm with your account password. Then click on
-            Submit. Note that the first two data cannot be changed later.
+            {t('quixer.geral.guildInfo2')}
           </p>
         </InnerContainer>
       </Container>

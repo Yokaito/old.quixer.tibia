@@ -40,6 +40,9 @@ export default {
       deletion: 'A exclusão está agendada para o server save do dia',
     },
     errors: {
+      onlyLetters: 'Somente letras são permitidas',
+      onlyNumbers: 'Somente números são permitidos',
+      onlyLettersAndNumbers: 'Somente letras e números são permitidos',
       email: 'Por favor, insira um endereço de e-mail válido',
       minLength: 'Por favor, insira pelo menos {min} caracteres',
       maxLength: 'Por favor, insira no máximo {max} caracteres',
@@ -68,6 +71,13 @@ export default {
       playerNotValid: 'Jogador não é válido',
     },
     geral: {
+      information: 'Informação',
+      guildInfo1:
+        'Você quer fundar uma nova guilda? Para fazer isso, você precisa de uma conta premium e nenhum de seus personagens pode ocupar um dos dois postos mais altos em qualquer outra guilda. Observe que você precisa de quatro outros jogadores com contas premium que também atendam a esses requisitos, antes que a guilda esteja ativa no jogo.',
+      guildInfo2:
+        'Agora digite o nome da nova guilda, selecione o mundo em que ela deverá existir, especifique o nome do seu personagem que deverá se tornar o primeiro líder e confirme com a senha da sua conta. Em seguida, clique em Enviar. Observe que os dois primeiros dados não podem ser alterados posteriormente.',
+      foundGuild: 'Fundar Guilda',
+      leader: 'Líder',
       apply: 'Aplicar',
       selectCharacter: 'Selecione um Personagem',
       character: 'Personagem',

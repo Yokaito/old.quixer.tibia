@@ -41,6 +41,9 @@ export default {
         'La suppression est prévue pour la sauvegarde du serveur du jour',
     },
     errors: {
+      onlyLetters: 'Seules les lettres sont autorisées',
+      onlyNumbers: 'Seuls les nombres sont autorisés',
+      onlyLettersAndNumbers: 'Seules les lettres et les nombres sont autorisés',
       email: 'Veuillez saisir une adresse e-mail valide',
       minLength: 'Veuillez saisir au moins {min} caractères',
       maxLength: 'Veuillez saisir au maximum {max} caractères',
@@ -70,6 +73,13 @@ export default {
       playerNotValid: 'Le joueur n est pas valide',
     },
     geral: {
+      information: 'Information',
+      guildInfo1:
+        "Voulez-vous fonder une nouvelle guilde? Pour ce faire, vous avez besoin d'un compte premium et aucun de vos personnages ne peut détenir l'un des deux rangs les plus élevés d'une autre guilde. Notez que vous avez besoin de quatre autres joueurs disposant de comptes premium qui répondent également à ces exigences avant que la guilde ne soit active dans le jeu.",
+      guildInfo2:
+        'Entrez maintenant le nom de la nouvelle guilde, sélectionnez le monde sur lequel elle doit exister, précisez le nom de votre personnage qui doit devenir le premier chef et confirmez avec le mot de passe de votre compte. Cliquez ensuite sur Soumettre. Notez que les deux premières données ne peuvent pas être modifiées ultérieurement.',
+      foundGuild: 'Guilde trouvée',
+      leader: 'Chef',
       apply: 'Appliquer',
       selectCharacter: 'Sélectionnez un personnage',
       character: 'Personnage',
