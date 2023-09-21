@@ -34,6 +34,7 @@ export default {
       guildInviteAccepted: 'You have accepted the invitation to the guild.',
       guildInviteRejected: 'You have rejected the invitation to the guild.',
       applySuccess: 'Application sent successfully!',
+      leftGuildSuccess: '{name} have left the guild successfully!',
     },
     warning: {
       deletion: 'The deletion is scheduled for the server save of the day',
@@ -68,8 +69,15 @@ export default {
       invalidCharacterApplication:
         "This character doesn't exist or you don't have access to it",
       playerNotValid: 'Player is not valid',
+      youAreTheLeader:
+        'You can not leave the guild because you are the owner, you need to transfer the ownership to another player',
+      cantLeaveOnlyMember:
+        'You can not leave the guild because you are the only member',
     },
     geral: {
+      leaveGuildQuestion:
+        'Do you really want to leave the guild with this character',
+      leaveGuild: 'Leave Guild',
       information: 'Information',
       guildInfo1:
         'Do you want to found a new guild? In order to do that, you need a premium account and none of your characters may hold one of the two highest ranks in any other guild. Note that you need four other players with premium accounts that also meet these requirements, before the guild is active in the game.',

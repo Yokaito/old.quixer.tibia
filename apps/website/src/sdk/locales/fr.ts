@@ -35,6 +35,7 @@ export default {
       guildInviteAccepted: "Vous avez accepté l'invitation à la guilde.",
       guildInviteRejected: "Vous avez rejeté l'invitation à la guilde.",
       applySuccess: 'Candidature envoyée avec succès !',
+      leftGuildSuccess: "{name} j'ai quitté la guilde avec succès !",
     },
     warning: {
       deletion:
@@ -71,8 +72,15 @@ export default {
       invalidCharacterApplication:
         "Ce personnage n'existe pas ou vous n'y avez pas accès",
       playerNotValid: 'Le joueur n est pas valide',
+      youAreTheLeader:
+        'Vous ne pouvez pas quitter la guilde car vous en êtes le propriétaire, vous devez transférer la propriété à un autre joueur',
+      cantLeaveOnlyMember:
+        'Vous ne pouvez pas quitter la guilde car vous êtes le seul membre',
     },
     geral: {
+      leaveGuildQuestion:
+        'Voulez-vous vraiment quitter la guilde avec ce personnage',
+      leaveGuild: 'Quitter la guilde',
       information: 'Information',
       guildInfo1:
         "Voulez-vous fonder une nouvelle guilde? Pour ce faire, vous avez besoin d'un compte premium et aucun de vos personnages ne peut détenir l'un des deux rangs les plus élevés d'une autre guilde. Notez que vous avez besoin de quatre autres joueurs disposant de comptes premium qui répondent également à ces exigences avant que la guilde ne soit active dans le jeu.",

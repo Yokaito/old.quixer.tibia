@@ -6,6 +6,68 @@ import { loggedInProcedure } from '../../middlewares'
 import { getI18n } from '@/sdk/locales/server'
 
 export const guildsRouter = router({
+  leaveGuild: loggedInProcedure
+    .input(z.number())
+    .mutation(async ({ input, ctx }) => {
+      const { session } = ctx
+      const t = await getI18n()
+
+      const playerIsValid = await prisma.players.findFirst({
+        where: {
+          id: input,
+          account_id: Number(session.user.id),
+        },
+      })
+
+      if (!playerIsValid) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          cause: 'player',
+          message: t('quixer.errors.playerNotFound'),
+        })
+      }
+
+      /**
+       * @ALERT - This verified if player is owner of a guild and if he is, send a message of error
+       * This message is to prevent the player from leaving the guild and the guild being without an owner
+       * The message could be something like
+       * "You can't leave the guild because you are the owner, you need to transfer the ownership to another player"
+       */
+      const playerIsOwner = await prisma.guilds.findFirst({
+        where: {
+          ownerid: input,
+        },
+      })
+
+      if (playerIsOwner) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          cause: 'guild',
+          message: t('quixer.errors.youAreTheLeader'),
+        })
+      }
+
+      /**
+       * @ALERT - This functions prevents the player from leaving the guild if he is the only one in the guild
+       */
+      const guildHasOnlyOneMember = await prisma.guild_membership.count()
+
+      if (guildHasOnlyOneMember === 1) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          cause: 'guild',
+          message: t('quixer.errors.cantLeaveOnlyMember'),
+        })
+      }
+
+      await prisma.guild_membership.delete({
+        where: {
+          player_id: input,
+        },
+      })
+
+      return true
+    }),
   create: loggedInProcedure
     .input(
       z.object({
@@ -411,12 +473,15 @@ export const guildsRouter = router({
     }
 
     const players = membership.map((member) => {
-      const { name, vocation, level, players_online } = member.players
+      const { name, vocation, level, players_online, account_id } =
+        member.players
 
       return {
+        id: member.player_id,
         name,
         vocation,
         level,
+        account_id: Number(account_id),
         surname: member.nick,
         rank: member.guild_ranks.name,
         online: !!players_online?.player_id,

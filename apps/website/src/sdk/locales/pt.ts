@@ -35,6 +35,7 @@ export default {
       guildInviteAccepted: 'Você aceitou o convite para a guilda.',
       guildInviteRejected: 'Você rejeitou o convite para a guilda.',
       applySuccess: 'Aplicação enviada com sucesso!',
+      leftGuildSuccess: '{name} deixou a guilda com sucesso!',
     },
     warning: {
       deletion: 'A exclusão está agendada para o server save do dia',
@@ -69,8 +70,14 @@ export default {
       invalidCharacterApplication:
         'Este personagem não existe ou você não tem acesso a ele',
       playerNotValid: 'Jogador não é válido',
+      youAreTheLeader:
+        'Você não pode sair da guilda porque você é o dono, você precisa transferir a propriedade para outro jogador',
+      cantLeaveOnlyMember:
+        'Você não pode sair da guilda porque você é o único membro',
     },
     geral: {
+      leaveGuildQuestion: 'Você realmente quer sair da guilda com o personagem',
+      leaveGuild: 'Sair da Guilda',
       information: 'Informação',
       guildInfo1:
         'Você quer fundar uma nova guilda? Para fazer isso, você precisa de uma conta premium e nenhum de seus personagens pode ocupar um dos dois postos mais altos em qualquer outra guilda. Observe que você precisa de quatro outros jogadores com contas premium que também atendam a esses requisitos, antes que a guilda esteja ativa no jogo.',

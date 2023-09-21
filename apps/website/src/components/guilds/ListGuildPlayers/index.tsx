@@ -15,12 +15,16 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table'
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
+import { ModalGuildLeave } from '../Modals/Leave'
 
 type Player = {
+  id: number
   name: string
   vocation: number
+  account_id: number
   level: number
   rank: string
   online: boolean
@@ -33,11 +37,14 @@ type Props = {
 }
 
 export const ListGuildPlayers = ({ players = [] }: Props) => {
+  const session = useSession()
+
   const t = useI18n()
   const [globalFilter, setGlobalFilter] = useState('')
   const matches = useMediaQuery('(min-width: 768px)')
   const [columnVisibility, setColumnVisibility] = useState<any>({
     createdAt: false,
+    actions: false,
   })
 
   const columns = useMemo<ColumnDef<Player>[]>(() => {
@@ -105,8 +112,24 @@ export const ListGuildPlayers = ({ players = [] }: Props) => {
           )
         },
       },
+      {
+        id: 'actions',
+        header: t('quixer.geral.actions'),
+        isPlaceholder: true,
+        cell: (info) => {
+          const playerAccountId = info.row.original.account_id
+          const playerId = info.row.original.id
+          const playerName = info.row.original.name
+
+          if (session.status === 'unauthenticated') return null
+          if (session.data && Number(session.data.user.id) !== playerAccountId)
+            return null
+
+          return <ModalGuildLeave playerId={playerId} playerName={playerName} />
+        },
+      },
     ]
-  }, [t])
+  }, [t, session])
 
   const table = useReactTable({
     data: players,
@@ -132,8 +155,9 @@ export const ListGuildPlayers = ({ players = [] }: Props) => {
     setColumnVisibility((prev: any) => ({
       ...prev,
       createdAt: matches,
+      actions: !(session.status === 'unauthenticated'),
     }))
-  }, [table, matches])
+  }, [table, matches, session])
 
   return (
     <>
