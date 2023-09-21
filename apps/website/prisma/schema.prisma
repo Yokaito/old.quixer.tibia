@@ -173,6 +173,8 @@ model guild_membership {
   guild_id    Int
   rank_id     Int
   nick        String      @default("") @db.VarChar(15)
+  updatedAt   DateTime?   @default(now()) @db.DateTime(0)
+  createdAt   DateTime?   @default(now()) @db.DateTime(0)
   guilds      guilds      @relation(fields: [guild_id], references: [id], onDelete: Cascade, map: "guild_membership_guild_fk")
   players     players     @relation(fields: [player_id], references: [id], onDelete: Cascade, map: "guild_membership_player_fk")
   guild_ranks guild_ranks @relation(fields: [rank_id], references: [id], onDelete: Cascade, map: "guild_membership_rank_fk")
@@ -238,6 +240,8 @@ model guilds {
   level            Int                @default(1)
   name             String             @unique(map: "guilds_name_unique") @db.VarChar(255)
   ownerid          Int                @unique(map: "guilds_owner_unique")
+  world_id         Int                @default(1)
+  logo             String?            @db.Text
   creationdata     Int
   motd             String             @default("") @db.VarChar(255)
   residence        Int                @default(0)
@@ -247,6 +251,11 @@ model guilds {
   guild_membership guild_membership[]
   guild_ranks      guild_ranks[]
   players          players            @relation(fields: [ownerid], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "guilds_ownerid_fk")
+  worlds           worlds             @relation(fields: [world_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "guilds_world_id_fk")
+
+  @@index([ownerid], map: "ownerid")
+  @@index([world_id], map: "world_id")
+  @@index([name], map: "name")
 }
 
 model guildwar_kills {
@@ -585,6 +594,7 @@ model worlds {
   ip             String     @db.VarChar(255)
   port           Int
   players        players[]
+  guilds         guilds[]
   world_location world_location @relation(fields: [location], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "worlds_world_location_fk")
   world_pvptype  world_pvptype @relation(fields: [pvp_type], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "worlds_world_pvptype_fk")
 

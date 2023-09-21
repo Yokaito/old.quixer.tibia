@@ -41,7 +41,7 @@ type MenuItemProps = {
   /**
    * Sub items of menu item
    */
-  subItem: Array<{
+  subItem: {
     /**
      * Label of sub item
      */
@@ -50,14 +50,14 @@ type MenuItemProps = {
      * Href of sub item
      */
     href: string
-  }>
+  }[]
 }
 
 export const MenuItem = ({ icon, label, subItem }: MenuItemProps) => {
   const [showMenu, setShowMenu] = useState(false)
   const pathname = usePathname()
   const currentLocale = useCurrentLocale()
-  const normalizedPathname = pathname.replace(`${currentLocale}`, '')
+  const normalizedPathname = pathname.replace(`/${currentLocale}`, '')
 
   const iconToUse = IconsToUse.find((item) => item.id === icon)?.icon ?? Icon1
 
